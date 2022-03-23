@@ -1,0 +1,510 @@
+@import  'variable';
+// Margin right
+
+.mr-0 {
+    margin-right: 0;
+}
+
+.mr-1 {
+    margin-right: $spacer * 0.25;
+}
+
+.mr-2 {
+    margin-right: $spacer * 0.5;
+}
+
+.mr-3 {
+    margin-right: $spacer;
+}
+
+.mr-4 {
+    margin-right: $spacer * 1.5;
+}
+
+.mr-5 {
+    margin-right: $spacer * 2;
+}
+
+.mr-6 {
+    margin-right: $spacer * 3;
+}
+
+.mr-7 {
+    margin-right: $spacer * 4;
+}
+
+.mr-8 {
+    margin-right: $spacer * 5;
+}
+
+// Margin left
+.ml-0 {
+    margin-left: 0;
+}
+
+.ml-1 {
+    margin-left: $spacer * 0.25;
+}
+
+.ml-2 {
+    margin-left: $spacer * 0.5;
+}
+
+.ml-3 {
+    margin-left: $spacer;
+}
+
+.ml-4 {
+    margin-left: $spacer * 1.5;
+}
+
+.ml-5 {
+    margin-left: $spacer * 2;
+}
+
+.ml-6 {
+    margin-left: $spacer * 3;
+}
+
+.ml-7 {
+    margin-left: $spacer * 4;
+}
+
+.ml-8 {
+    margin-left: $spacer * 5;
+}
+
+// Margin top
+.mt-0 {
+    margin-top: 0;
+}
+
+.mt-1 {
+    margin-top: $spacer * 0.25;
+}
+
+.mt-2 {
+    margin-top: $spacer * 0.5;
+}
+
+.mt-3 {
+    margin-top: $spacer;
+}
+
+.mt-4 {
+    margin-top: $spacer * 1.5;
+}
+
+.mt-5 {
+    margin-top: $spacer * 2;
+}
+
+.mt-6 {
+    margin-top: $spacer * 3;
+}
+
+.mt-7 {
+    margin-top: $spacer * 4;
+}
+
+.mt-8 {
+    margin-top: $spacer * 5;
+}
+
+
+// Margin bottom 
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mb-1 {
+    margin-bottom: $spacer * 0.25;
+}
+
+.mb-2 {
+    margin-bottom: $spacer * 0.5;
+}
+
+.mb-3 {
+    margin-bottom: $spacer;
+}
+
+.mb-4 {
+    margin-bottom: $spacer * 1.5;
+}
+
+.mb-5 {
+    margin-bottom: $spacer * 2;
+}
+
+.mb-6 {
+    margin-bottom: $spacer * 3;
+}
+
+.mb-7 {
+    margin-bottom: $spacer * 4;
+}
+
+.mb-8 {
+    margin-bottom: $spacer * 5;
+}
+
+
+// Margin vertical 
+.mx-0 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.mx-1 {
+    margin-top: $spacer * 0.25;
+    margin-bottom: $spacer * 0.25;
+}
+
+.mx-2 {
+    margin-top: $spacer * 0.5;
+    margin-bottom: $spacer * 0.5;
+}
+
+.mx-3 {
+
+    margin-bottom: $spacer;
+    margin-bottom: $spacer;
+}
+
+.mx-4 {
+
+    margin-top: $spacer * 1.5;
+    margin-bottom: $spacer * 1.5;
+}
+
+.mx-5 {
+
+    margin-top: $spacer * 2;
+    margin-bottom: $spacer * 2;
+}
+
+.mx-6 {
+    margin-top: $spacer * 3;
+    margin-bottom: $spacer * 3;
+}
+
+.mx-7 {
+    margin-top: $spacer * 4;
+    margin-bottom: $spacer * 4;
+}
+
+.mx-8 {
+    margin-top: $spacer * 5;
+    margin-bottom: $spacer * 5;
+}
+
+// Margin horizontal 
+.my-0 {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.my-1 {
+    margin-left: $spacer * 0.25;
+    margin-right: $spacer * 0.25;
+}
+
+.my-2 {
+    margin-left: $spacer * 0.5;
+    margin-right: $spacer * 0.5;
+}
+
+.my-3 {
+
+    margin-left: $spacer;
+    margin-right: $spacer;
+}
+
+.my-4 {
+
+    margin-left: $spacer * 1.5;
+    margin-right: $spacer * 1.5;
+}
+
+.my-5 {
+
+    margin-left: $spacer * 2;
+    margin-right: $spacer * 2;
+}
+
+.my-6 {
+    margin-left: $spacer * 3;
+    margin-right: $spacer * 3;
+}
+
+.my-7 {
+    margin-left: $spacer * 4;
+    margin-right: $spacer * 4;
+}
+
+.my-8 {
+    margin-left: $spacer * 5;
+    margin-right: $spacer * 5;
+}
+
+// Margin auto
+
+.m-auto {
+    margin: auto;
+}
+
+
+// padding right
+.pr-0 {
+    padding-right: 0;
+}
+
+.pr-1 {
+    padding-right: $spacer * 0.25;
+}
+
+.pr-2 {
+    padding-right: $spacer * 0.5;
+}
+
+.pr-3 {
+    padding-right: $spacer;
+}
+
+.pr-4 {
+    padding-right: $spacer * 1.5;
+}
+
+.pr-5 {
+    padding-right: $spacer * 2;
+}
+
+.pr-6 {
+    padding-right: $spacer * 3;
+}
+
+.pr-7 {
+    padding-right: $spacer * 4;
+}
+
+.pr-8 {
+    padding-right: $spacer * 5;
+}
+
+// padding left
+.pl-0 {
+    padding-left: 0;
+}
+
+.pl-1 {
+    padding-left: $spacer * 0.25;
+}
+
+.pl-2 {
+    padding-left: $spacer * 0.5;
+}
+
+.pl-3 {
+    padding-left: $spacer;
+}
+
+.pl-4 {
+    padding-left: $spacer * 1.5;
+}
+
+.pl-5 {
+    padding-left: $spacer * 2;
+}
+
+.pl-6 {
+    padding-left: $spacer * 3;
+}
+
+.pl-7 {
+    padding-left: $spacer * 4;
+}
+
+.pl-8 {
+    padding-left: $spacer * 5;
+}
+
+// padding top
+.pt-0 {
+    padding-top: 0;
+}
+
+.pt-1 {
+    padding-top: $spacer * 0.25;
+}
+
+.pt-2 {
+    padding-top: $spacer * 0.5;
+}
+
+.pt-3 {
+    padding-top: $spacer;
+}
+
+.pt-4 {
+    padding-top: $spacer * 1.5;
+}
+
+.pt-5 {
+    padding-top: $spacer * 2;
+}
+
+.pt-6 {
+    padding-top: $spacer * 3;
+}
+
+.pt-7 {
+    padding-top: $spacer * 4;
+}
+
+.pt-8 {
+    padding-top: $spacer * 5;
+}
+
+
+// padding bottom 
+.pb-0 {
+    padding-bottom: 0;
+}
+
+.pb-1 {
+    padding-bottom: $spacer * 0.25;
+}
+
+.pb-2 {
+    padding-bottom: $spacer * 0.5;
+}
+
+.pb-3 {
+    padding-bottom: $spacer;
+}
+
+.pb-4 {
+    padding-bottom: $spacer * 1.5;
+}
+
+.pb-5 {
+    padding-bottom: $spacer * 2;
+}
+
+.pb-6 {
+    padding-bottom: $spacer * 3;
+}
+
+.pb-7 {
+    padding-bottom: $spacer * 4;
+}
+
+.pb-8 {
+    padding-bottom: $spacer * 5;
+}
+
+
+// padding vertical 
+.px-0 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.px-1 {
+    padding-top: $spacer * 0.25;
+    padding-bottom: $spacer * 0.25;
+}
+
+.px-2 {
+    padding-top: $spacer * 0.5;
+    padding-bottom: $spacer * 0.5;
+}
+
+.px-3 {
+
+    padding-bottom: $spacer;
+    padding-bottom: $spacer;
+}
+
+.px-4 {
+
+    padding-top: $spacer * 1.5;
+    padding-bottom: $spacer * 1.5;
+}
+
+.px-5 {
+
+    padding-top: $spacer * 2;
+    padding-bottom: $spacer * 2;
+}
+
+.px-6 {
+    padding-top: $spacer * 3;
+    padding-bottom: $spacer * 3;
+}
+
+.px-7 {
+    padding-top: $spacer * 4;
+    padding-bottom: $spacer * 4;
+}
+
+.px-8 {
+    padding-top: $spacer * 5;
+    padding-bottom: $spacer * 5;
+}
+
+// padding horizontal 
+.py-0 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.py-1 {
+    padding-left: $spacer * 0.25;
+    padding-right: $spacer * 0.25;
+}
+
+.py-2 {
+    padding-left: $spacer * 0.5;
+    padding-right: $spacer * 0.5;
+}
+
+.py-3 {
+
+    padding-left: $spacer;
+    padding-right: $spacer;
+}
+
+.py-4 {
+
+    padding-left: $spacer * 1.5;
+    padding-right: $spacer * 1.5;
+}
+
+.py-5 {
+
+    padding-left: $spacer * 2;
+    padding-right: $spacer * 2;
+}
+
+.py-6 {
+    padding-left: $spacer * 3;
+    padding-right: $spacer * 3;
+}
+
+.py-7 {
+    padding-left: $spacer * 4;
+    padding-right: $spacer * 4;
+}
+
+.py-8 {
+    padding-left: $spacer * 5;
+    padding-right: $spacer * 5;
+}
+
+// padding auto
+
+.p-auto {
+    padding: auto;
+}

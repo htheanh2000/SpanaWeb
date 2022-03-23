@@ -1,0 +1,44 @@
+// Base
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  outline: none !important;
+  scroll-behavior: smooth;
+  @media screen and (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+body {
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+
+  &:focus,
+  &:hover,
+  &:active,
+  &.active {
+    text-decoration: none;
+  }
+}
+input,
+button{
+  border: none;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+

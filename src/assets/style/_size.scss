@@ -1,0 +1,133 @@
+@import  'variable';
+
+
+.s-0 {
+    width: 0;
+    height: 0;
+}
+
+.s-1 {
+    width: $spacer * 0.25;
+    height: $spacer * 0.25;
+}
+
+.s-2 {
+    width: $spacer * 0.5;
+    height: $spacer * 0.5;
+}
+
+.s-3 {
+    height: $spacer;
+    height: $spacer;
+}
+
+.s-4 {
+    width: $spacer * 1.5;
+    height: $spacer * 1.5;
+}
+
+.s-5 {
+    width: $spacer * 2;
+    height: $spacer * 2;
+}
+
+.s-6 {
+    width: $spacer * 3;
+    height: $spacer * 3;
+}
+
+.s-7 {
+    width: $spacer * 4;
+    height: $spacer * 4;
+}
+
+.s-8 {
+    width: $spacer * 5; // 40px
+    height: $spacer * 5; // 40px
+}
+
+.s-9 {
+    width: $spacer * 6; // 48px
+    height: $spacer * 6; // 48px
+}
+
+.sw-0 {
+    width: 0;
+}
+
+.sw-1 {
+    width: $spacer * 0.25;
+}
+
+.sw-2 {
+    width: $spacer * 0.5;
+}
+
+.sw-3 {
+    width: $spacer;
+}
+
+.sw-4 {
+    width: $spacer * 1.5;
+}
+
+.sw-5 {
+    width: $spacer * 2;
+}
+
+.sw-6 {
+    width: $spacer * 3;
+}
+
+.sw-7 {
+    width: $spacer * 4;
+}
+
+.sw-8 {
+    width: $spacer * 5; // 40px
+}
+
+.sw-9 {
+    width: $spacer * 6; // 48px
+}
+
+
+.sh-0 {
+    height: 0;
+}
+
+.sh-1 {
+    height: $spacer * 0.25;
+}
+
+.sh-2 {
+    height: $spacer * 0.5;
+}
+
+.sh-3 {
+    height: $spacer;
+}
+
+.sh-4 {
+    height: $spacer * 1.5;
+}
+
+.sh-5 {
+    height: $spacer * 2;
+}
+
+.sh-6 {
+    height: $spacer * 3;
+}
+
+.sh-7 {
+    height: $spacer * 4;
+}
+
+.sh-8 {
+    height: $spacer * 5; // 40px
+}
+
+.sh-9 {
+    height: $spacer * 6; // 48px
+}
