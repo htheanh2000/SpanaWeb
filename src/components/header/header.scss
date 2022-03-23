@@ -1,7 +1,12 @@
+@import '../../assets/style/variable' ;
+
 .header {
     height: 48px;
     margin-top: 48px;
     .link {
-        color: black
+        color: black ;
+        &:hover {
+            color: $light-text-link-color-purple;
+        }
     }
 }
