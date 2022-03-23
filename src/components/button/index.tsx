@@ -13,7 +13,7 @@ type ButtonProps = {
 const Button: FunctionComponent<ButtonProps> = (props) => {
     const { children,state,size,className } = props
     return (
-        <div className={`button headline bold c-pointer button--${state} button--${size} flex ${className}`}>
+        <div className={`button headline bold flex align-center jc-center c-pointer button--${state} button--${size} flex ${className}`}>
             {children}
         </div>
     )
