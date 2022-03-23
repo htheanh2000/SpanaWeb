@@ -1,12 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {
   Routes, Route
 } from "react-router-dom";
+
 import Homepage from './page/homepage/';
 import Header from './components/header'
 import './assets/style/_style.scss'
+
 function App() {
   return (
     <div>

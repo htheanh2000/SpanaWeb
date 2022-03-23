@@ -30,13 +30,18 @@
 }
 
 // Text style utilities
-.text-normal {
+.normal {
   font-weight: normal;
 }
 
-.text-bold {
+.bold {
   font-weight: bold;
 }
+
+.semibold {
+  font-weight: 600;
+}
+
 
 .text-italic {
   font-style: italic;
