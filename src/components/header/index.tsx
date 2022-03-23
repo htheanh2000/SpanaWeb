@@ -27,8 +27,14 @@ function Header() {
     const goHome = () => {
         navigate('/')
     }
+    const goSignIn = () => {
+        navigate('/sign-in')
+    }
+    const goSignUp = () => {
+        navigate('/sign-up')
+    }
     return (
-        <div className='container'> 
+        <div className=''> 
             <div className="header flex align-center jc-between">
                 <div className='flex align-center c-pointer' onClick={goHome}>
                     <img src={logo} alt="Spana" className='s-9 mr-3' />
@@ -42,8 +48,8 @@ function Header() {
                         </ul>
                     </div>
                     <div className='flex ml-8'>
-                        <Button state='ghost' size='large' className='mr-4'>Đăng kí</Button>
-                        <Button state='primary' size='large'>Đăng nhập</Button>
+                        <Button state='ghost' size='large' className='mr-4' onClick={goSignUp}>Đăng kí</Button>
+                        <Button state='primary' size='large' onClick={goSignIn}>Đăng nhập</Button>
                     </div>
                 </div>
 

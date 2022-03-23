@@ -7,10 +7,17 @@ import image2 from '../../assets/image/spa/9.png'
 import section2 from '../../assets/image/homepage-section-2.png'
 import { Section2Contents } from './contants'
 import { useState } from 'react'
+import {useNavigate} from 'react-router-dom'
+import Header from '../../components/header';
 function HomePage() {
   const [activeContent, setActiceContent] = useState(0)
+  const navigate = useNavigate()
+  const goSignUp = () => {
+    navigate('/sign-up')
+  }
   return (
     <div className="container homepage">
+      <Header />
       <section id='section-1' className='p-relative flex align-center mt-10'>
         <div className='max-w-600'>
           <p className='display semibold homepage__title'>
@@ -18,7 +25,7 @@ function HomePage() {
           </p>
           <p className='title mt-7'>Giải pháp nền tảng kinh doanh ngành làm đẹp myspa cung cấp website và app để đăng tải sản phẩm dịch vụ cho spa, thẩm mỹ viện, salon, clinic</p>
           <div>
-            <Button state='primary' size='large' className='mt-7'>Đăng kí ngay</Button>
+            <Button state='primary' size='large' className='mt-7' onClick={goSignUp}>Đăng kí ngay</Button>
           </div>
         </div>
         <div className='right-view'>

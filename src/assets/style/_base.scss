@@ -50,4 +50,7 @@ li {
 
 .container {
   margin:  0 47px;
+  @media screen and (min-width: 1441px) {
+    margin:  0 165px;
+  }
 }
