@@ -1,0 +1,25 @@
+@import '../../assets/style/variable';
+
+.input {
+    label: {
+        color: $light-text-color-title;
+    }
+    input {
+        border: 1px solid $light-text-color-body-1;
+        background: $light-primary-system-color;
+        border-radius: 8px;
+        color: $light-text-color-body-1;
+        &:focus {
+            border-color: $light-primary-color-50;
+        }
+    }
+    &--small {
+        height : 40px;
+    }
+    &--medium {
+        height : 48px;
+    }
+    &--large {
+        height : 56px;
+    }
+}

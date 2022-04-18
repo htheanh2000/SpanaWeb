@@ -1,0 +1,11 @@
+@import './variable' ;
+.divider {
+    height: 4px;
+    width: 100%;
+    border-radius: 32px;
+    background-color: $light-secondary-system-color;
+    &--short {
+        width: 32px;
+        background-color: $light-primary-color-50;
+    }
+}
