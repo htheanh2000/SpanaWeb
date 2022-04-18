@@ -1,23 +1,23 @@
 import React from 'react';
 import './App.css';
-import {
-  Routes, Route
-} from "react-router-dom";
+import { Routes, Route } from 'react-router-dom';
 
 import Homepage from './page/homepage/';
 import SignUp from './page/sign-up';
 
-import './assets/style/_style.scss'
+import './assets/style/_style.scss';
+import Registration from './page/registration';
 
 function App() {
-  return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/sign-up" element={<SignUp />} />
-      </Routes>
-    </div>
-  );
+	return (
+		<div>
+			<Routes>
+				<Route path="/" element={<Homepage />} />
+				<Route path="/sign-up" element={<SignUp />} />
+				<Route path="/registration" element={<Registration />} />
+			</Routes>
+		</div>
+	);
 }
 
 export default App;
