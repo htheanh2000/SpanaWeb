@@ -86,5 +86,35 @@
 				}
 			}
 		}
+		.photo {
+			> img {
+				width: 104px;
+				height: 104px;
+				background-color: $light-image-placeholder-color;
+				border-radius: 8px;
+			}
+			> .preview {
+				width: 104px;
+				height: 104px;
+				background-color: $light-image-placeholder-color;
+				border-radius: 8px;
+			}
+		}
+		.upload-photo {
+			background-color: $light-primary-color-50;
+			width: 104px;
+			height: 40px;
+			border-radius: 5px;
+			padding: 5px 20px;
+			color: $light-text-link-color-white;
+		}
+		.checkbox {
+			height: 24px;
+			width: 24px;
+			margin-right: 5px;
+		}
+		.labelCheckbox {
+			color: $light-text-color-body-2;
+		}
 	}
 }
