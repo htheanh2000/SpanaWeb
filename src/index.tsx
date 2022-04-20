@@ -13,9 +13,9 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <ConnectedRouter history={history}>
+        {/* <ConnectedRouter history={history}> */}
           <App />
-        </ConnectedRouter>
+        {/* </ConnectedRouter> */}
       </Provider>
     </BrowserRouter>
   </React.StrictMode>,
