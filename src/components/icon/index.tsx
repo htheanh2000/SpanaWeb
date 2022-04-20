@@ -1,23 +1,34 @@
-import {FunctionComponent } from "react"
-import ArrowDown from '../../assets/image/icon/arrow-drop-down.svg'
-import ArrowUp from '../../assets/image/icon/arrow-up.svg'
+import { FunctionComponent } from 'react';
+import ArrowDown from '../../assets/image/icon/arrow-drop-down.svg';
+import ArrowUp from '../../assets/image/icon/arrow-up.svg';
+import Icon1 from '../../assets/image/icon/icon1.svg';
+import Icon2 from '../../assets/image/icon/icon2.svg';
+import Icon3 from '../../assets/image/icon/icon3.svg';
+import './icon.scss';
 
 const icons = {
-    'arrow-down' : ArrowDown,
-    'arrow-up' : ArrowUp
-}
+  'arrow-down': ArrowDown,
+  'arrow-up': ArrowUp,
+  'icon-1': Icon1,
+  'icon-2': Icon2,
+  'icon-3': Icon3,
+};
 
 type IconProps = {
-    name: keyof typeof icons,
-    size?: 'small' | 'medium' | 'large'
-}
+  name: keyof typeof icons;
+  size?: 'small' | 'medium' | 'large';
+  className?: string;
+};
 
 const Icon: FunctionComponent<IconProps> = (props) => {
-    const { name, size} = props
-    return (
-        <img src={icons[name]} className={`icon-${size}`}/>
-    )
+  const { name, size, className } = props;
+  return (
+    <img
+      src={icons[name]}
+      className={`icon--${size} ${className}`}
+      alt="icons"
+    />
+  );
+};
 
-}
-
-export default Icon
+export default Icon;
