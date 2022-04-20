@@ -187,7 +187,7 @@ const Registration = () => {
 					>
 						Spa
 					</Button>
-
+					
 					<Button
 						size="medium"
 						className={classNames('mr-8', { active: salonKind === 2 })}
