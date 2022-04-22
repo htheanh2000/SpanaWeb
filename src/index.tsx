@@ -14,7 +14,7 @@ ReactDOM.render(
     <BrowserRouter>
       <Provider store={store}>
         {/* <ConnectedRouter history={history}> */}
-        <App />
+          <App />
         {/* </ConnectedRouter> */}
       </Provider>
     </BrowserRouter>

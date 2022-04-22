@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
+
 const axiosClient = axios.create({
   baseURL: 'https://spana.herokuapp.com/api',
   headers: {
