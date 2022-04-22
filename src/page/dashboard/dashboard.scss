@@ -1,19 +1,18 @@
-@import '../../assets/style/variable';
+@import "../../assets/style/variable";
 
 .Dashboard {
-      
       width: 100%;
       background-color: $light-background-color-gray;
       .Header {
             height: 80px;
             background-color: $light-primary-system-color;
             display: flex;
-            justify-content:space-between;
-            align-items:center;
+            justify-content: space-between;
+            align-items: center;
             padding-left: 30px;
             &--left {
                   display: flex;
-                  align-items:center;
+                  align-items: center;
 
                   .Photo {
                         width: 40px;
@@ -26,7 +25,7 @@
 
             &--right {
                   display: flex;
-                  align-items:center;
+                  align-items: center;
 
                   .Bell {
                         width: 24px;
@@ -52,43 +51,253 @@
 
       .SideBar {
             width: 112px;
-            height: 100%;
-            background-color:$light-primary-system-color;
-            display: flex; 
+            display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: baseline;
-            row-gap: 20px;
-            padding-top: 50px;
+            justify-content:space-between;
+            align-items:center;
+            background-color: $light-primary-system-color;
+            padding-bottom: 20px;
+            .Top {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: baseline;
+                  row-gap: 20px;
+                  padding-top: 50px;
 
-            .Icons {
-                  width: 56px;
-                  height: 56px;
-                  position: relative;
-                  border-radius: 8px;
-                  background-color: $light-primary-system-color;
-                  &.Active {
-                  
-                  background-color: $light-primary-color-50;
-                 
-            }
-                  
+                  .Icons {
+                        width: 56px;
+                        height: 56px;
+                        position: relative;
+                        border-radius: 8px;
+                        background-color: $light-primary-system-color;
+                        &.Active {
+                              background-color: $light-primary-color-50;
+                        }
 
-                 .Icon {
-                       width: 32px;
-                       height: 32px;
-                  color: $light-icon-color;
-                  position: absolute;
-                  top: 50%;
-                  left:50%;
-                  transform: translate(-50%, -50%);
-                  &.Active {
-                        color: $light-primary-system-color;
+                        .Icon {
+                              width: 32px;
+                              height: 32px;
+                              color: $light-icon-color;
+                              position: absolute;
+                              top: 50%;
+                              left: 50%;
+                              transform: translate(-50%, -50%);
+                              cursor: pointer;
+                              &.Active {
+                                    color: $light-primary-system-color;
+                              }
+                        }
                   }
-                 
-            } 
+                  .Svg {
+                        color: red;
+                  }
             }
+      }
 
-            
+      .MainBody {
+            display: flex;
+            gap: 20px;
+            flex: 1;
+            margin-top: 30px;
+            margin-left: 20px;
+            &--right {
+                  position: relative;
+                  width: 400px;
+                  background-color: $light-primary-system-color;
+                  border-radius: 5px;
+                  margin-right: 20px;
+                  .Title {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding-top: 20px;
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        > div {
+                              display: flex;
+                              align-items: center;
+                              gap: 20px;
+                              > p {
+                                    color: $light-error-color;
+                              }
+                        }
+                  }
+                  .Divider {
+                        width: 380px;
+                        height: 2px;
+                        position: absolute;
+                        margin-left: 10px;
+                        margin-top: 20px;
+                        background-color: $light-background-color-gray;
+                  }
+                  .ProductList {
+                        margin-top: 40px;
+                        height: 470px;
+                        overflow-y: scroll;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        .Product {
+                              display: flex;
+                              align-items: center;
+                              margin: 0 10px;
+                              gap: 10px;
+                              .Photo {
+                                    width: 64px;
+                                    height: 64px;
+                                    background-color: $light-image-placeholder-color;
+                                    border-radius: 8px;
+                              }
+                              .Info {
+                                    .Price {
+                                          > h6 {
+                                                color: $light-accent-1-color-50;
+                                          }
+                                    }
+                              }
+                              .Quantity {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 10px;
+                                    .Button {
+                                          color: $light-primary-system-color;
+                                          background-color: $light-primary-color-50;
+                                          text-align: center;
+                                          width: 24px;
+                                          height: 24px;
+                                          border-radius: 2px;
+                                    }
+                              }
+                        }
+                  }
+
+                  .Checkout {
+                        margin: 0 10px;
+                        .Total {
+                              justify-content: space-between;
+                              h6:first-child {
+                                    color: $light-text-color-body-1;
+                              }
+                        }
+                        .Discount {
+                              display: flex;
+                              justify-content: space-between;
+                              h6:first-child {
+                                    color: $light-text-color-body-1;
+                              }
+                        }
+                        .PriceTotal {
+                              margin-top: 40px;
+                              display: flex;
+                              justify-content: space-between;
+                              h6 {
+                                    color: $light-text-color-body-1;
+                              }
+                        }
+                  }
+                  .Button {
+                        width: calc(100% - 20px);
+                        margin: 40px 10px;
+                  }
+            }
+            &--left {
+                  flex: 1;
+                  background-color: $light-primary-system-color;
+                  border-radius: 5px;
+                  .Search {
+                        position: relative;
+                        > input {
+                              height: 40px;
+                              width: calc(100% - 30px);
+                              background-color: $light-secondary-system-color;
+                              margin: 30px 15px;
+                              border-radius: 3px;
+                              &::placeholder {
+                                    padding-left: 50px;
+                              }
+                              caret-color: rgb(17, 0, 255);
+                        }
+                        > img {
+                              position: absolute;
+                              left: 30px;
+                              top: 40px;
+                        }
+                  }
+
+                  .Tabs {
+                        display: flex;
+                        width: 100%;
+                        .All {
+                              display: flex;
+                              flex-direction: column;
+                              flex: 1;
+                              align-items: center;
+                              gap: 15px;
+                              cursor: pointer;
+
+                              &.Active {
+                                    .Separate {
+                                          background-color: $light-primary-color-50;
+                                    }
+                                    > p {
+                                          color: black;
+                                    }
+                              }
+                              .Separate {
+                                    height: 3px;
+                                    width: 100%;
+                                    background-color: $light-primary-color-10;
+                              }
+
+                              > p {
+                                    color: $light-text-color-body-1;
+                              }
+                        }
+                  }
+
+                  .Categories {
+                        margin: 20px 10px;
+                        .Title {
+                              margin-bottom: 20px;
+                        }
+                        .ProductList {
+                              display: grid;
+                              grid-template-columns: repeat(3, 1fr);
+                              grid-column-gap: 10px;
+                              grid-row-gap: 20px;
+                              .Product {
+                                    border: 1px solid $light-primary-color-10;
+                                    border-radius: 5px;
+                                    height: 280px;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: space-between;
+                                    padding: 10px;
+                                    .Image {
+                                          width: 240px;
+                                          height: 160px;
+                                    }
+                                    .Info {
+                                          display: flex;
+                                          flex-direction: column;
+                                          row-gap: 10px;
+                                          .Price {
+                                                display: flex;
+                                                justify-content: space-between;
+                                                align-items: center;
+                                                > h6 {
+                                                      color: $light-accent-1-color-50;
+                                                }
+                                                > p {
+                                                      text-decoration: line-through;
+                                                      color: $light-text-color-body-2;
+                                                }
+                                          }
+                                    }
+                              }
+                        }
+                  }
+            }
       }
 }
