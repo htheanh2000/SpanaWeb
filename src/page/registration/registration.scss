@@ -1,0 +1,120 @@
+@use 'sass:math';
+@import '../../assets/style/variable';
+
+.registration {
+	height: 100vh;
+	&--left {
+		height: 100%;
+		padding: 100px;
+		width: calc(100% - math.div(816, 1440) * 100%);
+		background-color: $light-background-color-gray;
+		.icon {
+			width: 417px;
+			height: 454px;
+		}
+		.headline {
+			color: $light-text-color-body-1;
+			text-transform: uppercase;
+		}
+	}
+	&--right {
+		height: 100%;
+		padding-left: 105px;
+		padding-right: 105px;
+		width: math.div(816, 1440) * 100%;
+		> .stepper {
+			margin-bottom: 60px;
+			> .containerStepper {
+				display: block;
+				position: relative;
+				margin-right: 120px;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+
+				> input {
+					position: absolute;
+					opacity: 0;
+					width: 32px;
+					height: 32px;
+				}
+				> .checkmark {
+					position: absolute;
+					top: 8px;
+					left: 8px;
+					height: 16px;
+					width: 16px;
+					border-radius: 50%;
+				}
+				> .circle {
+					border: 3.5px solid $light-primary-color-50;
+					position: absolute;
+					height: 32px;
+					width: 32px;
+					border-radius: 50%;
+					opacity: 1;
+				}
+
+				.divider {
+					position: absolute;
+					top: 14px;
+					left: 32px;
+					width: calc(120px - 32px);
+					background-color: $light-primary-color-10;
+					height: 4px;
+				}
+
+				> input:checked ~ .checkmark {
+					background-color: $light-primary-color-50;
+				}
+			}
+		}
+		.body1 {
+			color: $light-text-color-body-1;
+		}
+		.salonNumber,
+		.salonType {
+			.button {
+				color: $light-primary-color-10;
+				border: 2px solid $light-primary-color-10;
+				width: 104px;
+				font-size: 11px !important;
+				&.active {
+					color: $light-primary-color-50;
+					border: 2px solid $light-primary-color-50;
+				}
+			}
+		}
+		.photo {
+			> img {
+				width: 104px;
+				height: 104px;
+				background-color: $light-image-placeholder-color;
+				border-radius: 8px;
+			}
+			> .preview {
+				width: 104px;
+				height: 104px;
+				background-color: $light-image-placeholder-color;
+				border-radius: 8px;
+			}
+		}
+		.upload-photo {
+			background-color: $light-primary-color-50;
+			width: 104px;
+			height: 40px;
+			border-radius: 5px;
+			padding: 5px 20px;
+			color: $light-text-link-color-white;
+		}
+		.checkbox {
+			height: 24px;
+			width: 24px;
+			margin-right: 5px;
+		}
+		.labelCheckbox {
+			color: $light-text-color-body-2;
+		}
+	}
+}
