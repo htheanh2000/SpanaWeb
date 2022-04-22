@@ -6,17 +6,19 @@ import SignUp from './page/sign-up';
 
 import './assets/style/_style.scss';
 import Registration from './page/registration';
+import Dashboard from 'page/dashboard';
 
 function App() {
-	return (
-		<div>
-			<Routes>
-				<Route path="/" element={<Homepage />} />
-				<Route path="/sign-up" element={<SignUp />} />
-				<Route path="/registration" element={<Registration />} />
-			</Routes>
-		</div>
-	);
+  return (
+    <div>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/registration" element={<Registration />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;

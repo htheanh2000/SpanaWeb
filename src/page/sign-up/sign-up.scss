@@ -35,6 +35,31 @@
                 width: 100%;
             }
         }
+
+        .Term {
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 20px;
+            > input {
+                width: 24px;
+                height: 24px;
+            }
+        }
+        .Register {
+            justify-content:space-between;
+            align-items: center;
+            .Button {
+                width: 192px;
+                height: 48px;
+            }
+            .Account {
+                gap: 10px;
+                >p:last-child {
+                    color: $light-text-link-color-purple;
+                    cursor: pointer;
+                }
+            }
+        }
     }
     &--title {
         padding-top: 104px;
