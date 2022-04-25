@@ -1,10 +1,10 @@
 import classNames from 'classnames';
-import Button from 'components/button';
 import Icon from 'components/icon';
 import React from 'react';
+import Analytics from './Analytics';
+import { iconList } from './constant';
 import './dashboard.scss';
-import { iconList, productList } from './constant';
-import { tabs } from './constant';
+import Menu from './Menu';
 
 // type HTMLElementEvent<T extends HTMLElement> = Event &
 //   HTMLInputElement & {
@@ -13,9 +13,26 @@ import { tabs } from './constant';
 //     // currentTarget: T;
 //   };
 
+enum Tabs {
+  Menu,
+  Analytics,
+  Customers,
+}
+
 const Dashboard = () => {
-  const [activeTab, setActiveTab] = React.useState<number>(tabs[0].id);
   const [activeIcon, setActiveIcon] = React.useState<number>(iconList[0].id);
+
+  const mainBody = (activeTabs: Tabs) => {
+    switch (activeTabs) {
+      case Tabs.Menu:
+        return <Menu />;
+      case Tabs.Analytics:
+        return <Analytics />;
+
+      default:
+        break;
+    }
+  };
 
   const header = () => (
     <div className="Header">
@@ -35,7 +52,7 @@ const Dashboard = () => {
     </div>
   );
 
-  const sidebar = () => (
+  const body = () => (
     <div className="flex">
       <div className="SideBar">
         <div className="Top">
@@ -55,131 +72,14 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-
-      <div className="MainBody">
-        <div className="MainBody--left">
-          <div className="Search">
-            <Icon name="search" size="small" />
-            <input type="text" className="Input" placeholder="Tìm kiếm..." />
-          </div>
-
-          <div className="Tabs">
-            {tabs.map((tab, index) => (
-              <div
-                key={index}
-                className={classNames('All', { Active: activeTab === tab.id })}
-                onClick={() => setActiveTab(tab.id)}
-              >
-                <p className="menu1 bold">{tab.title}</p>
-                <span className="Separate"></span>
-              </div>
-            ))}
-          </div>
-
-          <div className="Categories">
-            <div className="Title">
-              <p className="title1 bold">Kem chống nắng</p>
-            </div>
-            <div className="ProductList">
-              {productList.map((item, index) => (
-                <div key={index} className="Product">
-                  <div className="Image">
-                    <img src={item.img} alt="" />
-                  </div>
-                  <div className="Info">
-                    <h6 className="bold">{item.title}</h6>
-                    <p className="body2">{item.description}</p>
-                    <div className="Price">
-                      <h6 className="bold">{item.priceSale} đ</h6>
-                      <p className="body2">{item.price} đ</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="MainBody--right">
-          <div className="Title">
-            <p className="headline bold">Đơn hàng hiện tại</p>
-            <div>
-              <p className="menu1 bold">Xóa tất cả</p>
-              <Icon name="refresh" size="small" />
-            </div>
-          </div>
-
-          <span className="Divider"></span>
-
-          <div className="ProductList">
-            <div className="Product">
-              <div className="Photo"></div>
-
-              <div className="Info">
-                <div className="Name">
-                  <h6 className="bold">Tên sản phẩm - thương hiệu</h6>
-                </div>
-                <div className="Price">
-                  <h6 className="bold">100.000đ</h6>
-                </div>
-              </div>
-
-              <div className="Quantity">
-                <span className="Button body2 semibold">-</span>
-                <span>1</span>
-                <span className="Button">+</span>
-              </div>
-            </div>
-
-            <div className="Product">
-              <div className="Photo"></div>
-
-              <div className="Info">
-                <div className="Name">
-                  <h6 className="bold">Tên sản phẩm - thương hiệu</h6>
-                </div>
-                <div className="Price">
-                  <h6 className="bold">100.000đ</h6>
-                </div>
-              </div>
-
-              <div className="Quantity">
-                <span className="Button body2 semibold">-</span>
-                <span>1</span>
-                <span className="Button">+</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="Checkout">
-            <div className="Total flex">
-              <h6 className="bold">Tổng hóa đơn</h6>
-              <h6 className="bold">300.000 đ</h6>
-            </div>
-            <div className="Discount">
-              <h6 className="bold">Discount</h6>
-              <h6 className="bold">-1%</h6>
-            </div>
-
-            <span className="Divider"></span>
-
-            <div className="PriceTotal">
-              <h6 className="bold">Thành tiền</h6>
-              <h5 className="bold">297.000 đ</h5>
-            </div>
-          </div>
-
-          <Button state="primary" className="Button">
-            Xuất hóa đơn
-          </Button>
-        </div>
-      </div>
+      {mainBody(activeIcon)}
     </div>
   );
 
   return (
     <div className="Dashboard">
       {header()}
-      {sidebar()}
+      {body()}
     </div>
   );
 };

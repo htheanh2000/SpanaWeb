@@ -105,3 +105,26 @@ export const iconList: Icons[] = [
     name: 'icon-6',
   },
 ];
+
+export const summaryList = [
+  {
+    title: 'Khách hàng',
+    value: 1000,
+    percentage: -15,
+  },
+  {
+    title: 'Dịch vụ',
+    value: 1050,
+    percentage: 20,
+  },
+  {
+    title: 'Revenue',
+    value: 50000,
+    percentage: 10,
+  },
+  {
+    title: 'Sản phẩm',
+    value: 12000,
+    percentage: 12,
+  },
+];

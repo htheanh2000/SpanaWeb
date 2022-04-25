@@ -11,6 +11,9 @@ import Bell from '../../assets/image/icon/bell.svg';
 import Refresh from '../../assets/image/icon/refresh.svg';
 import Search from '../../assets/image/icon/search.svg';
 import Setting from '../../assets/image/icon/setting.svg';
+import Arrow from '../../assets/image/icon/arrow.svg';
+import Arrow1 from '../../assets/image/icon/arrow-up1.svg';
+import ThreeDost from '../../assets/image/icon/three-dots.svg';
 import './icon.scss';
 
 export const icons = {
@@ -26,6 +29,9 @@ export const icons = {
   refresh: Refresh,
   search: Search,
   setting: Setting,
+  arrow: Arrow,
+  'arrow-up1': Arrow1,
+  'three-dots': ThreeDost,
 };
 
 export type IconProps = {
