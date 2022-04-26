@@ -11,6 +11,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
+import { formatNumber } from 'utils';
 import { summaryList } from './constant';
 
 const tabAnalytics = [
@@ -68,6 +69,73 @@ const data = [
   },
 ];
 
+const historyList = [
+  {
+    id: 1,
+    product: 'Tẩy nốt rồi',
+    quantity: '3 cái',
+    date: '18/03/2021',
+    price: 30000,
+    name: 'Phạm Thị Thanh Như',
+  },
+  {
+    id: 2,
+    product: 'Trị nám da',
+    quantity: '1 lần',
+    date: '18/03/2021',
+    price: 120000,
+    name: 'Võ Hoàng Yến',
+  },
+  {
+    id: 3,
+    product: 'Trị mụn',
+    quantity: '3',
+    date: '18/03/2021',
+    price: 120000,
+    name: 'Huỳnh Thế Anh',
+  },
+  {
+    id: 4,
+    product: 'Trị mụn',
+    quantity: '3',
+    date: '18/03/2021',
+    price: 120000,
+    name: 'Huỳnh Thế Anh',
+  },
+  {
+    id: 5,
+    product: 'Trị mụn',
+    quantity: '3',
+    date: '18/03/2021',
+    price: 120000,
+    name: 'Huỳnh Thế Anh',
+  },
+  {
+    id: 6,
+    product: 'Trị mụn',
+    quantity: '3',
+    date: '18/03/2021',
+    price: 120000,
+    name: 'Huỳnh Thế Anh',
+  },
+  {
+    id: 7,
+    product: 'Trị mụn',
+    quantity: '3',
+    date: '18/03/2021',
+    price: 120000,
+    name: 'Huỳnh Thế Anh',
+  },
+  {
+    id: 8,
+    product: 'Trị mụn',
+    quantity: '3',
+    date: '18/03/2021',
+    price: 120000,
+    name: 'Huỳnh Thế Anh',
+  },
+];
+
 const Analytics = () => {
   const [activeTab, setActiveTab] = useState<number>(1);
   const [activeIndex, setActiveIndex] = useState<number>(100);
@@ -92,6 +160,104 @@ const Analytics = () => {
         ))}
       </Bar>
     </BarChart>
+  );
+
+  const revenue = () => (
+    <div className="Content">
+      <div className="Content--left">
+        <div className="Top flex">
+          <h6 className="bold">Doanh thu</h6>
+          <div className="Right">
+            <Dropdown listItems={listItems} />
+            <Icon name="three-dots" />
+          </div>
+        </div>
+
+        <span className="Divider"></span>
+
+        <div className="Chart">
+          <div className="Sum">
+            <div className="Total">
+              <h5 className="bold">{formatNumber(50000000, 3)} đ</h5>
+              <p className="body2 semibold">Thống kê doanh thu</p>
+            </div>
+
+            <div className="Right">
+              <div className="Orders">
+                <h5 className="bold">412</h5>
+                <p className="body2 semibold">Đơn hàng</p>
+              </div>
+              <div className="Services">
+                <h5 className="bold">234</h5>
+                <p className="body2 semibold">Dịch vụ</p>
+              </div>
+            </div>
+          </div>
+          {chart()}
+        </div>
+      </div>
+      <div className="Content--right">
+        <div className="Top flex">
+          <h6 className="bold">Sản phẩm đã bán</h6>
+          <Dropdown listItems={listItems} />
+        </div>
+
+        <span className="Divider"></span>
+
+        <div className="ProductList">
+          {listProducts.map((product, index) => (
+            <div key={index} className="Items flex">
+              <div className="Info flex">
+                <div className="Image"></div>
+                <h6 className="Name bold">{product.name}</h6>
+              </div>
+              <h6 className="Quantity bold">{product.quantity} sp</h6>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
+  const history = () => (
+    <div className="History">
+      <div className="Title">
+        <p className="headline bold">Lịch sử dịch vụ</p>
+        <Icon name="three-dots" />
+      </div>
+      <div className="Table">
+        <table>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Sản phẩm</th>
+              <th>Số lượng</th>
+              <th>Ngày</th>
+              <th>Giá dịch vụ</th>
+              <th>Tên khách hàng</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {historyList.map((history, index) => (
+              <tr key={index}>
+                <td>{history.id}</td>
+                <td>{history.product}</td>
+                <td>{history.quantity}</td>
+                <td>{history.date}</td>
+                <td>{formatNumber(history.price, 3)} đ</td>
+                <td>{history.name}</td>
+                <td>
+                  <Icon name="three-dots" />
+                  <span className="Divider"></span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 
   return (
@@ -136,60 +302,8 @@ const Analytics = () => {
           ))}
         </div>
 
-        <div className="Content">
-          <div className="Content--left">
-            <div className="Top flex">
-              <h6 className="bold">Doanh thu</h6>
-              <div className="Right">
-                <Dropdown listItems={listItems} />
-                <Icon name="three-dots" />
-              </div>
-            </div>
-
-            <span className="Divider"></span>
-
-            <div className="Chart">
-              <div className="Sum">
-                <div className="Total">
-                  <h5 className="bold">50000000 đ</h5>
-                  <p className="body2 semibold">Thống kê doanh thu</p>
-                </div>
-
-                <div className="Right">
-                  <div className="Orders">
-                    <h5 className="bold">412</h5>
-                    <p className="body2 semibold">Đơn hàng</p>
-                  </div>
-                  <div className="Services">
-                    <h5 className="bold">234</h5>
-                    <p className="body2 semibold">Dịch vụ</p>
-                  </div>
-                </div>
-              </div>
-              {chart()}
-            </div>
-          </div>
-          <div className="Content--right">
-            <div className="Top flex">
-              <h6 className="bold">Sản phẩm đã bán</h6>
-              <Dropdown listItems={listItems} />
-            </div>
-
-            <span className="Divider"></span>
-
-            <div className="ProductList">
-              {listProducts.map((product, index) => (
-                <div key={index} className="Items flex">
-                  <div className="Info flex">
-                    <div className="Image"></div>
-                    <h6 className="Name bold">{product.name}</h6>
-                  </div>
-                  <h6 className="Quantity bold">{product.quantity} sp</h6>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        {activeTab === 1 && revenue()}
+        {activeTab === 2 && history()}
       </div>
     </div>
   );

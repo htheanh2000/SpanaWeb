@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import Button from 'components/button';
 import Icon from 'components/icon';
 import React from 'react';
+import { formatNumber } from 'utils';
 import { productList, tabs } from './constant';
 
 const Menu = () => {
@@ -47,8 +48,10 @@ const Menu = () => {
                   <h6 className="bold">{item.title}</h6>
                   <p className="body2">{item.description}</p>
                   <div className="Price">
-                    <h6 className="bold">{item.priceSale} đ</h6>
-                    <p className="body2">{item.price} đ</p>
+                    <h6 className="bold">
+                      {formatNumber(item.priceSale, 3)} đ
+                    </h6>
+                    <p className="body2">{formatNumber(item.price, 3)} đ</p>
                   </div>
                 </div>
               </div>
