@@ -81,27 +81,27 @@ export const tabs = [
 
 export const iconList: Icons[] = [
   {
-    id: 1,
+    id: 0,
     name: 'icon-1',
   },
   {
-    id: 2,
+    id: 1,
     name: 'icon-2',
   },
   {
-    id: 3,
+    id: 2,
     name: 'icon-3',
   },
   {
-    id: 4,
+    id: 3,
     name: 'icon-4',
   },
   {
-    id: 5,
+    id: 4,
     name: 'icon-5',
   },
   {
-    id: 6,
+    id: 5,
     name: 'icon-6',
   },
 ];
