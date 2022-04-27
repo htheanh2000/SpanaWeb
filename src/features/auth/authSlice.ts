@@ -1,7 +1,8 @@
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { UserSignUp } from 'models';
+import { SignUpResponse } from 'models/response';
 import { RootState } from './../../app/store';
 import { User } from './../../models/user';
-import { PayloadAction } from '@reduxjs/toolkit';
-import { createSlice } from '@reduxjs/toolkit';
 
 export interface LoginPayload {
   username: string;
@@ -12,12 +13,16 @@ export interface AuthState {
   isLoggedIn: boolean;
   logging?: boolean;
   currentUser?: User;
+  signUpping?: boolean;
+  isSignUpSuccess?: boolean;
 }
 
 const initialState: AuthState = {
   isLoggedIn: false,
   logging: false,
   currentUser: undefined,
+  signUpping: false,
+  isSignUpSuccess: false,
 };
 
 const authSlice = createSlice({
@@ -41,6 +46,17 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
       state.currentUser = undefined;
     },
+    signUp(state, action: PayloadAction<UserSignUp>) {
+      state.signUpping = true;
+    },
+    signUpSuccess(state, action: PayloadAction<SignUpResponse>) {
+      state.signUpping = false;
+      state.isSignUpSuccess = true;
+    },
+    signUpFailed(state, action: PayloadAction<SignUpResponse>) {
+      state.signUpping = false;
+      console.log(action.payload);
+    },
   },
 });
 
@@ -50,6 +66,8 @@ export const authActions = authSlice.actions;
 // Selectors
 export const selectIsLoggedIn = (state: RootState) => state.auth.isLoggedIn;
 export const selectIsLogging = (state: RootState) => state.auth.logging;
+export const selectSignUpResponse = (state: RootState) =>
+  state.auth.isSignUpSuccess;
 
 // Reducer
 const authReducer = authSlice.reducer;
