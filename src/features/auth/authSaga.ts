@@ -1,8 +1,11 @@
-import { delay, put } from 'redux-saga/effects';
 import { PayloadAction } from '@reduxjs/toolkit';
-import { call, fork, take } from 'redux-saga/effects';
-import { LoginPayload, authActions } from './authSlice';
+import authApi from 'api/authApi';
 import { push } from 'connected-react-router';
+import { UserSignUp } from 'models';
+import { SignUpResponse } from 'models/response';
+import { call, delay, fork, put, take, takeLatest } from 'redux-saga/effects';
+import { ToastError, ToastSuccess } from 'utils/toastify';
+import { authActions, LoginPayload } from './authSlice';
 
 function* handleLogin(payload: LoginPayload) {
   try {
@@ -47,6 +50,23 @@ function* watchLoginFlow() {
   }
 }
 
+function* doSignUp(action: PayloadAction<UserSignUp>) {
+  try {
+    const response: SignUpResponse = yield call(authApi.signUp, action.payload);
+    yield put(authActions.signUpSuccess(response));
+
+    ToastSuccess(response.message);
+  } catch (error: any) {
+    if (error.response) {
+      ToastError(error.response.data.message);
+    } else {
+      ToastError(error.message);
+    }
+    yield put(authActions.signUpFailed(error.message));
+  }
+}
+
 export function* authSaga() {
   yield fork(watchLoginFlow);
+  yield takeLatest(authActions.signUp.type, doSignUp);
 }

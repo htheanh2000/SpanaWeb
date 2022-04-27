@@ -525,6 +525,9 @@
                                                       }
                                                       border-top: 1px solid $light-primary-separator-color;
                                                 }
+                                                &:last-child {
+                                                      border-bottom: 1px solid $light-primary-separator-color;
+                                                }
                                           }
                                     }
                               }

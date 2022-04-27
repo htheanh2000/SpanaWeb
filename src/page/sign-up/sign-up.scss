@@ -13,9 +13,16 @@
     }
     &--right {
         width: calc(100vw - 600px);
-        padding-top: 171px;
+        padding-top: 100px;
         padding-left: 128px;
         padding-right: 96px;
+
+        > form {
+            > span {
+                color: $light-error-color;
+            }
+        }
+
         .social-sign-up {
             .button {
                 width: 100%;
@@ -31,15 +38,19 @@
             }
         }
         .password {
-            .input {
-                width: 100%;
+            
+            justify-content: space-between;
+            > div {
+                flex: 1;
+                > span {
+                    color: $light-error-color;
+                }
             }
         }
 
         .Term {
             align-items: center;
             gap: 10px;
-            padding-bottom: 20px;
             > input {
                 width: 24px;
                 height: 24px;
