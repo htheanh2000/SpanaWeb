@@ -14,6 +14,7 @@ import Setting from '../../assets/image/icon/setting.svg';
 import Arrow from '../../assets/image/icon/arrow.svg';
 import Arrow1 from '../../assets/image/icon/arrow-up1.svg';
 import ThreeDost from '../../assets/image/icon/three-dots.svg';
+import Decrease from '../../assets/image/icon/decrease.svg';
 import './icon.scss';
 
 export const icons = {
@@ -32,6 +33,7 @@ export const icons = {
   arrow: Arrow,
   'arrow-up1': Arrow1,
   'three-dots': ThreeDost,
+  decrease: Decrease,
 };
 
 export type IconProps = {
