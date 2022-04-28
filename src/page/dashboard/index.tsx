@@ -3,6 +3,7 @@ import Icon from 'components/icon';
 import React from 'react';
 import Analytics from './Analytics';
 import { iconList } from './constant';
+import Customers from './Customer';
 import './dashboard.scss';
 import Menu from './Menu';
 
@@ -28,6 +29,8 @@ const Dashboard = () => {
         return <Menu />;
       case Tabs.Analytics:
         return <Analytics />;
+      case Tabs.Customers:
+        return <Customers />;
 
       default:
         break;
