@@ -598,7 +598,7 @@
 
                               > tbody {
                                     > tr {
-                                          >.Detail {
+                                          > .Detail {
                                                 max-width: 200px;
                                           }
                                           > td {
@@ -615,6 +615,58 @@
                                     }
                               }
                         }
+                  }
+            }
+      }
+
+      .Branch {
+            margin: 20px 40px;
+            width: 100%;
+            > .Heading {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  > .Right {
+                        display: flex;
+                        align-items: center;
+                        gap: 20px;
+                  }
+            }
+            > .Body {
+                  margin-top: 60px;
+                  display: grid;
+                  grid-template-columns: repeat(3, 1fr);
+                  gap: 40px;
+                  .Item {
+                        border-radius: 5px;
+                        padding: 20px;
+                        background-color: $light-primary-system-color;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                        align-items: center;
+                        position: relative;
+                        > .Images {
+                              display: flex;
+                              justify-content: center;
+                              align-items: center;
+                              > .Image {
+                                    width: 96px;
+                                    height: 96px;
+                                    border-radius: 50%;
+                              }
+                        }
+                        >button {
+                              border: 2px solid $light-primary-color-50;
+                              width: 100%;
+                              height: 40px;
+                        }
+                        .Dots {
+                              position: absolute;
+                              right: 20px;
+                              top: 20px;
+                        }
+                        
                   }
             }
       }

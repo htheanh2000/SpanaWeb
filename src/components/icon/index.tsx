@@ -15,6 +15,10 @@ import Arrow from '../../assets/image/icon/arrow.svg';
 import Arrow1 from '../../assets/image/icon/arrow-up1.svg';
 import ThreeDost from '../../assets/image/icon/three-dots.svg';
 import Decrease from '../../assets/image/icon/decrease.svg';
+import Menu1 from '../../assets/image/icon/Menu.svg';
+import Menu2 from '../../assets/image/icon/Menu1.svg';
+import Menu3 from '../../assets/image/icon/Menu2.svg';
+
 import './icon.scss';
 
 export const icons = {
@@ -34,6 +38,9 @@ export const icons = {
   'arrow-up1': Arrow1,
   'three-dots': ThreeDost,
   decrease: Decrease,
+  menu1: Menu1,
+  menu2: Menu2,
+  menu3: Menu3,
 };
 
 export type IconProps = {

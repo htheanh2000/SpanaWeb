@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import Icon from 'components/icon';
 import React from 'react';
 import Analytics from './Analytics';
+import Branch from './Branch';
 import { iconList } from './constant';
 import Customers from './Customer';
 import './dashboard.scss';
@@ -18,6 +19,7 @@ enum Tabs {
   Menu,
   Analytics,
   Customers,
+  Branches,
 }
 
 const Dashboard = () => {
@@ -31,6 +33,8 @@ const Dashboard = () => {
         return <Analytics />;
       case Tabs.Customers:
         return <Customers />;
+      case Tabs.Branches:
+        return <Branch />;
 
       default:
         break;
