@@ -59,23 +59,23 @@ export const productList = [
 export const tabs = [
   {
     id: 1,
-    title: 'Tất cả',
+    title: 'Sản phẩm',
   },
   {
     id: 2,
-    title: 'Kem chống nắng',
+    title: 'Quản lý',
   },
   {
     id: 3,
-    title: 'Kem dưỡng da',
+    title: 'Thêm sản phẩm',
   },
   {
     id: 4,
-    title: 'Tắm trắng',
+    title: 'Thông báo',
   },
   {
     id: 5,
-    title: 'Giảm béo',
+    title: 'Thiết lập',
   },
 ];
 
@@ -126,5 +126,52 @@ export const summaryList = [
     title: 'Sản phẩm',
     value: 12000,
     percentage: 12,
+  },
+];
+
+export const chartAnalyzeData = [
+  {
+    name: 'Jan',
+    uv: 4120,
+  },
+  {
+    name: 'Feb',
+    uv: 2591,
+  },
+  {
+    name: 'Mar',
+    uv: 3515,
+  },
+  {
+    name: 'Apr',
+    uv: 1451,
+  },
+  {
+    name: 'May',
+    uv: 3913,
+  },
+  {
+    name: 'Jun',
+    uv: 1231,
+  },
+  {
+    name: 'Jul',
+    uv: 1131,
+  },
+  {
+    name: 'Sep',
+    uv: 3333,
+  },
+  {
+    name: 'Oct',
+    uv: 4121,
+  },
+  {
+    name: 'Nov',
+    uv: 4121,
+  },
+  {
+    name: 'Dec',
+    uv: 4112,
   },
 ];

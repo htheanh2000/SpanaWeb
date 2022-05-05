@@ -18,6 +18,7 @@ import Decrease from '../../assets/image/icon/decrease.svg';
 import Menu1 from '../../assets/image/icon/Menu.svg';
 import Menu2 from '../../assets/image/icon/Menu1.svg';
 import Menu3 from '../../assets/image/icon/Menu2.svg';
+import ArrowUps from '../../assets/image/icon/arrow-up-s.svg';
 
 import './icon.scss';
 
@@ -41,6 +42,7 @@ export const icons = {
   menu1: Menu1,
   menu2: Menu2,
   menu3: Menu3,
+  'arrow-up-s': ArrowUps,
 };
 
 export type IconProps = {
