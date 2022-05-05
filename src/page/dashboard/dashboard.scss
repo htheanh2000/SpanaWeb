@@ -11,6 +11,7 @@
             justify-content: space-between;
             align-items: center;
             padding-left: 30px;
+            border-bottom: 1px solid $light-primary-separator-color;
             &--left {
                   display: flex;
                   align-items: center;
@@ -98,6 +99,7 @@
       }
 
       .MainBody {
+            position: relative;
             display: flex;
             gap: 20px;
             flex: 1;
@@ -297,6 +299,177 @@
                                                       text-decoration: line-through;
                                                       color: $light-text-color-body-2;
                                                 }
+                                          }
+                                    }
+                              }
+                        }
+                  }
+            }
+            > .Management {
+                  background-color: $light-secondary-system-color;
+                  width: calc(100% - 400px);
+                  margin-top: -30px;
+                  margin-left: -20px;
+                  > .Search {
+                        position: relative;
+                        > input {
+                              height: 40px;
+                              width: calc(100% - 30px);
+                              background-color: $light-secondary-system-color;
+                              margin: 30px 15px;
+                              border-radius: 3px;
+                              &::placeholder {
+                                    padding-left: 10px;
+                              }
+                              caret-color: rgb(17, 0, 255);
+                              padding-left: 50px;
+                        }
+                        > img {
+                              position: absolute;
+                              left: 30px;
+                              top: 40px;
+                        }
+                  }
+                  > .Tabs {
+                        display: flex;
+                        width: 100%;
+                        .All {
+                              display: flex;
+                              flex-direction: column;
+                              flex: 1;
+                              align-items: center;
+                              gap: 15px;
+                              cursor: pointer;
+
+                              &.Active {
+                                    .Separate {
+                                          background-color: $light-primary-color-50;
+                                    }
+                                    > p {
+                                          color: black;
+                                    }
+                              }
+                              .Separate {
+                                    height: 3px;
+                                    width: 100%;
+                                    background-color: $light-primary-color-10;
+                              }
+
+                              > p {
+                                    color: $light-text-color-body-1;
+                              }
+                        }
+                  }
+
+                  > .Quest {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        width: 420px;
+                        height: calc(100% + 30px);
+                        background-color: $light-base-color-white;
+                        margin-top: -30px;
+                        padding-top: 40px;
+                        padding-left: 20px;
+                        padding-right: 20px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                        > .Item {
+                              display: flex;
+                              flex-direction: column;
+                              gap: 20px;
+                              border: 1px solid $light-primary-separator-color;
+                              padding: 20px;
+                              border-radius: 5px;
+                              > .Text {
+                                    display: flex;
+                                    gap: 10px;
+                                    align-items: center;
+                              }
+                        }
+                  }
+
+                  > .MainContent {
+                        padding: 30px;
+                        > .Sum {
+                              display: flex;
+                              gap: 20px;
+                              flex-direction: column;
+                              margin-top: 20px;
+                              > .Top,
+                              > .Bot {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    width: 100%;
+                                    > .Notification {
+                                          display: flex;
+                                          flex-direction: column;
+                                          justify-content: center;
+                                          align-items: center;
+                                          row-gap: 10px;
+                                          width: 18%;
+                                          > h5 {
+                                                color: $light-text-link-color-purple;
+                                          }
+                                          > p {
+                                                text-align: center;
+                                          }
+                                    }
+                                    > .Separate {
+                                          height: 70px;
+                                          width: 1px;
+                                          background-color: $light-primary-separator-color;
+                                    }
+                              }
+
+                              > .Divider {
+                                    height: 1px;
+                                    width: 100%;
+                                    background-color: $light-primary-separator-color;
+                              }
+                        }
+
+                        > .Analyze {
+                              margin-top: 40px;
+                              > .ChartContent {
+                                    margin-top: 40px;
+                                    display: flex;
+                                    > .View {
+                                          flex: 1;
+                                          display: flex;
+                                          flex-direction: column;
+                                          gap: 20px;
+                                          > .Top {
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: space-evenly;
+                                                width: 100%;
+                                                > .Notification {
+                                                      display: flex;
+                                                      flex-direction: column;
+                                                      justify-content: center;
+                                                      align-items: center;
+                                                      row-gap: 10px;
+
+                                                      > h5 {
+                                                            color: $light-text-link-color-purple;
+                                                      }
+                                                      > p {
+                                                            text-align: center;
+                                                      }
+                                                }
+                                                > .Separate {
+                                                      height: 70px;
+                                                      width: 1px;
+                                                      background-color: $light-primary-separator-color;
+                                                }
+                                          }
+                                          > .Divider {
+                                                height: 1px;
+                                                width: 100%;
+                                                background-color: $light-primary-separator-color;
                                           }
                                     }
                               }
@@ -700,7 +873,7 @@
                                           padding: 7px;
                                           text-align: center;
                                           border-radius: 5px;
-                                          color: $light-primary-system-color
+                                          color: $light-primary-system-color;
                                     }
                                     .Remove {
                                           width: 104px;
