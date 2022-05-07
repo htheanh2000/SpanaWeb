@@ -19,6 +19,7 @@ import Menu1 from '../../assets/image/icon/Menu.svg';
 import Menu2 from '../../assets/image/icon/Menu1.svg';
 import Menu3 from '../../assets/image/icon/Menu2.svg';
 import ArrowUps from '../../assets/image/icon/arrow-up-s.svg';
+import Calendar from '../../assets/image/icon/Calendar.svg';
 
 import './icon.scss';
 
@@ -43,6 +44,7 @@ export const icons = {
   menu2: Menu2,
   menu3: Menu3,
   'arrow-up-s': ArrowUps,
+  calendar: Calendar,
 };
 
 export type IconProps = {

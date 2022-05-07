@@ -1,7 +1,9 @@
 import classNames from 'classnames';
 import Button from 'components/button';
 import Icon from 'components/icon';
-import React from 'react';
+import React, { useState } from 'react';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 import {
   Area,
   AreaChart,
@@ -11,11 +13,18 @@ import {
   YAxis,
 } from 'recharts';
 import { formatNumber } from 'utils';
-import { chartAnalyzeData, productList, tabs } from './constant';
+import { chartAnalyzeData, productList, subTabs, tabs } from './constant';
 
 const Menu = () => {
-  const [activeTab, setActiveTab] = React.useState<number>(tabs[0].id);
+  const [activeTab, setActiveTab] = useState<number>(tabs[0].id);
+  const [activeSubTab, setActiveSubTab] = useState<number>(subTabs[0].id);
   const arrayProduct = Array.from(Array(6).keys());
+  const [value, setValue] = useState(new Date());
+
+  function onChange(nextValue: Date) {
+    console.log({ nextValue });
+    setValue(nextValue);
+  }
 
   const handleIncrease = (item: number) => {
     console.log(item);
@@ -134,6 +143,91 @@ const Menu = () => {
       </div>
     </>
   );
+
+  const tieuChi = () => {
+    return (
+      <div className="Standard">
+        <table>
+          <thead>
+            <tr>
+              <th>
+                <h6 className="bold">Tiêu chí</h6>
+              </th>
+              <th>
+                <h6 className="bold">Shop của tôi</h6>
+              </th>
+              <th>
+                <h6 className="bold">Chỉ tiêu</h6>
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>
+                <div className="First">
+                  <Icon name="calendar" />
+                  <div className="Name">
+                    <h6 className="bold">Tỉ lệ đơn không thành công</h6>
+                    <p className="caption">01/2022 - 02/2022</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <Icon name="calendar" />
+              </td>
+              <td>
+                <div className="Percent">
+                  <p className="body2">{'<'}100%</p>
+                  <Icon name="three-dots" />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div className="First">
+                  <Icon name="calendar" />
+                  <div className="Name">
+                    <h6 className="bold">Tỉ lệ đơn không thành công</h6>
+                    <p className="caption">01/2022 - 02/2022</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <Icon name="calendar" />
+              </td>
+              <td>
+                <div className="Percent">
+                  <p className="body2">{'<'}100%</p>
+                  <Icon name="three-dots" />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div className="First">
+                  <Icon name="calendar" />
+                  <div className="Name">
+                    <h6 className="bold">Tỉ lệ đơn không thành công</h6>
+                    <p className="caption">01/2022 - 02/2022</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <Icon name="calendar" />
+              </td>
+              <td>
+                <div className="Percent">
+                  <p className="body2">{'<'}100%</p>
+                  <Icon name="three-dots" />
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    );
+  };
 
   const management = () => (
     <div className="Management">
@@ -309,6 +403,88 @@ const Menu = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="Marketing">
+          <p className="bold title1 mb-2">Kênh Marketing</p>
+          <p className="body2">
+            Công cụ Marketing & Đăng ký chương trình Khuyến Mãi
+          </p>
+
+          <div className="CalendarContent">
+            <div className="Calendar">
+              <Calendar onChange={onChange} value={value} />
+            </div>
+
+            <div className="Events">
+              <h6 className="bold">Lịch sự kiện</h6>
+
+              <div className="Event">
+                <div className="Item">
+                  <Icon name="calendar" />
+                  <div>
+                    <h6 className="bold mb-3">Sale Kem chống nắng</h6>
+                    <p className="caption">Thời gian hoạt động: 2022/04/22</p>
+                  </div>
+                </div>
+                <div className="Item">
+                  <Icon name="calendar" />
+                  <div>
+                    <h6 className="bold mb-3">Sale Kem chống nắng</h6>
+                    <p className="caption">Thời gian hoạt động: 2022/04/22</p>
+                  </div>
+                </div>
+                <div className="Item">
+                  <Icon name="calendar" />
+                  <div>
+                    <h6 className="bold mb-3">Sale Kem chống nắng</h6>
+                    <p className="caption">Thời gian hoạt động: 2022/04/22</p>
+                  </div>
+                </div>
+                <div className="Item">
+                  <Icon name="calendar" />
+                  <div>
+                    <h6 className="bold mb-3">Sale Kem chống nắng</h6>
+                    <p className="caption">Thời gian hoạt động: 2022/04/22</p>
+                  </div>
+                </div>
+
+                <p className="body2 semibold">Xem thêm</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="Activity">
+          <p className="bold title1 mb-2">Hiệu Quả Hoạt Động</p>
+          <p className="body2">
+            Bảng Hiệu Quả Hoạt Động giúp Người Bán hiểu rõ hơn về hoạt động buôn
+            bán của Shop mình dựa trên những chỉ tiêu
+          </p>
+
+          <div className="SubTabs">
+            <div className="Tabs">
+              {subTabs.map((tab, index) => (
+                <div
+                  key={index}
+                  className={classNames('All', {
+                    Active: activeSubTab === tab.id,
+                  })}
+                  onClick={() => setActiveSubTab(tab.id)}
+                >
+                  <p className="menu1 bold">{tab.title}</p>
+                  <span className="Separate"></span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="SubTabContent">
+            {subTabs[0].id === activeSubTab && tieuChi()}
+            {subTabs[1].id === activeSubTab && tieuChi()}
+            {subTabs[2].id === activeSubTab && tieuChi()}
+            {subTabs[3].id === activeSubTab && tieuChi()}
           </div>
         </div>
       </div>

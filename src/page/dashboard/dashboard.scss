@@ -2,7 +2,7 @@
 
 .Dashboard {
       width: 100%;
-      background-color: $light-background-color-gray;
+      background-color: $light-secondary-system-color;
 
       .Header {
             height: 80px;
@@ -60,6 +60,7 @@
             background-color: $light-primary-system-color;
             padding-bottom: 20px;
             min-height: calc(100vh - 80px);
+            max-height: calc(100vh + 80px);
             .Top {
                   display: flex;
                   flex-direction: column;
@@ -396,7 +397,7 @@
                               display: flex;
                               gap: 20px;
                               flex-direction: column;
-                              margin-top: 20px;
+                              margin-top: 40px;
                               > .Top,
                               > .Bot {
                                     display: flex;
@@ -470,6 +471,123 @@
                                                 height: 1px;
                                                 width: 100%;
                                                 background-color: $light-primary-separator-color;
+                                          }
+                                    }
+                              }
+                        }
+                        > .Marketing {
+                              margin-top: 40px;
+                              > .CalendarContent {
+                                    display: flex;
+                                    gap: 90px;
+
+                                    > .Calendar {
+                                          margin-top: 20px;
+                                          > .react-calendar {
+                                                border: none;
+                                                box-shadow: 2px 2px $light-primary-separator-color;
+                                                .react-calendar__month-view__weekdays__weekday {
+                                                      text-transform: capitalize;
+                                                      > abbr[title] {
+                                                            text-decoration: none;
+                                                      }
+                                                }
+                                          }
+                                    }
+                                    > .Events {
+                                          padding: 20px;
+                                          flex: 1;
+                                          > .Event {
+                                                padding: 20px;
+                                                display: flex;
+                                                flex-direction: column;
+                                                gap: 20px;
+                                                > p {
+                                                      color: $light-text-link-color-purple;
+                                                }
+                                                > .Item {
+                                                      display: flex;
+                                                      align-items: center;
+                                                      gap: 20px;
+                                                }
+                                          }
+                                    }
+                              }
+                        }
+                        > .Activity {
+                              margin-top: 40px;
+                              > .SubTabs {
+                                    margin-top: 30px;
+                                    > .Tabs {
+                                          display: flex;
+                                          width: 100%;
+                                          .All {
+                                                display: flex;
+                                                flex-direction: column;
+                                                flex: 1;
+                                                align-items: center;
+                                                gap: 15px;
+                                                cursor: pointer;
+
+                                                &.Active {
+                                                      .Separate {
+                                                            background-color: $light-primary-color-50;
+                                                      }
+                                                      > p {
+                                                            color: black;
+                                                      }
+                                                }
+                                                .Separate {
+                                                      height: 3px;
+                                                      width: 100%;
+                                                      background-color: $light-primary-color-10;
+                                                }
+
+                                                > p {
+                                                      color: $light-text-color-body-1;
+                                                }
+                                          }
+                                    }
+                              }
+                              > .SubTabContent {
+                                    margin-top: 40px;
+                                    > .Standard {
+                                          background-color: $light-primary-system-color;
+                                          padding: 20px;
+                                          border-radius: 8px;
+                                          > table {
+                                                width: 100%;
+                                                > thead {
+                                                      > tr {
+                                                            > th {
+                                                                  padding-bottom: 20px;
+                                                                  border-bottom: 1px solid
+                                                                        $light-primary-separator-color;
+                                                                  > h6 {
+                                                                        text-align: left;
+                                                                  }
+                                                            }
+                                                      }
+                                                }
+                                                > tbody {
+                                                      > tr {
+                                                            
+                                                            > td {
+                                                                  padding-top: 20px;
+                                                                  padding-bottom: 20px;
+                                                            }
+                                                      }
+                                                      .First {
+                                                            display: flex;
+                                                            gap: 20px;
+                                                            align-items: center;
+                                                      }
+                                                      .Percent {
+                                                            display: flex;
+                                                            align-items: center;
+                                                            justify-content: space-between;
+                                                      }
+                                                }
                                           }
                                     }
                               }

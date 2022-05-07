@@ -78,6 +78,24 @@ export const tabs = [
     title: 'Thiết lập',
   },
 ];
+export const subTabs = [
+  {
+    id: 1,
+    title: 'Quản lý đơn hàng',
+  },
+  {
+    id: 2,
+    title: 'Chăm sóc khách hàng',
+  },
+  {
+    id: 3,
+    title: 'Các sản phẩm vi phạm',
+  },
+  {
+    id: 4,
+    title: 'Mức độ hài lòng của người mua',
+  },
+];
 
 export const iconList: Icons[] = [
   {
