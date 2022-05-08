@@ -20,6 +20,9 @@ import Menu2 from '../../assets/image/icon/Menu1.svg';
 import Menu3 from '../../assets/image/icon/Menu2.svg';
 import ArrowUps from '../../assets/image/icon/arrow-up-s.svg';
 import Calendar from '../../assets/image/icon/Calendar.svg';
+import Ticket from '../../assets/image/icon/ticket-star.svg';
+import Buy from '../../assets/image/icon/Buy.svg';
+import Discount from '../../assets/image/icon/Discount.svg';
 
 import './icon.scss';
 
@@ -45,6 +48,9 @@ export const icons = {
   menu3: Menu3,
   'arrow-up-s': ArrowUps,
   calendar: Calendar,
+  ticket: Ticket,
+  buy: Buy,
+  discount: Discount,
 };
 
 export type IconProps = {

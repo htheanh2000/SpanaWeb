@@ -487,6 +487,41 @@ const Menu = () => {
             {subTabs[3].id === activeSubTab && tieuChi()}
           </div>
         </div>
+
+        <div className="Tools">
+          <p className="bold title1 mb-2">Công Cụ Marketing</p>
+          <p className="body2">
+            Các chương trình nổi bật, Shop nhận voucher và ưu đãi tăng cường
+            hiển thị
+          </p>
+
+          <div className="Body">
+            <div className="MGG">
+              <Icon name="buy" size="medium" />
+              <h6 className="bold">Mã Giảm Giá Của Shop</h6>
+              <p className="body2">
+                Công cụ tăng đơn hàng bằng cách tạo mã giảm giá tặng cho người
+                mua
+              </p>
+            </div>
+            <div className="Freeship">
+              <Icon name="ticket" size="medium" />
+              <h6 className="bold">Mã Giảm Giá Của Shop</h6>
+              <p className="body2">
+                Công cụ tăng đơn hàng bằng cách tạo mã giảm giá tặng cho người
+                mua
+              </p>
+            </div>
+            <div className="Flash">
+              <Icon name="discount" size="medium" />
+              <h6 className="bold">Mã Giảm Giá Của Shop</h6>
+              <p className="body2">
+                Công cụ tăng đơn hàng bằng cách tạo mã giảm giá tặng cho người
+                mua
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

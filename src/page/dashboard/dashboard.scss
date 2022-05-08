@@ -571,7 +571,6 @@
                                                 }
                                                 > tbody {
                                                       > tr {
-                                                            
                                                             > td {
                                                                   padding-top: 20px;
                                                                   padding-bottom: 20px;
@@ -589,6 +588,35 @@
                                                       }
                                                 }
                                           }
+                                    }
+                              }
+                        }
+
+                        > .Tools {
+                              margin-top: 40px;
+                              > .Body {
+                                    margin-top: 40px;
+                                    display: grid;
+                                    grid-template-columns: repeat(3, 1fr);
+                                    gap: 20px;
+                                    > .MGG,
+                                    > .Freeship,
+                                    > .Flash {
+                                          border-radius: 5px;
+                                          color: #fff;
+                                          padding: 20px;
+                                          display: flex;
+                                          flex-direction: column;
+                                          gap: 20px;
+                                    }
+                                    > .MGG {
+                                          background-color: $light-secondary-color-30;
+                                    }
+                                    > .Freeship {
+                                          background-color: $light-accent-2-color-30;
+                                    }
+                                    > .Flash {
+                                          background-color: $light-accent-1-color-30;
                                     }
                               }
                         }
