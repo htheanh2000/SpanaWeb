@@ -193,3 +193,72 @@ export const chartAnalyzeData = [
     uv: 4112,
   },
 ];
+
+export const managementRight = [
+  {
+    title: 'Đăng tải ít nhất 5 sản phẩm (1/5)',
+    caption: 'Nhận 1 lần Đẩy sản phẩm',
+  },
+  {
+    title: 'Trang trí Shop Cơ bản cho phiên bản di động',
+    caption: 'Nhận 1 lần Đẩy sản phẩm',
+  },
+  {
+    title: 'Tạo Top sản phẩm Bán Chạy',
+    caption: 'Nhận 1 lần Đẩy sản phẩm',
+  },
+];
+export const addProductRight = [
+  {
+    title: 'Thông tin cơ bản',
+    caption: 'Thêm các thông tin cơ bản cho sản phẩm',
+  },
+  {
+    title: 'Xếp hạng sản phẩm',
+    caption: 'Xếp hạng ưu tiên cho sản phẩm được bán ra',
+  },
+  {
+    title: 'Công cụ hàng loạt',
+    caption: 'Đăng tải và chỉnh sửa hàng loạt sản phẩm',
+  },
+];
+
+export const listItemsCategories = [
+  { name: 'Danh mục', value: 0 },
+  { name: 'Hello', value: 1 },
+];
+export const listItemsPrice = [
+  { name: 'Giá', value: 0 },
+  { name: 'Hello', value: 1 },
+];
+export const listItemsFilter = [
+  { name: 'Bộ lọc', value: 0 },
+  { name: 'Hello', value: 1 },
+];
+
+export const addProductListItem = [
+  {
+    image: euc,
+    name: 'Kem chống nắng',
+    quantity: 3,
+    price: 149000,
+    date: '24/04/2022 22:17',
+    status: 'Đang hoạt động',
+  },
+  {
+    image: ane1,
+    name: 'Kem Anessa',
+    quantity: 3,
+    price: 179000,
+    date: '24/04/2022 22:17',
+    status: 'Ngưng hoạt động',
+  },
+  {
+    image: lar,
+    name: 'Kem Skin 1004',
+    quantity: 3,
+    price: 149000,
+    date: '24/04/2022 22:17',
+    status: 'Đang hoạt động',
+  },
+];

@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import Dropdown from 'components/dropdown/intdex';
+import Dropdown from 'components/dropdown';
 import Icon from 'components/icon';
 import React, { useState } from 'react';
 import {
