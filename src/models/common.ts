@@ -26,3 +26,7 @@ export interface UserSignUp {
   confirmPassword?: string;
   term?: string;
 }
+
+export interface SalonId {
+  _id: string;
+}

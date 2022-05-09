@@ -265,40 +265,43 @@
 
                   .Categories {
                         margin: 20px 10px;
-                        .Title {
-                              margin-bottom: 20px;
-                        }
-                        .ProductList {
-                              display: grid;
-                              grid-template-columns: repeat(3, 1fr);
-                              grid-column-gap: 10px;
-                              grid-row-gap: 20px;
-                              .Product {
-                                    border: 1px solid $light-primary-color-10;
-                                    border-radius: 5px;
-                                    height: 280px;
-                                    display: flex;
-                                    flex-direction: column;
-                                    justify-content: space-between;
-                                    padding: 10px;
-                                    .Image {
-                                          width: 240px;
-                                          height: 160px;
-                                    }
-                                    .Info {
+                        > .Item {
+                              margin-bottom: 40px;
+                              .Title {
+                                    margin-bottom: 20px;
+                              }
+                              .ProductList {
+                                    display: grid;
+                                    grid-template-columns: repeat(3, 1fr);
+                                    grid-column-gap: 10px;
+                                    grid-row-gap: 20px;
+                                    .Product {
+                                          border: 1px solid $light-primary-color-10;
+                                          border-radius: 5px;
+                                          height: 280px;
                                           display: flex;
                                           flex-direction: column;
-                                          row-gap: 10px;
-                                          .Price {
+                                          justify-content: space-between;
+                                          padding: 10px;
+                                          .Image {
+                                                width: 240px;
+                                                height: 160px;
+                                          }
+                                          .Info {
                                                 display: flex;
-                                                justify-content: space-between;
-                                                align-items: center;
-                                                > h6 {
-                                                      color: $light-accent-1-color-50;
-                                                }
-                                                > p {
-                                                      text-decoration: line-through;
-                                                      color: $light-text-color-body-2;
+                                                flex-direction: column;
+                                                row-gap: 10px;
+                                                .Price {
+                                                      display: flex;
+                                                      justify-content: space-between;
+                                                      align-items: center;
+                                                      > h6 {
+                                                            color: $light-accent-1-color-50;
+                                                      }
+                                                      > p {
+                                                            text-decoration: line-through;
+                                                            color: $light-text-color-body-2;
+                                                      }
                                                 }
                                           }
                                     }
@@ -619,6 +622,89 @@
                                           background-color: $light-accent-1-color-30;
                                     }
                               }
+                        }
+                  }
+
+                  > .AddProduct {
+                        padding: 30px;
+                        > .Filter {
+                              display: flex;
+                              align-items: center;
+                              justify-content: space-between;
+                              > div {
+                                    width: 200px;
+                              }
+                              > button {
+                                    width: 150px;
+                              }
+                        }
+                        .Selected {
+                              display: flex;
+                              align-items: center;
+                              justify-content: space-between;
+                              margin-top: 40px;
+                        }
+                        > .ListProducts {
+                              margin-top: 40px;
+                              > table {
+                                    width: 100%;
+                                    > thead {
+                                          > tr {
+                                                > th {
+                                                      text-align: left;
+                                                      &:first-child {
+                                                            transform: translateY(2px);
+                                                      }
+
+                                                      > input {
+                                                            width: 20px;
+                                                            height: 20px;
+                                                      }
+                                                }
+                                          }
+                                    }
+                                    > tbody {
+                                          > tr {
+                                                > td {
+                                                      padding: 20px 0px;
+                                                      border-bottom: 1px solid $light-primary-separator-color;
+                                                      > .Actions {
+                                                            > p {
+                                                                  color: $light-primary-color-70;
+                                                                  cursor: pointer;
+                                                            }
+                                                      }
+                                                      > .Name {
+                                                            display: flex;
+                                                            align-items: center;
+                                                            gap: 10px;
+                                                            > img {
+                                                                  width: 50px;
+                                                                  height: 50px;
+                                                            }
+                                                      }
+                                                      > input {
+                                                            width: 20px;
+                                                            height: 20px;
+                                                      }
+                                                }
+                                                > .Down {
+                                                      color: $light-error-color;
+                                                }
+                                                > .Up {
+                                                      color: $light-accent-1-color-70;
+                                                }
+                                          }
+                                    }
+                              }
+                        }
+
+                        > .More {
+                              margin-top: 40px;
+                              cursor: pointer;
+                              display: flex;
+                              align-items: center;
+                              gap: 20px;
                         }
                   }
             }
