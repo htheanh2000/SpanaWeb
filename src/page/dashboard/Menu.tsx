@@ -27,6 +27,8 @@ import {
 import productApi from '../../api/salon/productApi';
 import Dropdown from 'components/dropdown';
 import { ProductType } from '../../models/response';
+import { Formik } from 'formik';
+import Input from 'components/input';
 
 const Menu = () => {
   const [activeTab, setActiveTab] = useState<number>(tabs[0].id);
@@ -34,6 +36,7 @@ const Menu = () => {
   const arrayProduct = Array.from(Array(6).keys());
   const [value, setValue] = useState(new Date());
   const [products, setProducts] = useState<ProductType[]>([]);
+  const [activeAddProductTab, setActiveAddProductTab] = useState<number>(0);
 
   console.log(products);
 
@@ -50,6 +53,41 @@ const Menu = () => {
 
   const handleIncrease = (item: number) => {
     console.log(item);
+  };
+
+  const handleSubmit = (values: any) => {};
+  const handleValidate = (values: any) => {
+    const errors: any = {};
+    if (!values.email) {
+      errors.email = 'Email là bắt buộc';
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+      errors.email = 'Email không đúng';
+    }
+
+    if (!values.password) {
+      errors.password = 'Mật khẩu là bắt buộc';
+    }
+
+    if (!values.confirmPassword) {
+      errors.confirmPassword = 'Nhập lại mật khẩu là bắt buộc';
+    }
+
+    if (values.password !== values.confirmPassword) {
+      errors.confirmPassword = 'Nhập lại mật khẩu không khớp';
+    }
+
+    if (!values.username) {
+      errors.username = 'Tên là bắt buộc';
+    }
+
+    if (!values.phoneNumber) {
+      errors.phoneNumber = 'Số điện thoại là bắt buộc';
+    }
+    if (!values.term) {
+      errors.term = 'Bạn phải đồng ý với điều khoản';
+    }
+
+    return errors;
   };
 
   const search = () => (
@@ -568,6 +606,202 @@ const Menu = () => {
     </div>
   );
 
+  const addProductDetail = () => (
+    <div className="AddProductDetail">
+      <p className="title bold mb-8">Thêm sản phẩm mới</p>
+      <h6 className="bold mb-4">Thông tin cơ bản</h6>
+
+      <Formik
+        initialValues={{
+          name: '',
+          category: '',
+          brand: '',
+          size: '',
+          description: '',
+          variant: '',
+          option: '',
+          price: '',
+        }}
+        onSubmit={handleSubmit}
+        validate={handleValidate}
+      >
+        {({
+          values,
+          errors,
+          handleChange,
+          handleSubmit,
+          handleBlur,
+          touched,
+        }) => (
+          <form action="" onSubmit={handleSubmit}>
+            <div>
+              <Input
+                className="mb-2"
+                label="Tên sản phẩm"
+                placeholder="Vui lòng nhập tên sản phẩm"
+                size="large"
+                name="name"
+                value={values.name}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                labelClass="None"
+                isRequired
+              />
+              <span className="body2">
+                {errors.name && touched.name && errors.name}
+              </span>
+            </div>
+            <div>
+              <Input
+                className="mb-2"
+                label="Danh mục"
+                placeholder="Vui lòng chọn một danh mục"
+                size="large"
+                name="category"
+                value={values.category}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                labelClass="None"
+                isRequired
+              />
+              <span className="body2">
+                {errors.category && touched.category && errors.category}
+              </span>
+            </div>
+
+            <div className="Params">
+              <h6 className="mb-4">Thông số</h6>
+              <div>
+                <div>
+                  <Input
+                    className="mb-2"
+                    label="Thương hiệu"
+                    placeholder="Vui lòng chọn một thương hiệu"
+                    size="large"
+                    name="brand"
+                    value={values.brand}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    labelClass="None"
+                  />
+                  <span className="body2">
+                    {errors.brand && touched.brand && errors.brand}
+                  </span>
+                </div>
+                <div>
+                  <Input
+                    className="mb-2"
+                    label="Thành phần"
+                    placeholder="Vui lòng nhập kích thước sản phẩm"
+                    size="large"
+                    name="size"
+                    value={values.size}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    labelClass="None"
+                  />
+                  <span className="body2">
+                    {errors.size && touched.size && errors.size}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <h6 className="bold mb-4 mt-8">Chi tiết sản phẩm </h6>
+
+            <div className="Images">
+              <h6>Hình ảnh sản phẩm *</h6>
+            </div>
+
+            <div className="Description">
+              <h6>Mô tả sản phẩm *</h6>
+              <textarea
+                name="description"
+                id=""
+                rows={10}
+                placeholder="Nhập mô tả sản phẩm..."
+                value={values.description}
+              ></textarea>
+              <span className="body2">
+                {errors.description &&
+                  touched.description &&
+                  errors.description}
+              </span>
+            </div>
+
+            <h6 className="bold mb-4 mt-8">Thông tin bán hàng</h6>
+
+            <div>
+              <Input
+                className="mb-2"
+                label="Tên biến thể"
+                placeholder="Chọn hoặc nhập một biến thể"
+                size="large"
+                name="variant"
+                value={values.variant}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                labelClass="None"
+                isRequired
+              />
+              <span className="body2">
+                {errors.variant && touched.variant && errors.variant}
+              </span>
+            </div>
+
+            <div>
+              <Input
+                className="mb-2"
+                label="Tùy chọn"
+                placeholder="Nhập thông số sản phẩm"
+                size="large"
+                name="option"
+                value={values.option}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                labelClass="None"
+                isRequired
+              />
+              <span className="body2">
+                {errors.option && touched.option && errors.option}
+              </span>
+            </div>
+
+            <div>
+              <Input
+                className="mb-2"
+                label="Giá bán lẻ"
+                placeholder="Nhập giá cho sản phẩm"
+                size="large"
+                name="price"
+                value={values.price}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                labelClass="None"
+                isRequired
+              />
+              <span className="body2">
+                {errors.price && touched.price && errors.price}
+              </span>
+            </div>
+
+            <h6 className="AddOption">+ Thêm một tùy chọn</h6>
+
+            <Button state="secondary" className="mt-2">
+              + Thêm một biến thể
+            </Button>
+
+            <div className="Buttons">
+              <button disabled>Hủy bỏ</button>
+              <button disabled>Lưu làm nháp</button>
+              <Button state="primary">Đăng tải</Button>
+            </div>
+          </form>
+        )}
+      </Formik>
+    </div>
+  );
+
   const management = (id?: number) => (
     <div className="Management">
       <div className="Search">
@@ -594,6 +828,7 @@ const Menu = () => {
         </p>
 
         {id === 2 &&
+          activeAddProductTab === 0 &&
           managementRight.map((item, index) => (
             <div className="Item" key={index}>
               <p className="semibold body2">{item.title}</p>
@@ -606,6 +841,7 @@ const Menu = () => {
             </div>
           ))}
         {id === 3 &&
+          activeAddProductTab === 0 &&
           addProductRight.map((item, index) => (
             <div className="Item" key={index}>
               <p className="semibold body2">{item.title}</p>
@@ -614,13 +850,19 @@ const Menu = () => {
                 <p className="captions">{item.caption}</p>
               </div>
 
-              <Button state="secondary"> Bắt đầu</Button>
+              <Button
+                state="secondary"
+                onClick={() => setActiveAddProductTab(1)}
+              >
+                Bắt đầu
+              </Button>
             </div>
           ))}
       </div>
 
-      {id === 2 && managementMainContent()}
-      {id === 3 && addProductMainContent()}
+      {id === 2 && activeAddProductTab === 0 && managementMainContent()}
+      {id === 3 && activeAddProductTab === 0 && addProductMainContent()}
+      {id === 3 && activeAddProductTab === 1 && addProductDetail()}
     </div>
   );
 

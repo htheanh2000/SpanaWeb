@@ -707,6 +707,53 @@
                               gap: 20px;
                         }
                   }
+
+                  > .AddProductDetail {
+                        padding: 30px;
+                        > form {
+                              display: flex;
+                              flex-direction: column;
+                              gap: 20px;
+                              > .Params {
+                                    > div {
+                                          display: flex;
+                                          gap: 40px;
+                                          > div {
+                                                flex: 1;
+                                          }
+                                    }
+                              }
+                              > .Description {
+                                    flex: 1;
+                                    > textarea {
+                                          width: 100%;
+                                          padding: 10px;
+                                          border-radius: 5px;
+                                          margin-top: 10px;
+                                    }
+                              }
+                              > .AddOption {
+                                    color: $light-text-link-color-purple;
+                              }
+
+                              > .Buttons {
+                                    margin-top: 30px;
+                                    display: flex;
+                                    justify-content: flex-end;
+                                    gap: 20px;
+                                    > button:disabled {
+                                          border-radius: 3px;
+                                          border: 1px solid $light-primary-separator-color;
+
+                                          font-weight: bold;
+                                          background-color: $light-primary-system-color;
+                                    }
+                                    > button {
+                                          width: 120px;
+                                    }
+                              }
+                        }
+                  }
             }
       }
 

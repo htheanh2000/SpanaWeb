@@ -4,6 +4,9 @@
     label: {
         color: $light-text-color-title;
     }
+    .required {
+        color: $light-error-color;
+    }
     input {
         border: 1px solid $light-text-color-body-1;
         background: $light-primary-system-color;
