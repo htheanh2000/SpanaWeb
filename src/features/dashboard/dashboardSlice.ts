@@ -1,6 +1,7 @@
 import { RootState } from './../../app/store';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Student } from 'models';
+import { ProductType } from 'models/response';
 
 export interface DashboardStatistics {
   maleCount: number;
@@ -21,6 +22,7 @@ export interface DashboardState {
   hightestStudentList: Student[];
   lowestStudentList: Student[];
   rankingByCityList: RankingByCity[];
+  products: ProductType[];
 }
 
 const initialState: DashboardState = {
@@ -34,6 +36,7 @@ const initialState: DashboardState = {
   hightestStudentList: [],
   lowestStudentList: [],
   rankingByCityList: [],
+  products: [],
 };
 
 const dashboardSlice = createSlice({
@@ -62,6 +65,16 @@ const dashboardSlice = createSlice({
     setRankingCityList(state, action: PayloadAction<RankingByCity[]>) {
       state.rankingByCityList = action.payload;
     },
+    getSalonAllProducts(state) {
+      state.loading = true;
+    },
+    getSalonAllProductsSuccess(state, action: PayloadAction<ProductType[]>) {
+      state.loading = false;
+      state.products = action.payload;
+    },
+    getSalonAllProductsFailed(state) {
+      state.loading = false;
+    },
   },
 });
 
@@ -69,11 +82,18 @@ const dashboardSlice = createSlice({
 export const dashboardActions = dashboardSlice.actions;
 
 // Selector
-export const selectDashboardLoading = (state: RootState) => state.dashboard.loading;
-export const selectStatistics = (state: RootState) => state.dashboard.statistics;
-export const selectHighestStudentList = (state: RootState) => state.dashboard.hightestStudentList;
-export const selectLowestStudentList= (state: RootState) => state.dashboard.lowestStudentList;
-export const selectRankingCityList = (state: RootState) => state.dashboard.rankingByCityList;
+export const selectDashboardLoading = (state: RootState) =>
+  state.dashboard.loading;
+export const selectStatistics = (state: RootState) =>
+  state.dashboard.statistics;
+export const selectHighestStudentList = (state: RootState) =>
+  state.dashboard.hightestStudentList;
+export const selectLowestStudentList = (state: RootState) =>
+  state.dashboard.lowestStudentList;
+export const selectRankingCityList = (state: RootState) =>
+  state.dashboard.rankingByCityList;
+export const selectSalonAllProducts = (state: RootState) =>
+  state.dashboard.products;
 
 // Reducers
 const dashboardReducer = dashboardSlice.reducer;

@@ -2,8 +2,11 @@ import { ListResponse } from './../../models/common';
 import { dashboardActions, RankingByCity } from './dashboardSlice';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 import studentApi from 'api/studentApi';
+import productApi from 'api/salon/productApi';
 import { City, Student } from 'models';
 import cityApi from 'api/cityApi';
+import { ProductType } from 'models/response';
+import { ToastError } from 'utils/toastify';
 
 function* fetchStatistics() {
   // Run at the same time, if all Effect Creators inside all are blocking then all will be blocking and vice versa
@@ -36,6 +39,9 @@ function* fetchHighestStudentList() {
   });
 
   yield put(dashboardActions.setHighestStudentList(data));
+}
+function fetchSalonAllProducts() {
+  return productApi.getAllProducts({ _id: '6267edd08cf58f40be3009cb' });
 }
 
 function* fetchLowestStudentList() {
@@ -91,7 +97,25 @@ function* fetchDashboardData() {
     yield put(dashboardActions.fetchDataFailed());
   }
 }
+function* getSalonAllProducts() {
+  try {
+    const response: { data: ProductType[] } = yield call(fetchSalonAllProducts);
+    yield put(dashboardActions.getSalonAllProductsSuccess(response.data));
+  } catch (error: any) {
+    console.log(`Failed to fetch dashboard data`, error);
+    if (error.response) {
+      ToastError(error.response.data.message);
+    } else {
+      ToastError(error.message);
+    }
+    yield put(dashboardActions.getSalonAllProductsFailed());
+  }
+}
 
 export default function* dashboardSaga() {
   yield takeLatest(dashboardActions.fetchData.type, fetchDashboardData);
+  yield takeLatest(
+    dashboardActions.getSalonAllProducts.type,
+    getSalonAllProducts
+  );
 }
