@@ -24,27 +24,31 @@ import {
   subTabs,
   tabs,
 } from './constant';
-import productApi from '../../api/salon/productApi';
 import Dropdown from 'components/dropdown';
-import { ProductType } from '../../models/response';
 import { Formik } from 'formik';
 import Input from 'components/input';
+import {
+  dashboardActions,
+  selectDashboardLoading,
+  selectSalonAllProducts,
+} from 'features/dashboard/dashboardSlice';
+import { useAppDispatch, useAppSelector } from 'app/hooks';
+import Loading from 'components/Preloading';
 
 const Menu = () => {
   const [activeTab, setActiveTab] = useState<number>(tabs[0].id);
   const [activeSubTab, setActiveSubTab] = useState<number>(subTabs[0].id);
   const arrayProduct = Array.from(Array(6).keys());
   const [value, setValue] = useState(new Date());
-  const [products, setProducts] = useState<ProductType[]>([]);
   const [activeAddProductTab, setActiveAddProductTab] = useState<number>(0);
 
-  console.log(products);
+  const loading = useAppSelector(selectDashboardLoading);
+  const products = useAppSelector(selectSalonAllProducts);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    productApi
-      .getAllProducts({ _id: '6267edd08cf58f40be3009cb' })
-      .then((res) => setProducts(res.data));
-  }, []);
+    dispatch(dashboardActions.getSalonAllProducts());
+  }, [dispatch]);
 
   function onChange(nextValue: Date) {
     console.log({ nextValue });
@@ -870,6 +874,7 @@ const Menu = () => {
 
   return (
     <div className="MainBody">
+      {loading && <Loading />}
       {tabs[0].id === activeTab && productsComponent()}
       {tabs[1].id === activeTab && management(tabs[1].id)}
       {tabs[2].id === activeTab && management(tabs[2].id)}

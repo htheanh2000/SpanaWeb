@@ -10,10 +10,10 @@ export interface SalonProductsResponse {
 export interface ProductType {
   _id: string;
   count: number;
-  data: ProductDetail[];
+  data: ProductDetailResponse[];
 }
 
-export interface ProductDetail {
+export interface ProductDetailResponse {
   _id: string;
   name: string;
   type: string;
