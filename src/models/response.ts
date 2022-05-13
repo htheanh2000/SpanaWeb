@@ -1,6 +1,13 @@
 export interface SignUpResponse {
   message: string;
 }
+export interface SignInResponse {
+  id: string;
+  email: string;
+  roles: string[];
+  accessToken: string;
+  category?: object;
+}
 
 export interface SalonProductsResponse {
   message: string;

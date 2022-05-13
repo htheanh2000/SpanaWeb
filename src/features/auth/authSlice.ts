@@ -1,8 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { UserSignUp } from 'models';
-import { SignUpResponse } from 'models/response';
+import { SignInResponse, SignUpResponse } from 'models/response';
 import { RootState } from './../../app/store';
-import { User } from './../../models/user';
 
 export interface LoginPayload {
   username: string;
@@ -12,7 +11,7 @@ export interface LoginPayload {
 export interface AuthState {
   isLoggedIn: boolean;
   logging?: boolean;
-  currentUser?: User;
+  currentUser?: SignInResponse;
   signUpping?: boolean;
   isSignUpSuccess?: boolean;
 }
@@ -32,7 +31,7 @@ const authSlice = createSlice({
     login(state, action: PayloadAction<LoginPayload>) {
       state.logging = true;
     },
-    loginSuccess(state, action: PayloadAction<User>) {
+    loginSuccess(state, action: PayloadAction<SignInResponse>) {
       state.isLoggedIn = true;
       state.logging = false;
       state.currentUser = action.payload;
@@ -65,6 +64,7 @@ export const authActions = authSlice.actions;
 
 // Selectors
 export const selectIsLoggedIn = (state: RootState) => state.auth.isLoggedIn;
+export const selectCurrentUser = (state: RootState) => state.auth.currentUser;
 export const selectIsLogging = (state: RootState) => state.auth.logging;
 export const selectSignUpResponse = (state: RootState) =>
   state.auth.isSignUpSuccess;
