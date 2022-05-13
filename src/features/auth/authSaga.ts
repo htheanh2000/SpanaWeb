@@ -1,54 +1,61 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import authApi from 'api/authApi';
-import { push } from 'connected-react-router';
 import { UserSignUp } from 'models';
-import { SignUpResponse } from 'models/response';
-import { call, delay, fork, put, take, takeLatest } from 'redux-saga/effects';
+import { SignInResponse, SignUpResponse } from 'models/response';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import { ToastError, ToastSuccess } from 'utils/toastify';
 import { authActions, LoginPayload } from './authSlice';
 
-function* handleLogin(payload: LoginPayload) {
+function doLogin(params: LoginPayload) {
+  return authApi.signIn(params);
+}
+
+function* handleLogin(action: PayloadAction<LoginPayload>) {
   try {
-    yield delay(1000); // yield call(api, '')
-    localStorage.setItem('access_token', 'fake_token');
-    yield put(
-      authActions.loginSuccess({
-        // Dispatch action
-        id: 1,
-        name: 'Zendy',
-      })
-    );
+    const response: SignInResponse = yield call(doLogin, action.payload);
+
+    const accessToken = response.accessToken;
+    localStorage.setItem('access_token', accessToken);
+    yield put(authActions.loginSuccess(response));
 
     // Redirect to Admin page
-    yield put(push('/admin/dashboard'));
+    // if (accessToken) {
+    //   yield put(push('/dashboard1'));
+    // }
   } catch (error: any) {
-    yield put(authActions.loginFailed(error.message)); // Dispatch action
-  }
-}
-
-function* handleLogout() {
-  yield delay(500);
-  localStorage.removeItem('access_token');
-
-  // Redirect to Login page
-  yield put(push('/login'));
-}
-
-function* watchLoginFlow() {
-  while (true) {
-    const isLoggedIn = Boolean(localStorage.getItem('access_token'));
-
-    if (!isLoggedIn) {
-      const action: PayloadAction<LoginPayload> = yield take(
-        authActions.login.type
-      );
-      yield fork(handleLogin, action.payload); // Non-blocking
+    console.log(`Failed to login`, error);
+    if (error.response) {
+      ToastError(error.response.data.message);
+    } else {
+      ToastError(error.message);
     }
-
-    yield take(authActions.logout.type);
-    yield call(handleLogout); // Blocking - wait for the logout function to finish before continuing to watch watchLoginFlow
+    yield put(authActions.loginFailed(error.message));
   }
 }
+
+// function* handleLogout() {
+//   yield delay(500);
+//   localStorage.removeItem('access_token');
+
+//   // Redirect to Login page
+//   yield put(push('/login'));
+// }
+
+// function* watchLoginFlow() {
+//   while (true) {
+//     const isLoggedIn = Boolean(localStorage.getItem('access_token'));
+
+//     if (!isLoggedIn) {
+//       const action: PayloadAction<LoginPayload> = yield take(
+//         authActions.login.type
+//       );
+//       yield fork(handleLogin, action.payload); // Non-blocking
+//     }
+
+//     yield take(authActions.logout.type);
+//     yield call(handleLogout); // Blocking - wait for the logout function to finish before continuing to watch watchLoginFlow
+//   }
+// }
 
 function* doSignUp(action: PayloadAction<UserSignUp>) {
   try {
@@ -66,7 +73,8 @@ function* doSignUp(action: PayloadAction<UserSignUp>) {
   }
 }
 
-export function* authSaga() {
-  yield fork(watchLoginFlow);
+export default function* authSaga() {
+  // yield fork(watchLoginFlow);
   yield takeLatest(authActions.signUp.type, doSignUp);
+  yield takeLatest(authActions.login.type, handleLogin);
 }

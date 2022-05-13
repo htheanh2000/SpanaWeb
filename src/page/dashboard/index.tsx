@@ -1,6 +1,9 @@
+import { useAppSelector } from 'app/hooks';
 import classNames from 'classnames';
 import Icon from 'components/icon';
+import { selectCurrentUser } from 'features/auth/authSlice';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Analytics from './Analytics';
 import Branch from './Branch';
 import { iconList } from './constant';
@@ -24,6 +27,8 @@ enum Tabs {
 
 const Dashboard = () => {
   const [activeIcon, setActiveIcon] = React.useState<number>(iconList[0].id);
+  const currentUser = useAppSelector(selectCurrentUser);
+  const navigate = useNavigate();
 
   const mainBody = (activeTabs: Tabs) => {
     switch (activeTabs) {
@@ -45,15 +50,17 @@ const Dashboard = () => {
     <div className="Header">
       <div className="Header--left">
         <div className="Photo"></div>
-        <h5 className="bold">Spana</h5>
+        <h5 className="bold c-pointer" onClick={() => navigate('/')}>
+          Spana
+        </h5>
       </div>
 
       <div className="Header--right">
         <Icon name="bell" size="medium" className="Bell" />
         <div className="Avatar"></div>
         <div className="Info">
-          <p className="bold">Minh Quang</p>
-          <p className="body2">Thu Ngân</p>
+          <p className="bold">{currentUser?.email}</p>
+          <p className="body2">{currentUser?.roles}</p>
         </div>
       </div>
     </div>

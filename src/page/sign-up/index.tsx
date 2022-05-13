@@ -217,7 +217,9 @@ const SignUp = () => {
 
                 <div className="Account flex">
                   <p className="menu1">Đã có tài khoản ?</p>
-                  <p className="bold">Đăng nhập ngay</p>
+                  <p className="bold" onClick={() => navigate('/sign-in')}>
+                    Đăng nhập ngay
+                  </p>
                 </div>
               </div>
             </form>
