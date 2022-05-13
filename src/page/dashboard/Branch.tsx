@@ -1,9 +1,14 @@
 import Icon from 'components/icon';
 import Input from 'components/input';
 import { Formik } from 'formik';
+import moment from 'moment';
 import React, { ChangeEvent, useState } from 'react';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
+// import 'react-big-calendar/lib/sass/styles';
 import Image from '../../assets/image/spa/1.jpg';
 import Button from '../../components/button/';
+
+const localizer = momentLocalizer(moment);
 
 const Branch = () => {
   const fakeData = Array.from(Array(6).keys());
@@ -16,6 +21,21 @@ const Branch = () => {
 
       setPreview(URL.createObjectURL(file));
     }
+  };
+
+  const eventStyleGetter = (event: any) => {
+    var backgroundColor = event.hexColor;
+    var style = {
+      backgroundColor: backgroundColor,
+      borderRadius: '0px',
+      opacity: 0.8,
+      color: 'black',
+      border: '0px',
+      display: 'block',
+    };
+    return {
+      style: style,
+    };
   };
 
   const handleSubmit = (values: any) => {};
@@ -234,7 +254,99 @@ const Branch = () => {
     </div>
   );
 
-  return <div className="Branch">{employee ? addEmployee() : branch()}</div>;
+  const schedule = () => (
+    <div className="Schedule">
+      <h5 className="bold mb-6">Quản lý nhân sự </h5>
+      <div className="Heading">
+        <h4 className="bold">35 Võ Văn Ngân - Thủ Đức</h4>
+        <div className="Right mr-8">
+          <Button state="primary" onClick={() => setEmployee(true)}>
+            Thêm nhân viên +
+          </Button>
+          <Icon name="menu1" />
+          <Icon name="menu2" />
+          <Icon name="menu3" />
+        </div>
+      </div>
+
+      <div className="Calendar">
+        <Calendar
+          eventPropGetter={eventStyleGetter}
+          localizer={localizer}
+          events={[
+            {
+              id: 0,
+              title: 'User Interview with Adi',
+              start: new Date(2022, 4, 13, 6),
+              end: new Date(2022, 4, 13, 18),
+              hexColor: '#f04461',
+            },
+            {
+              id: 2,
+              title: 'Deadline Dashboard',
+              start: new Date(2022, 4, 14, 6),
+              end: new Date(2022, 4, 17, 17),
+              hexColor: '#41DA7E',
+            },
+          ]}
+          startAccessor="start"
+          endAccessor="end"
+          style={{ height: 500 }}
+        />
+
+        <div className="Right">
+          <div className="Tag">
+            <h6 className="bold">Schedule Tag</h6>
+            <p className="body2 semibold">Add new</p>
+          </div>
+          <div className="Items">
+            <div className="Item">
+              <div>
+                <input type="checkbox" name="" id="" checked />
+                <h6 className="bold">UX Researcher</h6>
+              </div>
+              <div>
+                <div className="Color"></div>
+                <Icon name="three-dots" />
+              </div>
+            </div>
+            <div className="Item">
+              <div>
+                <input type="checkbox" name="" id="" checked />
+                <h6 className="bold">UI Designer</h6>
+              </div>
+              <div>
+                <div className="Color"></div>
+                <Icon name="three-dots" />
+              </div>
+            </div>
+            <div className="Item">
+              <div>
+                <input type="checkbox" name="" id="" checked />
+                <h6 className="bold">Marketing</h6>
+              </div>
+              <div>
+                <div className="Color"></div>
+                <Icon name="three-dots" />
+              </div>
+            </div>
+            <div className="Item">
+              <div>
+                <input type="checkbox" name="" id="" checked />
+                <h6 className="bold">Developer</h6>
+              </div>
+              <div>
+                <div className="Color"></div>
+                <Icon name="three-dots" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  return <div className="Branch">{employee ? addEmployee() : schedule()}</div>;
 };
 
 export default Branch;
