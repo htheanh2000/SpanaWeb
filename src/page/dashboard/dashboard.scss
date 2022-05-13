@@ -1,4 +1,5 @@
 @import "../../assets/style/variable";
+@import "react-big-calendar/lib/sass/styles";
 
 .Dashboard {
       width: 100%;
@@ -1074,6 +1075,85 @@
       .Branch {
             margin: 20px 40px;
             width: 100%;
+            margin-right: 80px;
+            > .Schedule {
+                  > .Heading {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        > .Right {
+                              display: flex;
+                              align-items: center;
+                              gap: 20px;
+                        }
+                  }
+                  > .Calendar {
+                        margin-top: 40px;
+                        display: flex;
+                        gap: 30px;
+                        .rbc-calendar {
+                              flex: 1;
+                        }
+
+                        > .Right {
+                              background-color: $light-primary-system-color;
+                              padding: 20px;
+                              width: 350px;
+                              height: 300px;
+                              border-radius: 5px;
+                              > .Tag {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    > p {
+                                          color: $light-text-link-color-purple;
+                                    }
+                              }
+
+                              > .Items {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 20px;
+                                    margin-top: 30px;
+                                    > .Item {
+                                          display: flex;
+                                          justify-content: space-between;
+                                          align-items: center;
+                                          > div {
+                                                display: flex;
+                                                align-items: center;
+                                                gap: 10px;
+                                                > input {
+                                                      width: 24px;
+                                                      height: 24px;
+                                                }
+
+                                                > .Color {
+                                                      width: 24px;
+                                                      height: 24px;
+                                                      background-color: $light-error-color;
+                                                      border-radius: 3px;
+                                                }
+                                          }
+                                          &:nth-child(2) {
+                                                > div {
+                                                      > .Color {
+                                                            background-color: $light-success-color;
+                                                      }
+                                                }
+                                          }
+                                          &:nth-child(3) {
+                                                > div {
+                                                      > .Color {
+                                                            background-color: $light-accent-2-color-50;
+                                                      }
+                                                }
+                                          }
+                                    }
+                              }
+                        }
+                  }
+            }
             > .Heading {
                   display: flex;
                   justify-content: space-between;
