@@ -23,6 +23,8 @@ import Calendar from '../../assets/image/icon/Calendar.svg';
 import Ticket from '../../assets/image/icon/ticket-star.svg';
 import Buy from '../../assets/image/icon/Buy.svg';
 import Discount from '../../assets/image/icon/Discount.svg';
+import Pen from '../../assets/image/icon/pen.svg';
+import Plus from '../../assets/image/icon/plus.svg';
 
 import './icon.scss';
 
@@ -51,6 +53,8 @@ export const icons = {
   ticket: Ticket,
   buy: Buy,
   discount: Discount,
+  plus: Plus,
+  pen: Pen,
 };
 
 export type IconProps = {
