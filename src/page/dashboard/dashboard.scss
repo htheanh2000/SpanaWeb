@@ -1070,6 +1070,127 @@
                         }
                   }
             }
+            > .Membership {
+                  padding: 50px 20px 0 20px;
+
+                  > .Title {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                  }
+                  > .Recent {
+                        padding: 10px;
+                        margin-top: 30px;
+                        background-color: $light-primary-system-color;
+                        border-radius: 5px;
+                        margin-bottom: 20px;
+                        > .Title {
+                              display: flex;
+                              align-items: center;
+                              justify-content: space-between;
+                              > div {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 30px;
+                              }
+                              > h6 {
+                                    font-size: 20px !important;
+                              }
+                        }
+
+                        > .Users {
+                              display: grid;
+                              grid-template-columns: repeat(3, 1fr);
+                              gap: 30px;
+                              margin-top: 20px;
+                              > .Item {
+                                    border: 1px solid $light-primary-separator-color;
+                                    border-radius: 5px;
+                                    padding: 10px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    > div {
+                                          display: flex;
+                                          gap: 20px;
+                                          align-items: center;
+                                          .Avatar {
+                                                width: 64px;
+                                                height: 64px;
+                                                border-radius: 50%;
+                                          }
+                                          > .Name {
+                                                display: flex;
+                                                flex-direction: column;
+                                                gap: 10px;
+                                                > p:last-child {
+                                                      color: $light-text-link-color-purple;
+                                                }
+                                          }
+                                    }
+                              }
+                        }
+                  }
+                  > .Detail {
+                        > p {
+                              font-size: 20px !important;
+                        }
+                        > .Table {
+                              padding: 0px 20px;
+                              > table {
+                                    width: 100%;
+                                    margin-top: 20px;
+                                    border-collapse: collapse;
+                                    > thead {
+                                          > tr {
+                                                background-color: $light-secondary-system-color;
+                                                margin-top: 20px;
+                                                text-align: left;
+                                                > th {
+                                                      padding: 10px;
+                                                      border-top: 1px solid $light-primary-separator-color;
+                                                      &:last-child {
+                                                            border-right: 1px solid $light-primary-separator-color;
+                                                      }
+                                                      &:first-child {
+                                                            border-left: 1px solid $light-primary-separator-color;
+                                                      }
+                                                }
+                                          }
+                                    }
+
+                                    > tbody {
+                                          > tr {
+                                                > .Detail {
+                                                      max-width: 200px;
+                                                }
+                                                > td {
+                                                      text-align: left;
+                                                      padding: 5px;
+                                                      border-top: 1px solid $light-primary-separator-color;
+                                                      > .Button {
+                                                            color: $light-text-link-color-purple;
+                                                      }
+                                                      > .Name {
+                                                            display: flex;
+                                                            align-items: center;
+                                                            gap: 10px;
+                                                            > img {
+                                                                  width: 40px;
+                                                                  height: 40px;
+                                                                  border-radius: 5px;
+                                                            }
+                                                      }
+                                                }
+                                                &:last-child {
+                                                      border-bottom: 1px solid $light-primary-separator-color;
+                                                }
+                                          }
+                                    }
+                              }
+                        }
+                  }
+            }
       }
 
       .Branch {
