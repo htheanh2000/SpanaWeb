@@ -61,15 +61,17 @@ export type IconProps = {
   name: keyof typeof icons;
   size?: 'small' | 'medium' | 'large';
   className?: string;
+  onClick?: () => void;
 };
 
 const Icon: FunctionComponent<IconProps> = (props) => {
-  const { name, size, className } = props;
+  const { name, size, className, onClick } = props;
   return (
     <img
       src={icons[name]}
       className={`icon--${size} ${className}`}
       alt="icons"
+      onClick={onClick}
     />
   );
 };

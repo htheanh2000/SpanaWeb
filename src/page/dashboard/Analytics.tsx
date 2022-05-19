@@ -69,7 +69,7 @@ const data = [
   },
 ];
 
-const historyList = [
+export const historyList = [
   {
     id: 1,
     product: 'Tẩy nốt rồi',
