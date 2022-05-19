@@ -1193,7 +1193,8 @@
             }
       }
 
-      .Branch {
+      .Branch,
+      .History {
             margin: 20px 40px;
             width: 100%;
             margin-right: 80px;
@@ -1392,6 +1393,146 @@
                                     display: flex;
                                     flex-direction: column;
                                     gap: 30px;
+                              }
+                        }
+                  }
+            }
+            > .History {
+                  > .List {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                        margin-top: 30px;
+                        > .Item {
+                              > .Time {
+                                    display: flex;
+                                    gap: 20px;
+                                    align-items: center;
+                                    margin-bottom: 10px;
+                              }
+                              > .Info {
+                                    background-color: $light-primary-system-color;
+
+                                    &.Active {
+                                          background-color: $light-text-link-color-purple;
+                                          color: white;
+                                          > p {
+                                                color: white;
+                                          }
+                                    }
+                                    border-radius: 8px;
+                                    padding: 10px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    > .Name {
+                                          display: flex;
+                                          gap: 20px;
+                                          align-items: center;
+                                          > img {
+                                                width: 80px;
+                                                height: 80px;
+                                                border-radius: 50%;
+                                          }
+                                    }
+                                    > .Title {
+                                          display: flex;
+                                          align-items: center;
+                                          gap: 20px;
+                                    }
+
+                                    > p {
+                                          color: $light-text-link-color-purple;
+                                          cursor: pointer;
+                                    }
+                              }
+                        }
+                  }
+            }
+
+            > .Attendance {
+                  padding: 30px;
+                  > .Type {
+                        display: flex;
+                        gap: 30px;
+
+                        > .Id {
+                              display: flex;
+                              flex-direction: column;
+                              gap: 20px;
+                              flex: 1;
+                              > p {
+                                    color: $light-text-color-body-1;
+                              }
+                        }
+                        > .Face {
+                              width: 40%;
+                              display: flex;
+                              flex-direction: column;
+                              align-items: center;
+                              gap: 20px;
+                              > .FaceId {
+                                    width: 256px;
+                                    height: 252px;
+                                    background-color: $light-primary-system-color;
+                                    border-radius: 15px;
+                                    display: flex;
+                                    align-items: center;
+                                    flex-direction: column;
+                                    gap: 10px;
+                                    position: relative;
+                                    cursor: pointer;
+                                    > h6:last-child {
+                                          color: $light-accent-1-color-50;
+                                    }
+
+                                    > video {
+                                          position: absolute;
+                                    }
+                              }
+                        }
+                  }
+                  > .Detail {
+                        > table {
+                              width: 100%;
+                              > thead {
+                                    > tr {
+                                          > th {
+                                                padding-bottom: 20px;
+                                                border-bottom: 1px solid $light-primary-separator-color;
+                                                text-align: left;
+                                                > h6 {
+                                                      text-align: left;
+                                                }
+                                          }
+                                    }
+                              }
+                              > tbody {
+                                    > tr {
+                                          > td {
+                                                padding-top: 20px;
+                                                padding-bottom: 20px;
+                                                > .Name {
+                                                            display: flex;
+                                                            align-items: center;
+                                                            gap: 10px;
+                                                            > img {
+                                                                  width: 50px;
+                                                                  height: 50px;
+                                                            }
+                                                      }
+                                          }
+                                    }
+                                    .First {
+                                          display: flex;
+                                          gap: 20px;
+                                          align-items: center;
+                                    }
+                                    .Percent {
+                                          display: flex;
+                                          align-items: center;
+                                          justify-content: space-between;
+                                    }
                               }
                         }
                   }
