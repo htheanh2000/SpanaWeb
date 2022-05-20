@@ -25,6 +25,7 @@ import Buy from '../../assets/image/icon/Buy.svg';
 import Discount from '../../assets/image/icon/Discount.svg';
 import Pen from '../../assets/image/icon/pen.svg';
 import Plus from '../../assets/image/icon/plus.svg';
+import Filter from '../../assets/image/icon/filter.svg';
 
 import './icon.scss';
 
@@ -55,6 +56,7 @@ export const icons = {
   discount: Discount,
   plus: Plus,
   pen: Pen,
+  filter: Filter,
 };
 
 export type IconProps = {
