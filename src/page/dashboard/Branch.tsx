@@ -1,22 +1,69 @@
+import classNames from 'classnames';
 import Icon from 'components/icon';
 import Input from 'components/input';
 import { Formik } from 'formik';
 import moment from 'moment';
 import React, { ChangeEvent, useRef, useState } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
+import { formatNumber } from 'utils';
+import FaceImage from '../../assets/image/face.png';
 // import 'react-big-calendar/lib/sass/styles';
 import Image from '../../assets/image/spa/1.jpg';
-import FaceImage from '../../assets/image/face.png';
 import Button from '../../components/button/';
 import { historyList } from './Analytics';
 
 const localizer = momentLocalizer(moment);
 
+const tabs = [
+  'Tất cả(9)',
+  'Ca sáng(3)',
+  'Ca chiều(9)',
+  'Ca tối(2)',
+  'Full time(2)',
+];
+
+const scheduleWorkList = [
+  {
+    ca: 'Ca Sáng',
+    work: 'Dọn bàn, quét,...',
+    id: 'Mã buổi: B01',
+    date: '16/05/2022 - 20/05/2022',
+    hour: '08:00 - 12:00',
+    salary: 13000,
+  },
+  {
+    ca: 'Ca Chiều',
+    work: 'Dọn bàn, quét,...',
+    id: 'Mã buổi: B02',
+    date: '16/05/2022 - 20/05/2022',
+    hour: '13:00 - 18:00',
+    salary: 13000,
+  },
+  {
+    ca: 'Ca Tối',
+    work: 'Dọn bàn, quét,...',
+    id: 'Mã buổi: B03',
+    date: '16/05/2022 - 20/05/2022',
+    hour: '18:00 - 23:00',
+    salary: 15000,
+  },
+  {
+    ca: 'Cả Ngày',
+    work: 'Dọn bàn, quét,...',
+    id: 'Mã buổi: B03',
+    date: '16/05/2022 - 20/05/2022',
+    hour: '8:00 - 22:00',
+    salary: 22000,
+  },
+];
+
 const Branch = () => {
   const fakeData = Array.from(Array(6).keys());
   const [activeTab, setActiveTab] = useState<number>(0);
+  const [activeSubTab, setActiveSubTab] = useState<number>(0);
   const [activeTabHistory, setActiveTabHistory] = useState<number>(1);
   const [preview, setPreview] = useState<string>('');
+  const [showSchedule, setShowSchedule] = useState<boolean>(false);
 
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -81,7 +128,9 @@ const Branch = () => {
             </div>
             <h5 className="bold">Phan Thị Thanh Như</h5>
             <h6>Quản lý</h6>
-            <Button state="ghost">Xem thêm</Button>
+            <Button state="ghost" onClick={() => setShowSchedule(true)}>
+              Xem thêm
+            </Button>
             <Icon name="three-dots" className="Dots" />
           </div>
         ))}
@@ -483,13 +532,138 @@ const Branch = () => {
     </div>
   );
 
+  const showScheduleComponent = () => (
+    <div className="ShowSchedule">
+      <h5 className="bold mb-8">Chọn ca làm việc</h5>
+
+      <div className="Body">
+        <div className="Left">
+          <div className="HeaderTab">
+            <div className="Tabs">
+              {tabs.map((tab, index) => (
+                <h6
+                  key={index}
+                  className={classNames('c-pointer', {
+                    bold: activeSubTab === index,
+                  })}
+                  onClick={() => setActiveSubTab(index)}
+                >
+                  {tab}
+                </h6>
+              ))}
+            </div>
+
+            <div className="Icons">
+              <Icon name="search" />
+              <Icon name="filter" />
+            </div>
+          </div>
+
+          <div className="Content">
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Ca làm việc</th>
+                  <th>Thời gian</th>
+                  <th>Lương (nghìn đồng/giờ)</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {scheduleWorkList.map((item, index) => (
+                  <tr key={index}>
+                    <td>
+                      <input type="checkbox" name="" id="" />
+                    </td>
+                    <td>
+                      <div className="Name">
+                        <p className="headline bold">{item.ca} </p>
+                        <p className="caption">{item.work}</p>
+                        <p className="caption">{item.id}</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="Time">
+                        <p className="body2">Ngày làm việc:</p>
+                        <p className="body2"> {item.date}</p>
+                        <p className="body2">Giờ làm việc:</p>
+                        <p className="body2">{item.hour}</p>
+                      </div>
+                    </td>
+                    <td className="headline bold">
+                      {formatNumber(item.salary)}đ
+                    </td>
+                    <td>
+                      <Icon name="three-dots" />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div className="Right">
+          <div className="Title">
+            <h6 className="bold">Lịch ca làm</h6>
+            <h6>Tháng 5</h6>
+          </div>
+
+          <div className="Calendar">
+            <table>
+              <thead>
+                <tr>
+                  <th className="body2">Thứ 2</th>
+                  <th className="body2">Thứ 3</th>
+                  <th className="body2">Thứ 4</th>
+                  <th className="body2">Thứ 5</th>
+                  <th className="body2">Thứ 6</th>
+                  <th className="body2">Thứ 7</th>
+                  <th className="body2">CN</th>
+                </tr>
+              </thead>
+              <tbody>
+                {scheduleWorkList.map((item, index) => (
+                  <tr key={index}>
+                    <td>
+                      <div></div>
+                    </td>
+                    <td>
+                      <div></div>
+                    </td>
+                    <td>
+                      <div></div>
+                    </td>
+                    <td>
+                      <div></div>
+                    </td>
+                    <td>
+                      <div></div>
+                    </td>
+                    <td>
+                      <div></div>
+                    </td>
+                    <td>
+                      <div></div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <div className="Branch">
-      {activeTab === 0 && branch()}
-      {activeTab === 1 && addEmployee()}
-      {activeTab === 2 && schedule()}
-      {activeTab === 3 && historyEmployee()}
-      {activeTab === 4 && attendance()}
+      {activeTab === 0 && !showSchedule && branch()}
+      {activeTab === 1 && !showSchedule && addEmployee()}
+      {activeTab === 2 && !showSchedule && schedule()}
+      {activeTab === 3 && !showSchedule && historyEmployee()}
+      {activeTab === 4 && !showSchedule && attendance()}
+      {showSchedule && showScheduleComponent()}
     </div>
   );
 };
