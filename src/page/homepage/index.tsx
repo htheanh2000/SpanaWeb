@@ -2,13 +2,13 @@
 import Button from '../../components/button';
 import Icon from '../../components/icon';
 import './homepage.scss';
-import image1 from '../../assets/image/spa/8.png';
-import image2 from '../../assets/image/spa/9.png';
-import section2 from '../../assets/image/homepage-section-2.png';
+import image1 from '../../assets/image/spa/10.png';
+import image2 from '../../assets/image/spa/11.png';
 import { Section2Contents } from './contants';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/header';
+import Footer from 'components/footer/Footer';
 function HomePage() {
   const [activeContent, setActiceContent] = useState(0);
   const navigate = useNavigate();
@@ -19,12 +19,13 @@ function HomePage() {
     <div className="container homepage">
       <Header />
       <section id="section-1" className="p-relative flex align-center mt-10">
-        <div className="max-w-600">
-          <p className="display semibold homepage__title">
+        <div className="Left">
+          <p>Spana - hệ thống quản lí spa</p>
+          <p className="Slogan">
             Giải pháp <span className="">quản lý hệ thống và khách hàng</span>{' '}
             với Spana
           </p>
-          <p className="title mt-7">
+          <p className="headline mt-7">
             Giải pháp nền tảng kinh doanh ngành làm đẹp myspa cung cấp website
             và app để đăng tải sản phẩm dịch vụ cho spa, thẩm mỹ viện, salon,
             clinic
@@ -40,28 +41,17 @@ function HomePage() {
             </Button>
           </div>
         </div>
-        <div className="right-view">
-          <img
-            className="p-absolute"
-            id="img-1"
-            src={image1}
-            alt="image-1"
-          ></img>
-          <img
-            className="p-absolute"
-            id="img-2"
-            src={image2}
-            alt="image-2"
-          ></img>
+        <div className="Right">
+          <img id="img-1" src={image1} alt="image-1" />
         </div>
       </section>
 
       <section id="section-2" className="mt-15 mb-15">
         <div className="left">
-          <h3 className="text-center mb-10" id="title">
+          <h4 className="bold mb-8">
             Nền tảng kinh doanh ngành làm đẹp cho spa, thẩm mỹ viện, salon,
             clinic/đồng bộ và quản lý vận hành tại một nơi
-          </h3>
+          </h4>
           {Section2Contents.map((content, index) => (
             <div
               key={index}
@@ -96,9 +86,11 @@ function HomePage() {
           </div>
         </div>
         <div className="right">
-          <img src={section2} alt="section-2" />
+          <img src={image2} alt="section-2" />
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }

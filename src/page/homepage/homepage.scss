@@ -16,11 +16,43 @@
            right: 300px;
        }
     }
-    #section-2 {
-        position: relative;
-        #title {
-            color: $light-text-link-color-purple;
+
+    #section-1 {
+        >.Left {
+            width: 688px;
+            >p:first-child {
+                font-size: 20px;
+                font-weight: bold;
+                color: $light-accent-2-color-70;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+            }
+            >.Slogan {
+                font-size: 80px;
+                font-weight: bold;
+                > span {
+                    color: $light-text-link-color-purple;
+                }
+            }
+            >p:last-child{
+                max-width: 477px;
+                color: red;
+            }
         }
+        >.Right {
+            >img {
+                width: 500px;
+                height:450px;
+            }
+        }
+    }
+    #section-2 {
+        >.left 
+        {
+            width: 688px;
+        }
+        position: relative;
+        
         .active {
             color: $light-text-link-color-purple;
         }
@@ -34,7 +66,7 @@
                 height: auto;
                 position: absolute;
                 right: -48px;
-                top: 80px;
+                top: -20px;
             }
         }
     }
