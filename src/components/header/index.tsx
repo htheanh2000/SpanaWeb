@@ -1,4 +1,4 @@
-import logo from '../../assets/image/logo.png';
+import logo from '../../assets/image/spa/logo.png';
 import './header.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../button';

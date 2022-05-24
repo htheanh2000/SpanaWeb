@@ -26,6 +26,11 @@ import Discount from '../../assets/image/icon/Discount.svg';
 import Pen from '../../assets/image/icon/pen.svg';
 import Plus from '../../assets/image/icon/plus.svg';
 import Filter from '../../assets/image/icon/filter.svg';
+import Facebook from '../../assets/image/icon/Social/facebook.svg';
+import Insta from '../../assets/image/icon/Social/insta.svg';
+import Twitter from '../../assets/image/icon/Social/twitter.svg';
+import GooglePlay from '../../assets/image/icon/Social/google-play.svg';
+import AppStore from '../../assets/image/icon/Social/app-store.svg';
 
 import './icon.scss';
 
@@ -57,6 +62,11 @@ export const icons = {
   plus: Plus,
   pen: Pen,
   filter: Filter,
+  facebook: Facebook,
+  insta: Insta,
+  twitter: Twitter,
+  googlePlay: GooglePlay,
+  appStore: AppStore,
 };
 
 export type IconProps = {
