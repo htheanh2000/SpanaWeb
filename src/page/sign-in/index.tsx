@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from 'app/hooks';
-import Loading from 'components/Preloading';
+import Loading from 'components/loading/Preloading';
 import {
   authActions,
   LoginPayload,

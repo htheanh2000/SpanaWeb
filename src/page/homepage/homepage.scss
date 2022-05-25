@@ -1,58 +1,62 @@
-@import '../../assets/style//variable' ;
+@import "../../assets/style//variable";
 
 .homepage {
+    max-width: 1441px;
+    margin: auto;
     &__title {
         span {
             color: $light-text-link-color-purple;
         }
     }
     .right-view {
-       img {
-        top:0px;
-        right:0;
-       }
-       #img-2 {
-           top:320px;
-           right: 300px;
-       }
+        img {
+            top: 0px;
+            right: 0;
+        }
+        #img-2 {
+            top: 320px;
+            right: 300px;
+        }
     }
 
     #section-1 {
-        >.Left {
+        display: flex;
+        justify-content: space-between;
+        > .Left {
             width: 688px;
-            >p:first-child {
+            > p:first-child {
                 font-size: 20px;
                 font-weight: bold;
                 color: $light-accent-2-color-70;
                 text-transform: uppercase;
                 margin-bottom: 20px;
             }
-            >.Slogan {
+            > .Slogan {
                 font-size: 80px;
                 font-weight: bold;
                 > span {
                     color: $light-text-link-color-purple;
                 }
             }
-            >p:last-child{
+            > p:last-child {
                 max-width: 477px;
                 color: red;
             }
         }
-        >.Right {
-            >img {
+        > .Right {
+            margin-right: 40px;
+            > img {
                 width: 500px;
-                height:450px;
+                height: 450px;
             }
         }
     }
     #section-2 {
-        >.left 
-        {
+        > .left {
             width: 688px;
         }
         position: relative;
-        
+
         .active {
             color: $light-text-link-color-purple;
         }
@@ -62,6 +66,7 @@
         }
         .right {
             img {
+                margin-right: 40px;
                 width: 600px;
                 height: auto;
                 position: absolute;

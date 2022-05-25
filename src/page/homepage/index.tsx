@@ -16,7 +16,7 @@ function HomePage() {
     navigate('/sign-up');
   };
   return (
-    <div className="container homepage">
+    <div className=" homepage">
       <Header />
       <section id="section-1" className="p-relative flex align-center mt-10">
         <div className="Left">
