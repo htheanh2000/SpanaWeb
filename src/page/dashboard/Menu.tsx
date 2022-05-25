@@ -33,7 +33,7 @@ import {
   selectSalonAllProducts,
 } from 'features/dashboard/dashboardSlice';
 import { useAppDispatch, useAppSelector } from 'app/hooks';
-import Loading from 'components/Preloading';
+import SkeletonLoading from 'components/skeletonLoading/SkeletonLoading';
 
 const Menu = () => {
   const [activeTab, setActiveTab] = useState<number>(tabs[0].id);
@@ -123,32 +123,35 @@ const Menu = () => {
         {tabsCom()}
 
         <div className="Categories">
-          {products.map((product, index) => (
-            <div className="Item" key={index}>
-              <div className="Title">
-                <p className="title1 bold">{product._id}</p>
-              </div>
-              <div className="ProductList">
-                {product.data.map((item, index) => (
-                  <div key={index} className="Product">
-                    <div className="Image">
-                      <img src={item.image} alt="" />
-                    </div>
-                    <div className="Info">
-                      <h6 className="bold">{item.name}</h6>
-                      <p className="body2">{item.description}</p>
-                      <div className="Price">
-                        <h6 className="bold">
-                          {formatNumber(item.price, 3)} đ
-                        </h6>
-                        <p className="body2">{formatNumber(item.price, 3)} đ</p>
+          {!loading &&
+            products.map((product, index) => (
+              <div className="Item" key={index}>
+                <div className="Title">
+                  <p className="title1 bold">{product._id}</p>
+                </div>
+                <div className="ProductList">
+                  {product.data.map((item, index) => (
+                    <div key={index} className="Product">
+                      <div className="Image">
+                        <img src={item.image} alt="" />
+                      </div>
+                      <div className="Info">
+                        <h6 className="bold">{item.name}</h6>
+                        <p className="body2">{item.description}</p>
+                        <div className="Price">
+                          <h6 className="bold">
+                            {formatNumber(item.price, 3)} đ
+                          </h6>
+                          <p className="body2">
+                            {formatNumber(item.price, 3)} đ
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
       <div className="MainBody--right">
@@ -874,7 +877,7 @@ const Menu = () => {
 
   return (
     <div className="MainBody">
-      {loading && <Loading />}
+      {loading && <SkeletonLoading />}
       {tabs[0].id === activeTab && productsComponent()}
       {tabs[1].id === activeTab && management(tabs[1].id)}
       {tabs[2].id === activeTab && management(tabs[2].id)}
