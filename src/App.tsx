@@ -11,7 +11,7 @@ import SignIn from 'page/sign-in';
 
 function App() {
   return (
-    <div>
+    <>
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/sign-up" element={<SignUp />} />
@@ -19,7 +19,7 @@ function App() {
         <Route path="/registration" element={<Registration />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
-    </div>
+    </>
   );
 }
 

@@ -31,6 +31,7 @@ import Insta from '../../assets/image/icon/Social/insta.svg';
 import Twitter from '../../assets/image/icon/Social/twitter.svg';
 import GooglePlay from '../../assets/image/icon/Social/google-play.svg';
 import AppStore from '../../assets/image/icon/Social/app-store.svg';
+import Menu4 from '../../assets/image/icon/menu3.svg';
 
 import './icon.scss';
 
@@ -67,6 +68,7 @@ export const icons = {
   twitter: Twitter,
   googlePlay: GooglePlay,
   appStore: AppStore,
+  menu4: Menu4,
 };
 
 export type IconProps = {
