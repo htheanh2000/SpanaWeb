@@ -1,7 +1,7 @@
 import logo from '../../assets/image/spa/logo.png';
-import './header.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../button';
+import Icon from 'components/icon';
 function Header() {
   const navigate = useNavigate();
   const links = [
@@ -33,42 +33,42 @@ function Header() {
     navigate('/sign-up');
   };
   return (
-    <div className="">
-      <div className="header flex align-center jc-between">
-        <div className="flex align-center c-pointer" onClick={goHome}>
-          <img src={logo} alt="Spana" className="s-9 mr-3" />
-          <h5 className="text-bold mt-2">Spana</h5>
+    <div className="header flex justify-between px-5 mt-4 sm:px-0 sm:mt-[48px]">
+      <div className="flex align-center c-pointer" onClick={goHome}>
+        <img src={logo} alt="Spana" className="mr-3 " />
+        <h5 className="text-caption font-bold sm:text-h5">Spana</h5>
+      </div>
+      {/* nav */}
+      <div className="sm:flex align-center hidden">
+        <div className="nav">
+          <ul className="flex ">
+            {links.map((link, index) => (
+              <Link
+                key={index}
+                className="mr-6 c-pointer text-body1 font-semibold hover:text-light-primary-color-50"
+                to={link.to}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </ul>
         </div>
-        {/* nav */}
-        <div className="flex align-center">
-          <div className="nav">
-            <ul className="flex ">
-              {links.map((link, index) => (
-                <Link
-                  key={index}
-                  className="mr-6 c-pointer link body1 semibold"
-                  to={link.to}
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </ul>
-          </div>
-          <div className="flex ml-8">
-            <Button
-              state="ghost"
-              size="large"
-              className="mr-4"
-              onClick={goSignUp}
-            >
-              Đăng kí
-            </Button>
-            <Button state="primary" size="large" onClick={goSignIn}>
-              Đăng nhập
-            </Button>
-          </div>
+        <div className="flex ml-8">
+          <Button
+            state="ghost"
+            size="large"
+            className="mr-4"
+            onClick={goSignUp}
+          >
+            Đăng kí
+          </Button>
+          <Button state="primary" size="large" onClick={goSignIn}>
+            Đăng nhập
+          </Button>
         </div>
       </div>
+
+      <Icon name="menu4" className="sm:hidden w-6" />
     </div>
   );
 }
