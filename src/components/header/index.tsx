@@ -2,7 +2,7 @@ import logo from '../../assets/image/spa/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../button';
 import Icon from 'components/icon';
-function Header() {
+function Header({ className }: { className?: string }) {
   const navigate = useNavigate();
   const links = [
     {
@@ -33,7 +33,9 @@ function Header() {
     navigate('/sign-up');
   };
   return (
-    <div className="header flex justify-between px-5 mt-4 sm:px-0 sm:mt-[48px]">
+    <div
+      className={`header flex justify-between px-5 mt-4 sm:px-0 sm:mt-[48px] ${className}`}
+    >
       <div className="flex align-center c-pointer" onClick={goHome}>
         <img src={logo} alt="Spana" className="mr-3 " />
         <h5 className="text-caption font-bold sm:text-h5">Spana</h5>
