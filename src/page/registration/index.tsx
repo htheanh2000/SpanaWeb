@@ -1,10 +1,10 @@
-import './registration.scss';
-import imgRegistration from '../../assets/image/registration.png';
-import Input from '../../components/input';
-import Button from '../../components/button';
-import { ChangeEvent, useState } from 'react';
 import classNames from 'classnames';
+import Header from 'components/header';
+import { ChangeEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import imgRegistration from '../../assets/image/registration.png';
+import Button from '../../components/button';
+import Input from '../../components/input';
 
 interface Errors {
   [key: string]: string;
@@ -23,17 +23,7 @@ const Registration = () => {
   const navigate = useNavigate();
 
   const handleRegistration1 = () => {
-    if (!salonName) {
-      errors.salonName = 'Vui lòng nhập tên Salon';
-    }
-    if (!salonSlogan) {
-      errors.salonSlogan = 'Vui lòng nhập slogan Salon';
-    }
-    if (Object.keys(errors).length === 0) {
-      return;
-    } else {
-      setStepper(2);
-    }
+    setStepper(2);
   };
 
   const handleChangeFileInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -58,77 +48,91 @@ const Registration = () => {
   };
   const Stepper = (activeStep: number) => {
     return (
-      <div className="stepper flex">
-        <div className="containerStepper">
+      <div className="flex items-center my-10 sm:mt-32 max-w-[350px]">
+        <div className="relative  flex items-center justify-center">
           <input
             type="radio"
             name="stepper1"
-            checked={activeStep >= 1}
+            checked={true}
             value={stepper}
-            className="mr-8"
+            className="w-5 h-5 checked:bg-red-500"
             readOnly
           />
-          <span className="checkmark"></span>
-          <span className="circle"></span>
-          <span className="divider"></span>
+          <div className="absolute border-[3px] border-light-primary-color-50 w-5 h-5 rounded-full top-0"></div>
+          {/* <div className="w-[10px] h-[10px] absolute bg-light-primary-color-50 top-[5px] left-[5px] rounded-full"></div> */}
         </div>
-        <div className="containerStepper">
+
+        <div className="w-full h-[3px]  bg-light-primary-color-10"></div>
+
+        <div className="relative  flex items-center justify-center">
           <input
             type="radio"
             name="stepper2"
             checked={activeStep >= 2}
-            className="mr-8"
+            className="w-5 h-5"
             readOnly
             value={stepper}
           />
-          <span className="checkmark"></span>
-          <span className="circle"></span>
-          <span className="divider"></span>
+          <div className="absolute border-[3px] border-light-primary-color-50 w-5 h-5 rounded-full top-0"></div>
+          {/* <div className="w-[10px] h-[10px] absolute bg-light-primary-color-50 top-[5px] left-[5px] rounded-full"></div> */}
         </div>
-        <div className="containerStepper">
+
+        <div className="w-full h-[3px]  bg-light-primary-color-10"></div>
+
+        <div className="relative  flex items-center justify-center">
           <input
             type="radio"
             name="stepper3"
             checked={activeStep >= 3}
-            className="mr-8"
+            className="w-5 h-5"
             readOnly
             value={stepper}
           />
-          <span className="checkmark"></span>
-          <span className="circle"></span>
-          <span className="divider"></span>
+          <div className="absolute border-[3px] border-light-primary-color-50 w-5 h-5 rounded-full top-0"></div>
+          {/* <div className="w-[10px] h-[10px] absolute bg-light-primary-color-50 top-[5px] left-[5px] rounded-full"></div> */}
         </div>
-        <div className="containerStepper">
+
+        <div className="w-full h-[3px]  bg-light-primary-color-10"></div>
+
+        <div className="relative  flex items-center justify-center">
           <input
             type="radio"
             name="stepper4"
             checked={activeStep === 4}
-            className="mr-8"
+            className="w-5 h-5"
             readOnly
             value={stepper}
           />
-          <span className="checkmark"></span>
-          <span className="circle"></span>
+          <div className="absolute border-[3px] border-light-primary-color-50 w-5 h-5 rounded-full top-0"></div>
+          {/* <div className="w-[10px] h-[10px] absolute bg-light-primary-color-50 top-[5px] left-[5px] rounded-full"></div> */}
         </div>
       </div>
     );
   };
   const leftRegistration = () => (
-    <div className="registration--left d-flex flex-column jc-evenly align-center">
-      <div className="py-8">
-        <p className="headline">Spana</p>
-        <h3 className="h3 bold">
+    <div className="mt-10 sm:mt-0 sm:pt-20 sm:w-[40%] sm:bg-light-secondary-system-color">
+      <div className="sm:px-24">
+        <p className="text-[12px] uppercase text-light-text-color-body-1 sm:text-base">
+          Spana
+        </p>
+        <h3 className="text-[24px] bold sm:text-h3">
           Quản lý salon của bạn theo cách đơn giản nhất
         </h3>
       </div>
 
-      <img className="icon" src={imgRegistration} alt="imgRegistration" />
+      <img
+        className="w-[300px] h-[326px] mx-auto sm:w-[417px] sm:h-[450px]"
+        src={imgRegistration}
+        alt="imgRegistration"
+      />
     </div>
   );
   const rightRegistration1 = () => (
     <>
-      <h4 className="bold mb-4">Hãy cho mình biết thêm thông tin nhé</h4>
-      <p className="body1 mb-8">
+      <h4 className="bold text-base sm:text-h4">
+        Hãy cho mình biết thêm thông tin nhé
+      </h4>
+      <p className="text-[12px] text-light-text-color-body-1 py-4 sm:text-body1">
         Việc gì khó, có Spana. Hãy để Spana trở thành quản gia cho salon của
         bạn.
       </p>
@@ -151,88 +155,109 @@ const Registration = () => {
       />
       <div className="mb-6">
         <p className="headline bold mb-4">Salon của bạn có bao nhiêu người ?</p>
-        <div className="flex salonNumber">
-          <Button
-            size="medium"
-            className={classNames('mr-8', { active: salonNumber === 1 })}
-            state="secondary"
+        <div className="flex gap-2">
+          <button
+            className={classNames('btn-disabled-mobile', {
+              'border-light-primary-color-50 text-light-primary-color-50':
+                salonNumber === 1,
+            })}
             onClick={() => setSalonNumber(1)}
           >
             1-10
-          </Button>
+          </button>
 
-          <Button
-            size="medium"
-            className={classNames('mr-8', { active: salonNumber === 2 })}
-            state="secondary"
+          <button
+            className={classNames('btn-disabled-mobile', {
+              'border-light-primary-color-50 text-light-primary-color-50':
+                salonNumber === 2,
+            })}
             onClick={() => setSalonNumber(2)}
           >
             10-20
-          </Button>
-          <Button
-            size="medium"
-            className={classNames('mr-8', { active: salonNumber === 3 })}
-            state="secondary"
+          </button>
+          <button
+            className={classNames('btn-disabled-mobile', {
+              'border-light-primary-color-50 text-light-primary-color-50':
+                salonNumber === 3,
+            })}
             onClick={() => setSalonNumber(3)}
           >
             20+
-          </Button>
+          </button>
         </div>
       </div>
       <div className="mb-6">
-        <p className="headline bold mb-4">Salon của bạn là loại nào ?</p>
-        <div className="flex salonType ">
-          <Button
-            size="medium"
-            className={classNames('mr-8', { active: salonKind === 1 })}
-            state="secondary"
+        <p className="text-headline bold mb-4">Salon của bạn là loại nào ?</p>
+        <div className="grid grid-cols-6 gap-2 sm:grid-cols-5">
+          <button
+            className={classNames(
+              'btn-disabled-mobile col-span-2 sm:col-span-1',
+              {
+                'border-light-primary-color-50 text-light-primary-color-50':
+                  salonKind === 1,
+              }
+            )}
             onClick={() => setSalonKind(1)}
           >
             Spa
-          </Button>
+          </button>
 
-          <Button
-            size="medium"
-            className={classNames('mr-8', { active: salonKind === 2 })}
-            state="secondary"
+          <button
+            className={classNames(
+              'btn-disabled-mobile col-span-2 sm:col-span-1',
+              {
+                'border-light-primary-color-50 text-light-primary-color-50':
+                  salonKind === 2,
+              }
+            )}
             onClick={() => setSalonKind(2)}
           >
             Salon Tóc
-          </Button>
-          <Button
-            size="medium"
-            className={classNames('mr-8', { active: salonKind === 3 })}
-            state="secondary"
+          </button>
+          <button
+            className={classNames(
+              'btn-disabled-mobile col-span-2 sm:col-span-1',
+              {
+                'border-light-primary-color-50 text-light-primary-color-50':
+                  salonKind === 3,
+              }
+            )}
             onClick={() => setSalonKind(3)}
           >
             Tiệm nail
-          </Button>
-          <Button
-            size="medium"
-            className={classNames('mr-8', { active: salonKind === 4 })}
-            state="secondary"
+          </button>
+          <button
+            className={classNames(
+              'btn-disabled-mobile col-span-2 col-start-2 sm:col-span-1',
+              {
+                'border-light-primary-color-50 text-light-primary-color-50':
+                  salonKind === 4,
+              }
+            )}
             onClick={() => setSalonKind(4)}
           >
             Massage
-          </Button>
-          <Button
-            size="medium"
-            className={classNames('mr-8', { active: salonKind === 5 })}
-            state="secondary"
+          </button>
+          <button
+            className={classNames(
+              'btn-disabled-mobile col-span-2 sm:col-span-1 text-[14px]',
+              {
+                'border-light-primary-color-50 text-light-primary-color-50':
+                  salonKind === 5,
+              }
+            )}
             onClick={() => setSalonKind(5)}
           >
             Salon Xăm
-          </Button>
+          </button>
         </div>
       </div>
-      <Button
-        size="medium"
-        className="mr-8"
-        state="primary"
+      <button
+        className="btn-primary-mobile-medium px-7 my-4"
         onClick={handleRegistration1}
       >
         Tiếp tục
-      </Button>
+      </button>
     </>
   );
   const rightRegistration2 = () => (
@@ -366,9 +391,10 @@ const Registration = () => {
     </>
   );
   return (
-    <div className="registration d-flex">
+    <div className="text-center px-2 sm:flex sm:text-left">
+      <Header className="sm:hidden" />
       {leftRegistration()}
-      <div className="registration--right px-8">
+      <div className="sm:px-20 flex-1">
         {Stepper(stepper)}
         {stepper === 1 && rightRegistration1()}
         {stepper === 2 && rightRegistration2()}

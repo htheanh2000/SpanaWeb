@@ -25,6 +25,7 @@ module.exports = {
     extend: {
       colors: {
         'light-base-color-black': '#000000',
+        'light-primary-color-10': '#dbd7f4',
         'light-primary-color-50': '#5541d7',
         'light-accent-2-color-70': '#d9790c',
         'light-text-link-color-purple': '#5541d7',
