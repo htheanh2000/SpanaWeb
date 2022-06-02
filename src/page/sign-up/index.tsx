@@ -238,7 +238,7 @@ const SignUp = () => {
                     Đã có tài khoản ?
                   </p>
                   <p
-                    className="bold text-light-text-link-color-purple"
+                    className="bold text-light-text-link-color-purple cursor-pointer"
                     onClick={() => navigate('/sign-in')}
                   >
                     Đăng nhập ngay
