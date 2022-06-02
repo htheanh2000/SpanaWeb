@@ -36,8 +36,9 @@ module.exports = {
         'light-error-color': '#f04461',
         'light-background-color-gray': '#e5e5e5',
         'light-secondary-system-color': '#f7f7fc',
+        'fill-image-placeholder-color': '#e2e2ea',
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 };

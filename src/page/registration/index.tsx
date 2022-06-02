@@ -262,31 +262,36 @@ const Registration = () => {
   );
   const rightRegistration2 = () => (
     <>
-      <h4 className="bold mb-4">Hoàn thiện thông tin salon</h4>
-      <p className="body1 mb-8">
+      <h4 className="text-base font-bold mb-2 sm:text-h4">
+        Hoàn thiện thông tin salon
+      </h4>
+      <p className="text-[12px] font-bold sm:text-base sm:font-normal mb-4 text-light-text-color-body-1">
         Việc gì khó, có Spana. Hãy để Spana trở thành quản gia cho salon của
         bạn.
       </p>
 
-      <div className="flex mb-6 align-center">
-        <div className="photo mr-6">
+      <div className="flex gap-3 items-center py-4">
+        <div className="w-[75px] h-[75px] sm:w-[104px] sm:h-[104px] mt-2">
           {preview ? (
             <img src={preview} alt="preview" object-fit="cover" />
           ) : (
-            <div className="preview"></div>
+            <div className="bg-fill-image-placeholder-color w-[75px] h-[75px] sm:w-[104px] sm:h-[104px] rounded-md"></div>
           )}
         </div>
-        <div>
-          <p className="headline bold pb-6 mt-6">
+        <div className="text-left">
+          <p className="text-headline font-bold mb-2 sm:mb-8">
             Chọn ảnh đại diện cho salon của bạn
           </p>
-          <label htmlFor="upload-photo" className="c-pointer upload-photo">
+          <label
+            htmlFor="upload-photo"
+            className="btn-primary-mobile-medium px-8"
+          >
             Chọn
           </label>
           <input
             type="file"
             id="upload-photo"
-            style={{ display: 'none' }}
+            className="hidden"
             onChange={handleChangeFileInput}
             accept="image/*"
           />
@@ -294,69 +299,78 @@ const Registration = () => {
       </div>
 
       <Input
-        className="mb-6"
+        className="mb-6 mt-2"
         label="Mô tả salon của bạn"
         placeholder="Mô tả thêm thông tin để chúng tôi có thể hỗ trợ nhiều hơn"
-        size="medium"
+        size="small"
       />
       <Input
         className="mb-6"
         label="Địa điểm salon"
         placeholder="Salon của bạn ở đâu ?"
-        size="medium"
+        size="small"
       />
 
-      <Button
-        size="medium"
-        className="mr-8"
-        state="primary"
+      <button
+        className="my-10 btn-primary-mobile-medium px-12"
         onClick={() => setStepper(3)}
       >
         Tiếp tục
-      </Button>
+      </button>
     </>
   );
   const rightRegistration3 = () => (
     <>
-      <h4 className="bold mb-4">Bạn muốn sử dụng Spana để làm gì ?</h4>
-      <p className="body1 mb-8">Chúng tôi muốn hiểu rõ hơn về bạn</p>
+      <h4 className="font-bold sm:text-h4 text-base mb-4 line-clamp-1">
+        Bạn muốn sử dụng Spana để làm gì ?
+      </h4>
+      <p className="text-[12px] font-bold sm:text-base sm:font-normal text-light-text-color-body-1 mb-8">
+        Chúng tôi muốn hiểu rõ hơn về bạn
+      </p>
 
-      <div className="flex align-center mb-6 ">
+      <label
+        htmlFor="employee"
+        className="text-[14px] text-light-text-color-body-2 flex items-center mb-6 gap-4 relative"
+      >
         <input
           type="checkbox"
           id="employee"
-          className="checkbox"
+          className="w-4 h-4 opacity-0 checked:opacity-100 transition duration-300 ease-in-out"
           name="employee"
           onChange={handleChangeCheckbox}
         />
-        <label htmlFor="employee" className=" body2 labelCheckbox c-pointer">
-          Quản lý nhân viên
-        </label>
-      </div>
-      <div className="flex align-center mb-6 ">
+        Quản lý nhân viên
+        <span className="absolute w-4 h-4 border-[3px] rounded-sm border-light-primary-color-50"></span>
+      </label>
+
+      <label
+        htmlFor="customer"
+        className="text-[14px] text-light-text-color-body-2 flex items-center mb-6 gap-4 relative"
+      >
         <input
           type="checkbox"
           id="customer"
-          className="checkbox"
+          className="w-4 h-4 opacity-0 checked:opacity-100 transition duration-300 ease-in-out"
           name="customer"
           onChange={handleChangeCheckbox}
         />
-        <label htmlFor="customer" className=" body2 labelCheckbox c-pointer">
-          Chăm sóc khách hàng
-        </label>
-      </div>
-      <div className="flex align-center mb-6 ">
+        Chăm sóc khách hàng
+        <span className="absolute w-4 h-4 border-[3px] rounded-sm border-light-primary-color-50"></span>
+      </label>
+      <label
+        htmlFor="manager"
+        className="text-[14px] text-light-text-color-body-2 flex items-center mb-6 gap-4 relative"
+      >
         <input
           type="checkbox"
-          id="department"
-          className="checkbox"
-          name="department"
+          id="manager"
+          className="w-4 h-4 opacity-0 checked:opacity-100 transition duration-300 ease-in-out"
+          name="manager"
           onChange={handleChangeCheckbox}
         />
-        <label htmlFor="department" className=" body2 labelCheckbox c-pointer">
-          Quản lý đa chi nhánh
-        </label>
-      </div>
+        Quản lý đa chi nhánh
+        <span className="absolute w-4 h-4 border-[3px] rounded-sm border-light-primary-color-50"></span>
+      </label>
 
       <Input
         className="mb-6"
@@ -365,33 +379,31 @@ const Registration = () => {
         size="medium"
       />
 
-      <Button
-        size="medium"
-        className="mr-8"
-        state="primary"
+      <button
+        className="btn-primary-mobile-medium px-12 my-10"
         onClick={() => setStepper(4)}
       >
         Tiếp tục
-      </Button>
+      </button>
     </>
   );
   const rightRegistration4 = () => (
     <>
-      <h4 className="bold mb-4">Hoàn tất đăng ký</h4>
-      <p className="body1 mb-8">Chào mừng bạn đến với Spana</p>
+      <h4 className="font-bold sm:text-h4 text-base mb-4">Hoàn tất đăng ký</h4>
+      <p className="text-[12px] font-bold sm:text-base sm:font-normal text-light-text-color-body-1 mb-8">
+        Chào mừng bạn đến với Spana
+      </p>
 
-      <Button
-        size="medium"
-        className="mr-8"
-        state="primary"
+      <button
+        className="btn-primary-mobile-medium px-12 my-10"
         onClick={() => navigate('/')}
       >
         Đến trang quản lý
-      </Button>
+      </button>
     </>
   );
   return (
-    <div className="text-center px-2 sm:flex sm:text-left">
+    <div className="text-center px-4 sm:flex sm:text-left">
       <Header className="sm:hidden" />
       {leftRegistration()}
       <div className="sm:px-20 flex-1">
