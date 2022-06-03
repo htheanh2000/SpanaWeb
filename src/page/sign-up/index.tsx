@@ -1,9 +1,10 @@
 import { useAppDispatch } from 'app/hooks';
 import Header from 'components/header';
+import Icon from 'components/icon';
 import { authActions, selectSignUpResponse } from 'features/auth/authSlice';
 import { Formik } from 'formik';
 import { UserSignUp } from 'models';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import imgSignUp from '../../assets/image/sign-up.png';
@@ -14,6 +15,8 @@ const SignUp = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const response = useSelector(selectSignUpResponse);
+
+  const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
 
   useEffect(() => {
     if (response) {
@@ -170,13 +173,17 @@ const SignUp = () => {
                   errors.phoneNumber}
               </span>
               <div className="sm:flex gap-6">
-                <div className="sm:flex-1">
-                  <Input
-                    label="Mật khẩu"
-                    type="password"
-                    className="mt-6"
+                <div className="sm:flex-1 flex flex-col relative">
+                  <label
+                    htmlFor="password"
+                    className="mt-6 mb-[20px] font-bold"
+                  >
+                    Mật khẩu
+                  </label>
+                  <input
+                    type={`${!isShowPassword ? `password` : `text`}`}
+                    className="outline outline-1 rounded-md p-[7px] mb-1 outline-light-text-color-body-1"
                     placeholder="Nhập mật khẩu của bạn"
-                    size="small"
                     name="password"
                     value={values.password}
                     onChange={handleChange}
@@ -185,14 +192,24 @@ const SignUp = () => {
                   <span className="text-body2 text-light-error-color">
                     {errors.password && touched.password && errors.password}
                   </span>
+
+                  <Icon
+                    name={`${!isShowPassword ? `eyeClose` : `eyeOpenPng`}`}
+                    className="absolute top-[78px] right-2 cursor-pointer "
+                    onClick={() => setIsShowPassword(!isShowPassword)}
+                  />
                 </div>
-                <div className="sm:flex-1">
-                  <Input
-                    label="Xác nhận mật khẩu"
-                    className="mt-6"
-                    type="password"
-                    placeholder="Nhập lại mật khẩu của bạn"
-                    size="small"
+                <div className="sm:flex-1 flex flex-col relative">
+                  <label
+                    htmlFor="confirmPassword"
+                    className="mt-6 mb-[20px] font-bold"
+                  >
+                    Xác nhận mật khẩu
+                  </label>
+                  <input
+                    type={`${!isShowPassword ? `password` : `text`}`}
+                    className="outline outline-1 rounded-md p-[7px] mb-1 outline-light-text-color-body-1"
+                    placeholder="Nhập mật khẩu của bạn"
                     name="confirmPassword"
                     value={values.confirmPassword}
                     onChange={handleChange}
@@ -203,6 +220,12 @@ const SignUp = () => {
                       touched.confirmPassword &&
                       errors.confirmPassword}
                   </span>
+
+                  <Icon
+                    name={`${!isShowPassword ? `eyeClose` : `eyeOpenPng`}`}
+                    className="absolute top-[78px] right-2 cursor-pointer "
+                    onClick={() => setIsShowPassword(!isShowPassword)}
+                  />
                 </div>
               </div>
 
