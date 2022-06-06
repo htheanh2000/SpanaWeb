@@ -1,11 +1,13 @@
 import { useAppSelector } from 'app/hooks';
 import classNames from 'classnames';
+import HeaderDashboard from 'components/header-dashboard';
 import Icon from 'components/icon';
 import { selectCurrentUser } from 'features/auth/authSlice';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Analytics from './Analytics';
 import Branch from './Branch';
+import HomePage from './components/Home';
 import { iconList } from './constant';
 import Customers from './Customer';
 import './dashboard.scss';
@@ -47,7 +49,7 @@ const Dashboard = () => {
   };
 
   const header = () => (
-    <div className="Header">
+    <div className="hidden sm:flex justify-between items-center ">
       <div className="Header--left">
         <div className="Photo"></div>
         <h5 className="bold c-pointer" onClick={() => navigate('/')}>
@@ -67,7 +69,7 @@ const Dashboard = () => {
   );
 
   const body = () => (
-    <div className="flex">
+    <div className="MainBody hidden sm:flex">
       <div className="SideBar">
         <div className="Top">
           {iconList.map((icon, index) => (
@@ -91,8 +93,10 @@ const Dashboard = () => {
   );
 
   return (
-    <div className="Dashboard">
+    <div className="">
       {header()}
+      <HeaderDashboard className="sm:hidden" />
+      {<HomePage className={'sm:hidden'} />}
       {body()}
     </div>
   );
