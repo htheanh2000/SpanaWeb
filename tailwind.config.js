@@ -1,11 +1,13 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  important: '#root',
   theme: {
     fontSize: {
       caption: '0.75rem',
       headline: '1rem',
       body1: '1rem',
       body2: '0.875rem',
+      menu2: '0.875rem',
       h3: '2.4375rem',
       h4: '1.9375rem',
       h5: '1.5rem',
@@ -37,6 +39,12 @@ module.exports = {
         'light-background-color-gray': '#e5e5e5',
         'light-secondary-system-color': '#f7f7fc',
         'fill-image-placeholder-color': '#e2e2ea',
+        'fill-text-field-2': '#f6f6f7',
+        'light-accent-1-color-85': '#287161',
+        'light-accent-1-color-70': '#3caa91',
+        'light-accent-1-color-50': '#42bda1',
+        'light-accent-1-color-30': '#77cfbb',
+        'light-accent-1-color-10': '#d9f2ec',
       },
     },
   },
