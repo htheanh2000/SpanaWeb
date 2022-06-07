@@ -2,9 +2,9 @@ import logo from '../../assets/image/spa/logo.png';
 import insta from '../../assets/image//icon/Social/insta.png';
 import Icon from 'components/icon';
 
-const Footer = () => {
+const Footer = ({ className }: { className?: string }) => {
   return (
-    <div className="mt-20 ">
+    <div className={`${className} mt-20`}>
       <div className="grid grid-rows-[7] grid-flow-row sm:grid-cols-5 space-y-6 sm:space-y-0 text-center mx-auto sm:max-w-[1200px]">
         <div className="">
           <div className="flex items-center justify-center">

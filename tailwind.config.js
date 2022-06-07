@@ -1,11 +1,13 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  important: '#root',
   theme: {
     fontSize: {
       caption: '0.75rem',
       headline: '1rem',
       body1: '1rem',
       body2: '0.875rem',
+      menu2: '0.875rem',
       h3: '2.4375rem',
       h4: '1.9375rem',
       h5: '1.5rem',

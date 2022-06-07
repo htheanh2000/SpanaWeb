@@ -1,24 +1,15 @@
 import { useAppSelector } from 'app/hooks';
-import classNames from 'classnames';
 import HeaderDashboard from 'components/header-dashboard';
-import Icon from 'components/icon';
 import { selectCurrentUser } from 'features/auth/authSlice';
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 import Analytics from './Analytics';
 import Branch from './Branch';
+import HeaderDashBoardDesktop from './components/header/HeaderDashboard';
 import HomePage from './components/Home';
+import SideBar from './components/sidebar/SideBar';
 import { iconList } from './constant';
 import Customers from './Customer';
 import './dashboard.scss';
-import Menu from './Menu';
-
-// type HTMLElementEvent<T extends HTMLElement> = Event &
-//   HTMLInputElement & {
-//     target: T;
-//     // probably you might want to add the currentTarget as well
-//     // currentTarget: T;
-//   };
 
 enum Tabs {
   Menu,
@@ -28,14 +19,13 @@ enum Tabs {
 }
 
 const Dashboard = () => {
-  const [activeIcon, setActiveIcon] = React.useState<number>(iconList[0].id);
+  const [activeIcon, setActiveIcon] = useState<number>(iconList[0].id);
   const currentUser = useAppSelector(selectCurrentUser);
-  const navigate = useNavigate();
 
   const mainBody = (activeTabs: Tabs) => {
     switch (activeTabs) {
       case Tabs.Menu:
-        return <Menu />;
+        return <HomePage />;
       case Tabs.Analytics:
         return <Analytics />;
       case Tabs.Customers:
@@ -48,55 +38,21 @@ const Dashboard = () => {
     }
   };
 
-  const header = () => (
-    <div className="hidden sm:flex justify-between items-center ">
-      <div className="Header--left">
-        <div className="Photo"></div>
-        <h5 className="bold c-pointer" onClick={() => navigate('/')}>
-          Spana
-        </h5>
-      </div>
-
-      <div className="Header--right">
-        <Icon name="bell" size="medium" className="Bell" />
-        <div className="Avatar"></div>
-        <div className="Info">
-          <p className="bold">{currentUser?.email}</p>
-          <p className="body2">{currentUser?.roles}</p>
-        </div>
-      </div>
-    </div>
-  );
-
   const body = () => (
-    <div className="MainBody hidden sm:flex">
-      <div className="SideBar">
-        <div className="Top">
-          {iconList.map((icon, index) => (
-            <div
-              key={index}
-              className={classNames('Icons', { Active: activeIcon === index })}
-              onClick={() => setActiveIcon(index)}
-            >
-              <Icon name={icon.name} className="Icon" size="medium" />
-            </div>
-          ))}
-        </div>
-        <div className="Bot">
-          <div className="Icons c-pointer">
-            <Icon name="setting" className="Icon" size="medium" />
-          </div>
-        </div>
-      </div>
+    <div className="sm:flex">
+      <SideBar
+        activeIcon={activeIcon}
+        setActiveIcon={setActiveIcon}
+        className="hidden sm:flex"
+      />
       {mainBody(activeIcon)}
     </div>
   );
 
   return (
     <div className="">
-      {header()}
+      {<HeaderDashBoardDesktop currentUser={currentUser} />}
       <HeaderDashboard className="sm:hidden" />
-      {<HomePage className={'sm:hidden'} />}
       {body()}
     </div>
   );
