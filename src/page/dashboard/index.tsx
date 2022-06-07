@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import Analytics from './Analytics';
 import Branch from './Branch';
 import HeaderDashBoardDesktop from './components/header/HeaderDashboard';
-import HomePage from './components/Home';
+import Menu from './components/menu/Menu';
 import SideBar from './components/sidebar/SideBar';
 import { iconList } from './constant';
 import Customers from './Customer';
@@ -25,7 +25,7 @@ const Dashboard = () => {
   const mainBody = (activeTabs: Tabs) => {
     switch (activeTabs) {
       case Tabs.Menu:
-        return <HomePage />;
+        return <Menu />;
       case Tabs.Analytics:
         return <Analytics />;
       case Tabs.Customers:

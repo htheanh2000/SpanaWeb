@@ -12,8 +12,8 @@ import { ProductType } from 'models/response';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { formatNumber } from 'utils';
-import fakeImage from '../../../assets/image/spa/1.jpg';
-import Cart from '../components/cart/Cart';
+import fakeImage from '../../../../assets/image/spa/1.jpg';
+import Cart from '../cart/Cart';
 
 const tabs = ['Sản phẩm', 'Quản lý', 'Thêm sản phẩm', 'Thông báo', 'Thiết lập'];
 interface TabPanelProps {
@@ -22,7 +22,7 @@ interface TabPanelProps {
   value: number;
 }
 
-const HomePage = ({ className }: { className?: string }) => {
+const Menu = ({ className }: { className?: string }) => {
   const products = useAppSelector(selectSalonAllProducts);
   const loading = useAppSelector(selectDashboardLoading);
   const dispatch = useAppDispatch();
@@ -53,7 +53,7 @@ const HomePage = ({ className }: { className?: string }) => {
             {!loading &&
               typeof children !== 'string' &&
               children.map((product, index) => (
-                <div className="" key={index}>
+                <div className="relative" key={index}>
                   <div className="">
                     <p className="font-bold text-headline mb-4">
                       {product._id}
@@ -168,10 +168,8 @@ const HomePage = ({ className }: { className?: string }) => {
               value={activeTab}
               onChange={handleChangeTab}
               aria-label="basic tabs example"
-              variant="scrollable"
-              orientation="horizontal"
-              // indicatorColor="secondary"
-              className="sm:flex sm:justify-between"
+              scrollButtons={false}
+              variant={window.screen.width < 640 ? 'scrollable' : 'fullWidth'}
             >
               {tabs.map((tab, index) => (
                 <Tab
@@ -211,8 +209,8 @@ const HomePage = ({ className }: { className?: string }) => {
   );
 };
 
-HomePage.propTypes = {
+Menu.propTypes = {
   className: PropTypes.string,
 };
 
-export default HomePage;
+export default Menu;
