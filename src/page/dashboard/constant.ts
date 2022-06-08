@@ -150,47 +150,47 @@ export const summaryList = [
 export const chartAnalyzeData = [
   {
     name: 'Jan',
-    uv: 4120,
+    Revenue: 4120,
   },
   {
     name: 'Feb',
-    uv: 2591,
+    Revenue: 2591,
   },
   {
     name: 'Mar',
-    uv: 3515,
+    Revenue: 3515,
   },
   {
     name: 'Apr',
-    uv: 1451,
+    Revenue: 1451,
   },
   {
     name: 'May',
-    uv: 3913,
+    Revenue: 3913,
   },
   {
     name: 'Jun',
-    uv: 1231,
+    Revenue: 1231,
   },
   {
     name: 'Jul',
-    uv: 1131,
+    Revenue: 1131,
   },
   {
     name: 'Sep',
-    uv: 3333,
+    Revenue: 3333,
   },
   {
     name: 'Oct',
-    uv: 4121,
+    Revenue: 4121,
   },
   {
     name: 'Nov',
-    uv: 4121,
+    Revenue: 4121,
   },
   {
     name: 'Dec',
-    uv: 4112,
+    Revenue: 4112,
   },
 ];
 
