@@ -9,9 +9,11 @@ import {
   selectSalonAllProducts,
 } from 'features/dashboard/dashboardSlice';
 import { ProductType } from 'models/response';
+import { addProductRight } from 'page/dashboard/constant';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import Cart from '../cart/Cart';
+import AddProduct from './AddProduct';
 import Management from './Management';
 import Products from './Products';
 
@@ -56,6 +58,8 @@ const Menu = ({ className }: { className?: string }) => {
         />
 
         <Management children={children} index={index} valueProps={value} />
+
+        <AddProduct children={children} index={index} valueProps={value} />
 
         {/* {value === index && index !== 0 && children} */}
       </div>
@@ -122,8 +126,29 @@ const Menu = ({ className }: { className?: string }) => {
             {tabs[activeTab]}
           </TabPanel>
         </div>
+        <div className={`w-[400px] bg-white rounded-md p-6 h-full`}>
+          {activeTab === 0 && <Cart className="hidden sm:block" />}
+          {activeTab === 2 && (
+            <div className="mt-10 hidden sm:block">
+              <p className="text-title font-bold mb-10">Thêm sản phẩm mới</p>
+              <div className="flex flex-col gap-16">
+                {addProductRight.map((item, index) => (
+                  <div className="flex flex-col gap-4" key={index}>
+                    <p className="font-semibold text-body2">{item.title}</p>
+                    <div className="flex gap-2">
+                      <Icon name="arrow-up-s" />
+                      <p className="text-caption">{item.caption}</p>
+                    </div>
 
-        <Cart className="hidden sm:block" />
+                    <button className="btn-primary-mobile-medium px-4 w-24">
+                      Bắt đầu
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
 
       <Footer className="sm:hidden" />
