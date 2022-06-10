@@ -31,7 +31,9 @@ const Input: FunctionComponent<InputProps> = (props) => {
   return (
     <div className={`input flex flex-column ${className}`}>
       <label
-        className={`mb-5 ${labelClass ? `${labelClass}` : 'headline bold'}`}
+        className={`mb-5 ${labelClass ? `${labelClass}` : 'headline bold'} ${
+          size === 'small' ? 'text-[14px]' : 'text-base'
+        }`}
       >
         {label} {isRequired && <span className="required">*</span>}
       </label>

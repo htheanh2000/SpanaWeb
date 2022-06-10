@@ -1,3 +1,4 @@
+/**@type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   important: '#root',
@@ -52,6 +53,7 @@ module.exports = {
         'light-accent-1-color-50': '#42bda1',
         'light-accent-1-color-30': '#77cfbb',
         'light-accent-1-color-10': '#d9f2ec',
+        'light-disable-color': '#e0e0e0',
       },
     },
   },
