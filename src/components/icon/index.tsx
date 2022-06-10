@@ -35,6 +35,8 @@ import Menu4 from '../../assets/image/icon/menu3.svg';
 import EyeClose from '../../assets/image/icon/eye-close.svg';
 import EyeOpen from '../../assets/image/icon/eye-open.svg';
 import EyeOpenPng from '../../assets/image/icon/open-eye.png';
+import Image2 from '../../assets/image/icon/image-2.svg';
+import Filter2 from '../../assets/image/icon/filter-2.svg';
 
 import './icon.scss';
 
@@ -75,6 +77,8 @@ export const icons = {
   eyeClose: EyeClose,
   eyeOpen: EyeOpen,
   eyeOpenPng: EyeOpenPng,
+  image2: Image2,
+  filter2: Filter2,
 };
 
 export type IconProps = {

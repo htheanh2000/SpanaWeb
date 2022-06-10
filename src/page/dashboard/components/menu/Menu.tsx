@@ -30,6 +30,7 @@ const Menu = ({ className }: { className?: string }) => {
   const dispatch = useAppDispatch();
 
   const [activeTab, setActiveTab] = useState<number>(0);
+  const [isAddProductDetail, setIsAddProductDetail] = useState<boolean>(false);
 
   useEffect(() => {
     dispatch(dashboardActions.getSalonAllProducts());
@@ -59,7 +60,13 @@ const Menu = ({ className }: { className?: string }) => {
 
         <Management children={children} index={index} valueProps={value} />
 
-        <AddProduct children={children} index={index} valueProps={value} />
+        <AddProduct
+          children={children}
+          index={index}
+          valueProps={value}
+          isAddProductDetail={isAddProductDetail}
+          setIsAddProductDetail={setIsAddProductDetail}
+        />
 
         {/* {value === index && index !== 0 && children} */}
       </div>
@@ -93,7 +100,7 @@ const Menu = ({ className }: { className?: string }) => {
             <Tabs
               value={activeTab}
               onChange={handleChangeTab}
-              aria-label="basic tabs example"
+              aria-label="basic tabs"
               scrollButtons={false}
               variant={window.screen.width < 640 ? 'scrollable' : 'fullWidth'}
             >
@@ -126,9 +133,11 @@ const Menu = ({ className }: { className?: string }) => {
             {tabs[activeTab]}
           </TabPanel>
         </div>
-        <div className={`w-[400px] bg-white rounded-md p-6 h-full`}>
+        <div
+          className={`w-[400px] bg-white rounded-md p-6 h-full hidden sm:block`}
+        >
           {activeTab === 0 && <Cart className="hidden sm:block" />}
-          {activeTab === 2 && (
+          {activeTab === 2 && !isAddProductDetail && (
             <div className="mt-10 hidden sm:block">
               <p className="text-title font-bold mb-10">Thêm sản phẩm mới</p>
               <div className="flex flex-col gap-16">
@@ -140,11 +149,40 @@ const Menu = ({ className }: { className?: string }) => {
                       <p className="text-caption">{item.caption}</p>
                     </div>
 
-                    <button className="btn-primary-mobile-medium px-4 w-24">
+                    <button
+                      className="btn-primary-mobile-medium px-4 w-24"
+                      onClick={() => setIsAddProductDetail(true)}
+                    >
                       Bắt đầu
                     </button>
                   </div>
                 ))}
+              </div>
+            </div>
+          )}
+          {activeTab === 2 && isAddProductDetail && (
+            <div className="mt-10 min-h-[100vh] flex flex-col ml-6">
+              <div className="flex gap-6 items-center">
+                <div className="w-[2px] h-[60px] bg-light-primary-color-50"></div>
+                <div className="text-base">Thông tin cơ bản</div>
+              </div>
+              <div className="flex gap-6 items-center">
+                <div className="w-[2px] h-[60px] bg-light-primary-color-10"></div>
+                <p className="text-base text-light-disable-color">
+                  Chi tiết Sản phẩm
+                </p>
+              </div>
+              <div className="flex gap-6 items-center">
+                <div className="w-[2px] h-[60px] bg-light-primary-color-10"></div>
+                <p className="text-base text-light-disable-color">
+                  Thông tin Bán hàng
+                </p>
+              </div>
+              <div className="flex gap-6 items-center">
+                <div className="w-[2px] h-[60px] bg-light-primary-color-10"></div>
+                <p className="text-base text-light-disable-color">
+                  Vận chuyển & Bảo hành
+                </p>
               </div>
             </div>
           )}
