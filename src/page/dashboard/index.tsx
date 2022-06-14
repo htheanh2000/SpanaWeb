@@ -52,7 +52,11 @@ const Dashboard = () => {
   return (
     <div className="">
       {<HeaderDashBoardDesktop currentUser={currentUser} />}
-      <HeaderDashboard className="sm:hidden" />
+      <HeaderDashboard
+        className="sm:hidden"
+        activeIcon={activeIcon}
+        setActiveIcon={setActiveIcon}
+      />
       {body()}
     </div>
   );
