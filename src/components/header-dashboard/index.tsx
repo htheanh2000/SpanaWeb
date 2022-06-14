@@ -1,7 +1,16 @@
+import { Popover } from '@headlessui/react';
 import { useNavigate } from 'react-router-dom';
-import logo from '../../assets/image/spa/logo.png';
 import ava from '../../assets/image/spa/1.jpg';
-function HeaderDashboardMobile({ className }: { className?: string }) {
+import logo from '../../assets/image/spa/logo.png';
+function HeaderDashboardMobile({
+  className,
+  activeIcon,
+  setActiveIcon,
+}: {
+  className?: string;
+  activeIcon: number;
+  setActiveIcon: (index: number) => void;
+}) {
   const navigate = useNavigate();
 
   const goHome = () => {
@@ -18,7 +27,22 @@ function HeaderDashboardMobile({ className }: { className?: string }) {
       </div>
       {/* nav */}
 
-      <img src={ava} alt="ava" className="w-[30px] h-[30px] rounded-full" />
+      <Popover className="relative">
+        <Popover.Button>
+          <img src={ava} alt="ava" className="w-[30px] h-[30px] rounded-full" />
+        </Popover.Button>
+
+        <Popover.Panel className="absolute z-10 right-0 border-[1px] p-3 px-5 bg-slate-100 rounded-md">
+          <div className="flex flex-col gap-4 whitespace-nowrap">
+            <p onClick={() => setActiveIcon(0)}>Menu</p>
+            <p onClick={() => setActiveIcon(1)}>Khách hàng</p>
+            <p onClick={() => setActiveIcon(2)}>Chi Nhánh</p>
+            <p onClick={() => setActiveIcon(3)}>Mã Giảm giá</p>
+            <p onClick={() => setActiveIcon(4)}>Tài khoản</p>
+            <p onClick={() => setActiveIcon(5)}>Cài đặt</p>
+          </div>
+        </Popover.Panel>
+      </Popover>
     </div>
   );
 }
