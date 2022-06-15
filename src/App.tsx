@@ -7,17 +7,19 @@ import SignUp from './page/sign-up';
 import './assets/style/_style.scss';
 import Registration from './page/registration';
 import Dashboard from 'page/dashboard';
+import SignIn from 'page/sign-in';
 
 function App() {
   return (
-    <div>
+    <>
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/sign-in" element={<SignIn />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
-    </div>
+    </>
   );
 }
 

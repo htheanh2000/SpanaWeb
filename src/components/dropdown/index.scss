@@ -1,0 +1,52 @@
+@import "../../assets/style/variable";
+
+.Dropdown {
+      position: relative;
+      > .HeaderDropdown {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid $light-primary-color-50;
+            padding-left: 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            .Rotate {
+                  transform: rotate(180deg);
+            }
+            .Title {
+                  color: $light-primary-color-50;
+            }
+            &.secondary {
+                  border: 1px solid $light-disable-color;
+                  .Title {
+                        color: #000;
+                  }
+            }
+      }
+      > .List {
+            display: none;
+            position: absolute;
+            min-width: 100px;
+            right: 0;
+            border: 2px solid $light-primary-color-50;
+            border-radius: 3px;
+            background-color: $light-primary-system-color;
+            &.secondary {
+                  border: 1px solid $light-disable-color;
+            }
+            &.Open {
+                  display: flex;
+            }
+
+            flex-direction: column;
+            align-items: flex-start;
+            > button {
+                  width: 100%;
+                  cursor: pointer;
+                  padding: 5px;
+                  &:hover {
+                        background-color: $light-background-color-gray;
+                  }
+            }
+      }
+}
