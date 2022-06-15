@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import Dropdown from 'components/dropdown';
 import Footer from 'components/footer/Footer';
 import Icon from 'components/icon';
 import MenuDropDown from 'components/menuDropdown/Menu';
