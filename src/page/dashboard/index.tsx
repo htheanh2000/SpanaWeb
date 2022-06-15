@@ -4,6 +4,7 @@ import { selectCurrentUser } from 'features/auth/authSlice';
 import React, { useState } from 'react';
 import Analytics from './Analytics';
 import Branch from './Branch';
+import Control from './components/control/Control';
 import HeaderDashBoardDesktop from './components/header/HeaderDashboard';
 import Menu from './components/menu/Menu';
 import SideBar from './components/sidebar/SideBar';
@@ -16,6 +17,7 @@ enum Tabs {
   Analytics,
   Customers,
   Branches,
+  Control,
 }
 
 const Dashboard = () => {
@@ -32,6 +34,8 @@ const Dashboard = () => {
         return <Customers />;
       case Tabs.Branches:
         return <Branch />;
+      case Tabs.Control:
+        return <Control />;
 
       default:
         break;

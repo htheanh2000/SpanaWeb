@@ -38,8 +38,9 @@ function HeaderDashboardMobile({
             <p onClick={() => setActiveIcon(1)}>Khách hàng</p>
             <p onClick={() => setActiveIcon(2)}>Chi Nhánh</p>
             <p onClick={() => setActiveIcon(3)}>Mã Giảm giá</p>
-            <p onClick={() => setActiveIcon(4)}>Tài khoản</p>
-            <p onClick={() => setActiveIcon(5)}>Cài đặt</p>
+            <p onClick={() => setActiveIcon(4)}>Bảng diều khiển</p>
+            <p onClick={() => setActiveIcon(5)}>Tài khoản</p>
+            <p onClick={() => setActiveIcon(6)}>Cài đặt</p>
           </div>
         </Popover.Panel>
       </Popover>
