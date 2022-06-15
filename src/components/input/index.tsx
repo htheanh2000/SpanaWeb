@@ -10,6 +10,8 @@ type InputProps = {
   value?: string;
   name?: string;
   onBlur?: (e: ChangeEvent<HTMLInputElement>) => void;
+  labelClass?: string;
+  isRequired?: boolean;
 };
 
 const Input: FunctionComponent<InputProps> = (props) => {
@@ -23,10 +25,18 @@ const Input: FunctionComponent<InputProps> = (props) => {
     value,
     name,
     onBlur,
+    labelClass,
+    isRequired,
   } = props;
   return (
     <div className={`input flex flex-column ${className}`}>
-      <label className="mb-5 headline bold">{label}</label>
+      <label
+        className={`mb-5 ${labelClass ? `${labelClass}` : 'headline bold'} ${
+          size === 'small' ? 'text-[14px]' : 'text-base'
+        }`}
+      >
+        {label} {isRequired && <span className="required">*</span>}
+      </label>
       <input
         type={type}
         className={`pl-4 input--${size}`}

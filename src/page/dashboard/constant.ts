@@ -59,23 +59,41 @@ export const productList = [
 export const tabs = [
   {
     id: 1,
-    title: 'Tất cả',
+    title: 'Sản phẩm',
   },
   {
     id: 2,
-    title: 'Kem chống nắng',
+    title: 'Quản lý',
   },
   {
     id: 3,
-    title: 'Kem dưỡng da',
+    title: 'Thêm sản phẩm',
   },
   {
     id: 4,
-    title: 'Tắm trắng',
+    title: 'Thông báo',
   },
   {
     id: 5,
-    title: 'Giảm béo',
+    title: 'Thiết lập',
+  },
+];
+export const subTabs = [
+  {
+    id: 1,
+    title: 'Quản lý đơn hàng',
+  },
+  {
+    id: 2,
+    title: 'Chăm sóc khách hàng',
+  },
+  {
+    id: 3,
+    title: 'Các sản phẩm vi phạm',
+  },
+  {
+    id: 4,
+    title: 'Mức độ hài lòng của người mua',
   },
 ];
 
@@ -126,5 +144,121 @@ export const summaryList = [
     title: 'Sản phẩm',
     value: 12000,
     percentage: 12,
+  },
+];
+
+export const chartAnalyzeData = [
+  {
+    name: 'Jan',
+    Revenue: 4120,
+  },
+  {
+    name: 'Feb',
+    Revenue: 2591,
+  },
+  {
+    name: 'Mar',
+    Revenue: 3515,
+  },
+  {
+    name: 'Apr',
+    Revenue: 1451,
+  },
+  {
+    name: 'May',
+    Revenue: 3913,
+  },
+  {
+    name: 'Jun',
+    Revenue: 1231,
+  },
+  {
+    name: 'Jul',
+    Revenue: 1131,
+  },
+  {
+    name: 'Sep',
+    Revenue: 3333,
+  },
+  {
+    name: 'Oct',
+    Revenue: 4121,
+  },
+  {
+    name: 'Nov',
+    Revenue: 4121,
+  },
+  {
+    name: 'Dec',
+    Revenue: 4112,
+  },
+];
+
+export const managementRight = [
+  {
+    title: 'Đăng tải ít nhất 5 sản phẩm (1/5)',
+    caption: 'Nhận 1 lần Đẩy sản phẩm',
+  },
+  {
+    title: 'Trang trí Shop Cơ bản cho phiên bản di động',
+    caption: 'Nhận 1 lần Đẩy sản phẩm',
+  },
+  {
+    title: 'Tạo Top sản phẩm Bán Chạy',
+    caption: 'Nhận 1 lần Đẩy sản phẩm',
+  },
+];
+export const addProductRight = [
+  {
+    title: 'Thông tin cơ bản',
+    caption: 'Thêm các thông tin cơ bản cho sản phẩm',
+  },
+  {
+    title: 'Xếp hạng sản phẩm',
+    caption: 'Xếp hạng ưu tiên cho sản phẩm được bán ra',
+  },
+  {
+    title: 'Công cụ hàng loạt',
+    caption: 'Đăng tải và chỉnh sửa hàng loạt sản phẩm',
+  },
+];
+
+export const listItemsCategories = [
+  { name: 'Danh mục', value: 0 },
+  { name: 'Hello', value: 1 },
+];
+export const listItemsPrice = [
+  { name: 'Giá', value: 0 },
+  { name: 'Hello', value: 1 },
+];
+export const listItemsFilter = [
+  { name: 'Bộ lọc', value: 0 },
+  { name: 'Hello', value: 1 },
+];
+
+export const addProductListItem = [
+  {
+    image: euc,
+    name: 'Kem chống nắng',
+    quantity: 3,
+    price: 149000,
+    date: '24/04/2022 22:17',
+    status: 'Đang hoạt động',
+  },
+  {
+    image: ane1,
+    name: 'Kem Anessa',
+    quantity: 3,
+    price: 179000,
+    date: '24/04/2022 22:17',
+    status: 'Ngưng hoạt động',
+  },
+  {
+    image: lar,
+    name: 'Kem Skin 1004',
+    quantity: 3,
+    price: 149000,
+    date: '24/04/2022 22:17',
+    status: 'Đang hoạt động',
   },
 ];

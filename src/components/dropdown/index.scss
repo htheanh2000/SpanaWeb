@@ -16,6 +16,12 @@
             .Title {
                   color: $light-primary-color-50;
             }
+            &.secondary {
+                  border: 1px solid $light-disable-color;
+                  .Title {
+                        color: #000;
+                  }
+            }
       }
       > .List {
             display: none;
@@ -25,6 +31,9 @@
             border: 2px solid $light-primary-color-50;
             border-radius: 3px;
             background-color: $light-primary-system-color;
+            &.secondary {
+                  border: 1px solid $light-disable-color;
+            }
             &.Open {
                   display: flex;
             }

@@ -26,3 +26,11 @@ export interface UserSignUp {
   confirmPassword?: string;
   term?: string;
 }
+export interface UserSignIn {
+  username?: string;
+  password?: string;
+}
+
+export interface SalonId {
+  _id: string;
+}

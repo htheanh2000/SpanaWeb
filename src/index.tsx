@@ -1,3 +1,4 @@
+import { StyledEngineProvider } from '@mui/material';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -16,7 +17,9 @@ ReactDOM.render(
     <BrowserRouter>
       <Provider store={store}>
         {/* <ConnectedRouter history={history}> */}
-        <App />
+        <StyledEngineProvider injectFirst>
+          <App />
+        </StyledEngineProvider>
         <ToastContainer />
         {/* </ConnectedRouter> */}
       </Provider>

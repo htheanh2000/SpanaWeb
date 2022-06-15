@@ -1,3 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  .btn-primary-mobile {
+    background-color: #5541d7;
+    font-size: 12px;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .btn-primary-mobile-medium {
+    background-color: #5541d7;
+    font-size: 14px;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .btn-primary-mobile-large {
+    background-color: #5541d7;
+    font-size: 16px;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .btn-mobile-disabled {
+    border: 2px solid #e0e0e0;
+    font-size: 12px;
+    color: #e0e0e0;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .btn-mobile-medium-disabled {
+    border: 2px solid #e0e0e0;
+    font-size: 14px;
+    color: #e0e0e0;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .btn-mobile-large-disabled {
+    border: 2px solid #e0e0e0;
+    font-size: 16px;
+    color: #e0e0e0;
+    padding: 5px;
+    border-radius: 5px;
+  }
+ 
+  
+  .btn-secondary-mobile {
+    border: 2px solid #5541d7;
+    font-size: 12px;
+    font-weight: bold;
+    color: #5541d7;
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+  }
+  .btn-secondary-mobile-medium {
+    border: 2px solid #5541d7;
+    font-size: 14px;
+    font-weight: bold;
+    color: #5541d7;
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+  }
+  .btn-secondary-mobile-large {
+    border: 2px solid #5541d7;
+    font-size: 16px;
+    font-weight: bold;
+    color: #5541d7;
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+  }
+  .btn-disabled-mobile {
+    border: 2px solid #dbd7f4;
+    font-size: 16px;
+    font-weight: bold;
+    color: #dbd7f4;
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

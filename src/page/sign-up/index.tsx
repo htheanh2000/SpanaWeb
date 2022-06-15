@@ -1,19 +1,22 @@
 import { useAppDispatch } from 'app/hooks';
+import Header from 'components/header';
+import Icon from 'components/icon';
 import { authActions, selectSignUpResponse } from 'features/auth/authSlice';
 import { Formik } from 'formik';
 import { UserSignUp } from 'models';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import imgSignUp from '../../assets/image/sign-up.png';
 import Button from '../../components/button';
 import Input from '../../components/input';
-import './sign-up.scss';
 
 const SignUp = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const response = useSelector(selectSignUpResponse);
+
+  const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
 
   useEffect(() => {
     if (response) {
@@ -68,32 +71,43 @@ const SignUp = () => {
   };
 
   return (
-    <div className="sign-up flex">
-      <div className="sign-up--left">
-        <div className="sign-up--title">
-          <p className="headline mb-5">Spana</p>
-          <h3 className="max-w-400">
+    <div className="text-center px-2 sm:flex sm:text-left">
+      <Header className="sm:hidden" />
+      <div className="mt-16 sm:w-[40%] sm:mt-4 sm:bg-light-secondary-system-color">
+        <div className="sm:p-24">
+          <p className="uppercase text-[12px] sm:text-headline text-light-text-color-body-1 sm:headline sm:mb-5">
+            Spana
+          </p>
+          <h3 className="text-[24px] sm:text-h3 font-bold">
             Quản lý salon của bạn theo cách đơn giản nhất
           </h3>
         </div>
-        <div className="flex jc-center mt-10">
-          <img src={imgSignUp} alt="imgSignUp" />
+        <div className="flex justify-center mt-10">
+          <img
+            src={imgSignUp}
+            alt="imgSignUp"
+            className="w-[300px] h-[200px] sm:w-[537px] sm:h-[369px]"
+          />
         </div>
       </div>
-      <div className="sign-up--right">
-        <h4>Đăng kí tài khoản</h4>
-        <div className="flex mt-8 social-sign-up">
-          <Button size="large" className="mr-8" state="primary">
+      <div className="mt-20 sm:flex-1 sm:p-24">
+        <p className="text-[16px] font-bold mb-5 sm:text-h4">
+          Đăng kí tài khoản
+        </p>
+        <div className="sm:flex gap-4">
+          <Button size="small" className="w-full mb-4" state="primary">
             Sign up with google
           </Button>
-          <Button size="large" state="primary">
+          <Button size="small" className="w-full" state="primary">
             Sign up with facebook
           </Button>
         </div>
         <div className="flex align-center or mt-5">
-          <div className="divider"></div>
-          <span className="mr-3 ml-3 body2">Or</span>
-          <div className="divider"></div>
+          <div className="bg-light-secondary-separator-color h-[1px] w-full"></div>
+          <span className="text-caption text-light-text-color-body-2 px-4">
+            Or
+          </span>
+          <div className="bg-light-secondary-separator-color h-[1px] w-full"></div>
         </div>
 
         <Formik
@@ -116,108 +130,142 @@ const SignUp = () => {
             handleBlur,
             touched,
           }) => (
-            <form action="" onSubmit={handleSubmit}>
+            <form action="" className="mt-4" onSubmit={handleSubmit}>
               <Input
-                className="mb-2"
+                className=""
                 label="Họ Tên"
                 placeholder="Nhập tên của bạn"
-                size="large"
+                size="small"
                 name="username"
                 value={values.username}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
-              <span className="body2">
+              <span className="text-body2 text-light-error-color">
                 {errors.username && touched.username && errors.username}
               </span>
               <Input
-                className="mb-2 mt-6"
+                className="mt-6"
                 label="Email"
                 placeholder="Nhập email của bạn"
-                size="large"
+                size="small"
                 name="email"
                 value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
-              <span className="body2">
+              <span className="text-body2 text-light-error-color">
                 {errors.email && touched.email && errors.email}
               </span>
               <Input
-                className="mb-2 mt-6"
+                className="mt-6"
                 label="Số điện thoại"
                 placeholder="Nhập số điện thoại của bạn"
-                size="large"
+                size="small"
                 name="phoneNumber"
                 value={values.phoneNumber}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
-              <span className="body2">
+              <span className="text-body2 text-light-error-color">
                 {errors.phoneNumber &&
                   touched.phoneNumber &&
                   errors.phoneNumber}
               </span>
-              <div className="flex password mb-8 mt-6">
-                <div>
-                  <Input
-                    label="Mật khẩu"
-                    type="password"
-                    className="mr-6 mb-2"
+              <div className="sm:flex gap-6">
+                <div className="sm:flex-1 flex flex-col relative">
+                  <label
+                    htmlFor="password"
+                    className="mt-6 mb-[20px] font-bold"
+                  >
+                    Mật khẩu
+                  </label>
+                  <input
+                    type={`${!isShowPassword ? `password` : `text`}`}
+                    className="outline outline-1 rounded-md p-[7px] mb-1 outline-light-text-color-body-1"
                     placeholder="Nhập mật khẩu của bạn"
-                    size="large"
                     name="password"
                     value={values.password}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
-                  <span className="body2">
+                  <span className="text-body2 text-light-error-color">
                     {errors.password && touched.password && errors.password}
                   </span>
+
+                  <Icon
+                    name={`${!isShowPassword ? `eyeClose` : `eyeOpenPng`}`}
+                    className="absolute top-[78px] right-2 cursor-pointer "
+                    onClick={() => setIsShowPassword(!isShowPassword)}
+                  />
                 </div>
-                <div>
-                  <Input
-                    label="Xác nhận mật khẩu"
-                    className="mb-2"
-                    type="password"
-                    placeholder="Nhập lại mật khẩu của bạn"
-                    size="large"
+                <div className="sm:flex-1 flex flex-col relative">
+                  <label
+                    htmlFor="confirmPassword"
+                    className="mt-6 mb-[20px] font-bold"
+                  >
+                    Xác nhận mật khẩu
+                  </label>
+                  <input
+                    type={`${!isShowPassword ? `password` : `text`}`}
+                    className="outline outline-1 rounded-md p-[7px] mb-1 outline-light-text-color-body-1"
+                    placeholder="Nhập mật khẩu của bạn"
                     name="confirmPassword"
                     value={values.confirmPassword}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
-                  <span className="body2">
+                  <span className="text-body2 text-light-error-color">
                     {errors.confirmPassword &&
                       touched.confirmPassword &&
                       errors.confirmPassword}
                   </span>
+
+                  <Icon
+                    name={`${!isShowPassword ? `eyeClose` : `eyeOpenPng`}`}
+                    className="absolute top-[78px] right-2 cursor-pointer "
+                    onClick={() => setIsShowPassword(!isShowPassword)}
+                  />
                 </div>
               </div>
 
-              <div className="Term flex">
+              <div className="flex items-center sm:justify-start justify-center gap-2 mt-4 sm:mt-6">
                 <input
                   type="checkbox"
                   name="term"
                   id="term"
                   onChange={handleChange}
+                  className="w-4 h-4 border-light-primary-color-50 border-2"
                 />
-                <label className="body2 c-pointer" htmlFor="term">
+                <label
+                  className="text-caption sm:text-body2 text-light-text-color-body-2"
+                  htmlFor="term"
+                >
                   Tôi đã đọc và đồng ý với điều khoản sử dụng
                 </label>
               </div>
-              <span className="body2 ">
+              <span className="text-body2 text-light-error-color ">
                 {errors.term && touched.term && errors.term}
               </span>
 
-              <div className="Register pb-8 mt-8 flex">
-                <Button type="submit" state="primary" className="Button">
+              <div className="mt-8 sm:flex justify-between">
+                <button
+                  type="submit"
+                  className="btn-primary-mobile w-[150px] h-[35px] mb-6 sm:text-headline"
+                >
                   Đăng ký
-                </Button>
+                </button>
 
-                <div className="Account flex">
-                  <p className="menu1">Đã có tài khoản ?</p>
-                  <p className="bold">Đăng nhập ngay</p>
+                <div className="flex items-center justify-center gap-2 mb-6 text-caption sm:text-headline">
+                  <p className=" text-light-text-color-body-2">
+                    Đã có tài khoản ?
+                  </p>
+                  <p
+                    className="bold text-light-text-link-color-purple cursor-pointer"
+                    onClick={() => navigate('/sign-in')}
+                  >
+                    Đăng nhập ngay
+                  </p>
                 </div>
               </div>
             </form>
