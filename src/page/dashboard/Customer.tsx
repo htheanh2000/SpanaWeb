@@ -83,46 +83,52 @@ const Customers = () => {
   const customersComponent = () => {
     return (
       <>
-        <h5 className="bold mb-4">Khách hàng</h5>
+        <h5 className="font-bold text-h5 mb-4">Khách hàng</h5>
 
-        <div className="Customers--body ">
-          <div className="Search">
-            <Icon name="search" size="small" className="c-pointer" />
-            <input type="text" className="Input" placeholder="Tìm kiếm..." />
+        <div className="bg-white p-4 rounded-md">
+          <div className="flex  items-center gap-6 relative  mb-10">
+            <Icon name="search" size="small" className="absolute left-2" />
+            <input
+              type="text"
+              className="bg-light-secondary-system-color p-2 flex-1 rounded-sm pl-10"
+              placeholder="Tìm kiếm..."
+            />
             <Icon name="decrease" size="small" className="c-pointer" />
             <Icon name="three-dots" size="small" className="c-pointer" />
           </div>
 
           <div className="Table">
-            <table>
+            <table className="w-full table-auto">
               <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Họ tên</th>
-                  <th>Ngày tham gia</th>
-                  <th>Số dịch vụ</th>
-                  <th>Sản phẩm đã dùng</th>
-                  <th>Tổng thanh toán</th>
+                <tr className="bg-light-secondary-system-color">
+                  <th className="py-2 text-left">ID</th>
+                  <th className="py-2 text-left">Họ tên</th>
+                  <th className="py-2 text-left">Ngày tham gia</th>
+                  <th className="py-2 text-left">Số dịch vụ</th>
+                  <th className="py-2 text-left">Sản phẩm đã dùng</th>
+                  <th className="py-2 text-left">Tổng thanh toán</th>
                 </tr>
               </thead>
 
               <tbody>
                 {customers.map((customer, index) => (
                   <tr key={index}>
-                    <td>{customer.id}</td>
-                    <td>{customer.name}</td>
-                    <td>{customer.date}</td>
-                    <td>{customer.quantity}</td>
-                    <td className="Detail">
+                    <td className="pb-10">{customer.id}</td>
+                    <td className="pb-10">{customer.name}</td>
+                    <td className="pb-10">{customer.date}</td>
+                    <td className="pb-10">{customer.quantity}</td>
+                    <td className="pb-10">
                       {customer.products}
                       <div
                         onClick={() => setMembership(true)}
-                        className="c-pointer"
+                        className="cursor-pointer text-light-text-link-color-purple text-menu1 font-bold"
                       >
                         Xem chi tiết
                       </div>
                     </td>
-                    <td>{formatNumber(customer.total, 3)} đ</td>
+                    <td className="pb-10">
+                      {formatNumber(customer.total, 3)} đ
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -134,31 +140,40 @@ const Customers = () => {
   };
   const membershipComponent = () => {
     return (
-      <div className="Membership">
-        <div className="Title">
-          <h5 className="bold">Khách hàng thành viên</h5>
+      <div className="">
+        <div className="flex justify-between items-center mb-6">
+          <h5 className="font-bold text-h5">Khách hàng thành viên</h5>
           <Button state="primary">Create New</Button>
         </div>
 
-        <div className="Recent">
-          <div className="Title">
-            <h6 className="bold">Gần đây</h6>
-            <div className="">
+        <div className="bg-white p-4 rounded-md">
+          <div className="flex justify-between items-center mb-6">
+            <h6 className="font-bold text-[20px]">Gần đây</h6>
+            <div className="flex gap-6">
               <Icon name="pen" />
               <Icon name="plus" />
             </div>
           </div>
 
-          <div className="Users">
+          <div className="grid grid-cols-3 gap-4">
             {fakeArray.map((item, index) => (
-              <div className="Item" key={index}>
-                <div>
-                  <div className="Avatar">
-                    <img src={image} alt="" className="Avatar" />
+              <div
+                className="border-[1px] rounded-md flex justify-between p-4"
+                key={index}
+              >
+                <div className="flex gap-5">
+                  <div className="">
+                    <img
+                      src={image}
+                      alt=""
+                      className="w-16 h-16 rounded-full"
+                    />
                   </div>
-                  <div className="Name">
-                    <p className="headline bold">Huỳnh Thế Anh</p>
-                    <p className="menu2 bold">Xem thêm</p>
+                  <div className="flex flex-col gap-3">
+                    <p className="text-headline font-bold">Huỳnh Thế Anh</p>
+                    <p className="text-menu2 font-bold text-light-text-link-color-purple">
+                      Xem thêm
+                    </p>
                   </div>
                 </div>
 
@@ -168,38 +183,42 @@ const Customers = () => {
           </div>
         </div>
 
-        <div className="Detail">
-          <p className="bold">Danh sách chi tiết</p>
+        <div className="mt-10">
+          <p className="font-bold text-h5 mb-10">Danh sách chi tiết</p>
 
-          <div className="Table">
-            <table>
+          <div className="bg-white p-4 rounded-md">
+            <table className="table-auto w-full">
               <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Tên khách hàng</th>
-                  <th>Hạng thành viên</th>
-                  <th>Ngày tham gia</th>
-                  <th>Chi tiết</th>
+                <tr className="bg-light-secondary-system-color">
+                  <th className="py-2 text-left">ID</th>
+                  <th className="py-2 text-left">Tên khách hàng</th>
+                  <th className="py-2 text-left">Hạng thành viên</th>
+                  <th className="py-2 text-left">Ngày tham gia</th>
+                  <th className="py-2 text-left">Chi tiết</th>
                 </tr>
               </thead>
 
               <tbody>
                 {customers.map((customer, index) => (
                   <tr key={index}>
-                    <td>{customer.id}</td>
-                    <td>
-                      <div className="Name">
-                        <img src={image} alt="" />
+                    <td className="pb-10">{customer.id}</td>
+                    <td className="pb-10">
+                      <div className="flex gap-3">
+                        <img
+                          src={image}
+                          alt=""
+                          className="w-10 h-10 rounded-md"
+                        />
                         {customer.name}
                       </div>
                     </td>
-                    <td>{customer.level}</td>
-                    <td>{customer.date}</td>
-                    <td className="Detail">
+                    <td className="pb-10">{customer.level}</td>
+                    <td className="pb-10">{customer.date}</td>
+                    <td className="pb-10">
                       {customer.products}
                       <div
                         onClick={() => setMembership(true)}
-                        className="c-pointer Button"
+                        className="text-menu2 font-bold text-light-text-link-color-purple mt-3"
                       >
                         Xem chi tiết
                       </div>
@@ -214,7 +233,7 @@ const Customers = () => {
     );
   };
   return (
-    <div className="Customers">
+    <div className="p-6 pt-8 bg-light-secondary-system-color w-full">
       {membership ? membershipComponent() : customersComponent()}
     </div>
   );

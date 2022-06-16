@@ -107,31 +107,44 @@ const Branch = () => {
 
   const branch = () => (
     <>
-      <h5 className="bold mb-6">Chi nhánh 1</h5>
-      <div className="Heading">
-        <h4 className="bold">35 Võ Văn Ngân - Thủ Đức</h4>
-        <div className="Right mr-8">
-          <Button state="primary" onClick={() => setActiveTab(1)}>
+      <h5 className="text-h5 font-bold mb-6">Quản lí nhân sự</h5>
+      <div className="flex justify-between mb-10">
+        <h4 className="text-h4 font-bold">35 Võ Văn Ngân - Thủ Đức</h4>
+        <div className="flex mr-8 gap-6">
+          <button
+            className="btn-primary-mobile-large w-[200px]"
+            onClick={() => setActiveTab(1)}
+          >
             Thêm nhân viên +
-          </Button>
+          </button>
           <Icon name="menu1" onClick={() => setActiveTab(2)} />
           <Icon name="menu2" onClick={() => setActiveTab(3)} />
           <Icon name="menu3" onClick={() => setActiveTab(4)} />
         </div>
       </div>
 
-      <div className="Body">
+      <div className="grid grid-cols-3 gap-8">
         {fakeData.map((item, index) => (
-          <div key={index} className="Item">
-            <div className="Images">
-              <img src={Image} alt="" className="Image" />
+          <div
+            key={index}
+            className="flex flex-col gap-2 items-center border-[1px] rounded-md bg-white p-4 relative"
+          >
+            <div className="">
+              <img
+                src={Image}
+                alt=""
+                className="w-[96px] h-[96px] rounded-full"
+              />
             </div>
-            <h5 className="bold">Phan Thị Thanh Như</h5>
-            <h6>Quản lý</h6>
-            <Button state="ghost" onClick={() => setShowSchedule(true)}>
+            <h5 className="text-h5 font-bold">Phan Thị Thanh Như</h5>
+            <h6 className="text-h6 text-light-text-color-body-1">Quản lý</h6>
+            <button
+              className="btn-secondary-mobile-large"
+              onClick={() => setShowSchedule(true)}
+            >
               Xem thêm
-            </Button>
-            <Icon name="three-dots" className="Dots" />
+            </button>
+            <Icon name="three-dots" className="absolute right-4 top-4" />
           </div>
         ))}
       </div>
@@ -139,25 +152,33 @@ const Branch = () => {
   );
 
   const addEmployee = () => (
-    <div className="Employee">
-      <h4 className="bold">Thêm nhân viên mới</h4>
-      <div className="Avatar">
-        <h5 className="mb-4">Avatar</h5>
-        <div className="Upload">
-          <div className="Image">
+    <div className="">
+      <h4 className="font-bold text-h4 mb-6">Thêm nhân viên mới</h4>
+      <div className="">
+        <h5 className="text-h5 mb-4">Avatar</h5>
+        <div className="flex gap-6 items-center my-10">
+          <div className="">
             {preview ? (
-              <img src={preview} alt="preview" object-fit="cover" />
+              <img
+                src={preview}
+                alt="preview"
+                object-fit="cover"
+                className="w-16 h-16 rounded-full"
+              />
             ) : (
-              <div className="Preview"></div>
+              <div className="w-16 h-16 rounded-full bg-fill-image-placeholder-color"></div>
             )}
           </div>
 
-          <div>
-            <label htmlFor="upload-photo" className="c-pointer bold Up">
+          <div className="flex gap-6">
+            <label
+              htmlFor="upload-photo"
+              className="btn-primary-mobile-large w-[100px] h-[40px] text-center font-bold cursor-pointer"
+            >
               Upload
             </label>
             <p
-              className="menu1 bold c-pointer Remove"
+              className="btn-secondary-mobile-large w-[100px] h-[40px] text-center cursor-pointer"
               onClick={() => setPreview('')}
             >
               Remove
@@ -168,13 +189,14 @@ const Branch = () => {
               style={{ display: 'none' }}
               onChange={handleChangeFileInput}
               accept="image/*"
+              className=""
             />
           </div>
         </div>
       </div>
-      <div className="Divider"></div>
+      <div className="w-full h-[2px] bg-light-primary-separator-color"></div>
 
-      <div className="Form">
+      <div className="mt-10">
         <Formik
           initialValues={{
             username: '',
@@ -197,7 +219,7 @@ const Branch = () => {
             touched,
           }) => (
             <form action="" onSubmit={handleSubmit}>
-              <div className="Top">
+              <div className="grid grid-cols-2 gap-10">
                 <div>
                   <Input
                     className="mb-2"
@@ -260,8 +282,8 @@ const Branch = () => {
                 </div>
               </div>
 
-              <div className="Divider"></div>
-              <div className="Bot">
+              <div className="w-full h-[2px] bg-light-primary-separator-color my-10"></div>
+              <div className="flex flex-col gap-6 w-1/2">
                 <div>
                   <Input
                     className="mb-2"
@@ -310,7 +332,7 @@ const Branch = () => {
               </div>
               <div className="Divider"></div>
 
-              <Button state="primary" className="mt-8">
+              <Button state="primary" className="mt-10">
                 Tạo nhân viên
               </Button>
             </form>
@@ -657,7 +679,7 @@ const Branch = () => {
   );
 
   return (
-    <div className="Branch">
+    <div className="p-10 bg-light-secondary-system-color w-full">
       {activeTab === 0 && !showSchedule && branch()}
       {activeTab === 1 && !showSchedule && addEmployee()}
       {activeTab === 2 && !showSchedule && schedule()}
