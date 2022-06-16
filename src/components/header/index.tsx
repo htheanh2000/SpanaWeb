@@ -7,7 +7,7 @@ function Header({ className }: { className?: string }) {
   const links = [
     {
       name: 'Trang chủ',
-      to: '/home',
+      to: '/dashboard',
     },
     {
       name: 'Giải pháp',

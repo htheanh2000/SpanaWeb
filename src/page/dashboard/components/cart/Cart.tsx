@@ -3,7 +3,9 @@ import Icon from 'components/icon';
 const Cart = ({ className }: { className?: string }) => {
   const arrayProduct = Array.from(Array(6).keys());
   return (
-    <div className={`${className} w-[400px] bg-white rounded-md p-6 h-full`}>
+    <div
+      className={`${className} w-[400px] bg-white rounded-md p-2 pr-12 h-full`}
+    >
       <div className="flex items-center justify-between mt-10 mb-6">
         <p className="text-headline font-bold">Đơn hàng hiện tại</p>
         <div className="flex gap-4">
