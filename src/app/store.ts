@@ -7,6 +7,7 @@ import studentReducer from 'features/student/studentSlice';
 import createSagaMiddleware from 'redux-saga';
 import { history } from 'utils';
 import rootSaga from './rootSaga';
+import counterReducer from '../features/supabase'
 
 const rootReducer = combineReducers({
   router: connectRouter(history),

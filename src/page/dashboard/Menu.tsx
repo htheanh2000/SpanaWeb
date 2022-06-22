@@ -34,6 +34,7 @@ import {
 } from 'features/dashboard/dashboardSlice';
 import { useAppDispatch, useAppSelector } from 'app/hooks';
 import SkeletonLoading from 'components/skeletonLoading/SkeletonLoading';
+import { getProduct } from 'supebase';
 
 const Menu = () => {
   const [activeTab, setActiveTab] = useState<number>(tabs[0].id);
@@ -41,11 +42,23 @@ const Menu = () => {
   const arrayProduct = Array.from(Array(6).keys());
   const [value, setValue] = useState(new Date());
   const [activeAddProductTab, setActiveAddProductTab] = useState<number>(0);
-
+  const [product, setProduct] = useState()
   const loading = useAppSelector(selectDashboardLoading);
   const products = useAppSelector(selectSalonAllProducts);
   const dispatch = useAppDispatch();
 
+  useEffect(()=> {
+    console.log("sdkfhjkh");
+    
+    getProd()
+  },[])
+
+  const getProd = async () => {
+    const {data, error} = await getProduct('1')
+    console.log('PRODUCT');
+    console.log(data, error);
+  }
+ 
   useEffect(() => {
     dispatch(dashboardActions.getSalonAllProducts());
   }, [dispatch]);

@@ -12,6 +12,7 @@ import { Formik } from 'formik';
 import { UserSignUp } from 'models';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import supabase from 'supebase';
 import imgSignUp from '../../assets/image/sign-up.png';
 import Button from '../../components/button';
 import Input from '../../components/input';
@@ -41,13 +42,17 @@ const SignIn = () => {
     return errors;
   };
 
-  const handleSubmit = (values: LoginPayload) => {
-    dispatch(
-      authActions.login({
-        password: values.password,
-        username: values.username,
-      })
-    );
+  const handleSubmit =async (values: LoginPayload) => {
+    const { user, session, error } = await supabase.auth.signIn({
+      email: values.username,
+      password: values.password,
+    })
+
+    if(user) {
+      navigate('/dashboard')
+    }
+    console.log(user, session, error);
+    
   };
 
   return (

@@ -6,7 +6,7 @@ import ava from '../../../../assets/image/spa/1.jpg';
 const HeaderDashBoardDesktop = ({
   currentUser,
 }: {
-  currentUser: SignInResponse | undefined;
+  currentUser: any | undefined;
 }) => {
   const navigate = useNavigate();
   return (
@@ -28,10 +28,10 @@ const HeaderDashBoardDesktop = ({
         </div>
         <div className="Info">
           <p className="bold">
-            {currentUser?.email ? currentUser?.email : 'Thế Anh'}
+            {currentUser?.username || ''}
           </p>
           <p className="body2">
-            {currentUser?.roles ? currentUser?.roles : 'Thu Ngân'}
+            {currentUser?.roles  || 'Thu Ngân'}
           </p>
         </div>
       </div>

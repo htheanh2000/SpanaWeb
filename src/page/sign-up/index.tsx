@@ -7,6 +7,7 @@ import { UserSignUp } from 'models';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import supabase from 'supebase';
 import imgSignUp from '../../assets/image/sign-up.png';
 import Button from '../../components/button';
 import Input from '../../components/input';
@@ -59,15 +60,30 @@ const SignUp = () => {
     return errors;
   };
 
-  const handleSubmit = (values: UserSignUp) => {
-    dispatch(
-      authActions.signUp({
-        email: values.email,
-        password: values.password,
-        username: values.username,
-        phoneNumber: values.phoneNumber,
-      })
-    );
+  const handleSubmit = async (values: UserSignUp) => {
+    console.log("handleSubmit");
+
+    const { user, session, error } = await supabase.auth.signUp({
+      email: values.email,
+      password: values.password,
+    })
+    console.log(user, session, error);
+    localStorage.setItem("email",values.email || "")
+    if (user) {
+      const { data, error } = await supabase
+        .from('user')
+        .insert([
+          {
+            username: values.username,
+            email: values.email,
+            phone: values.phoneNumber,
+          }
+        ])
+      console.log(data, error);
+      if(data?.length) {
+        navigate('/registration');
+      }
+    }
   };
 
   return (
@@ -120,7 +136,7 @@ const SignUp = () => {
             term: '',
           }}
           onSubmit={handleSubmit}
-          validate={handleValidate}
+        // validate={handleValidate}
         >
           {({
             values,

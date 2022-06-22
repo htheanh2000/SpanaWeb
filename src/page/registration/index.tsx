@@ -2,18 +2,19 @@ import classNames from 'classnames';
 import Header from 'components/header';
 import { ChangeEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import supabase from 'supebase';
 import imgRegistration from '../../assets/image/registration.png';
 import Button from '../../components/button';
 import Input from '../../components/input';
-
+import { v4 as uuidv4 } from 'uuid';
 interface Errors {
   [key: string]: string;
 }
 
 const Registration = () => {
-  const [salonNumber, setSalonNumber] = useState<number>(1);
+  const [salonNumber, setSalonNumber] = useState<string>('1-10');
   const [salonKind, setSalonKind] = useState<number>(1);
-  const [stepper, setStepper] = useState<number>(1);
+  const [stepper, setStepper] = useState<number>(2);
   const [salonName, setSalonName] = useState<string>('');
   const [salonSlogan, setSalonSlogan] = useState<string>('');
   const [preview, setPreview] = useState<string>('');
@@ -22,14 +23,29 @@ const Registration = () => {
 
   const navigate = useNavigate();
 
-  const handleRegistration1 = () => {
-    setStepper(2);
+  const handleRegistration1 = async () => {
+    console.log({ salonNumber, salonKind });
+
+    const { data, error } = await supabase
+      .from('salon')
+      .insert([
+        {
+          name: salonName,
+          slogan: salonSlogan,
+          size: salonNumber,
+          type: salonKind,
+          owner: localStorage.getItem("email") || ""
+        }
+      ])
+    console.log(data, error);
+    if (data?.length) {
+      setStepper(2);
+    }
   };
 
   const handleChangeFileInput = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const file = e.target.files[0];
-
       setPreview(URL.createObjectURL(file));
     }
   };
@@ -159,9 +175,9 @@ const Registration = () => {
           <button
             className={classNames('btn-disabled-mobile', {
               'border-light-primary-color-50 text-light-primary-color-50':
-                salonNumber === 1,
+                salonNumber === '1-10',
             })}
-            onClick={() => setSalonNumber(1)}
+            onClick={() => setSalonNumber('1-10')}
           >
             1-10
           </button>
@@ -169,18 +185,18 @@ const Registration = () => {
           <button
             className={classNames('btn-disabled-mobile', {
               'border-light-primary-color-50 text-light-primary-color-50':
-                salonNumber === 2,
+                salonNumber === '10-20',
             })}
-            onClick={() => setSalonNumber(2)}
+            onClick={() => setSalonNumber('10-20')}
           >
             10-20
           </button>
           <button
             className={classNames('btn-disabled-mobile', {
               'border-light-primary-color-50 text-light-primary-color-50':
-                salonNumber === 3,
+                salonNumber === '20+',
             })}
-            onClick={() => setSalonNumber(3)}
+            onClick={() => setSalonNumber('20+')}
           >
             20+
           </button>
@@ -260,6 +276,23 @@ const Registration = () => {
       </button>
     </>
   );
+  const updateAva = async () => {
+    const id = uuidv4()
+    const { data, error } = await supabase.storage
+      .from('salon-avatar')
+      .upload(`public/${id}.png`, preview)
+
+    console.log({ data, error });
+    return data?.Key
+  }
+  const updateSalonStep2 = async () => {
+    const key = await updateAva()
+    const { data, error } = await supabase
+      .from('salon')
+      .update({ description: 'description', address: 'address', avatar: key })
+      .match({ owner: 'htheanh2000' })
+    setStepper(3)
+  }
   const rightRegistration2 = () => (
     <>
       <h4 className="text-base font-bold mb-2 sm:text-h4">
@@ -313,7 +346,7 @@ const Registration = () => {
 
       <button
         className="my-10 btn-primary-mobile-medium px-12"
-        onClick={() => setStepper(3)}
+        onClick={updateSalonStep2}
       >
         Tiếp tục
       </button>
@@ -387,6 +420,7 @@ const Registration = () => {
       </button>
     </>
   );
+
   const rightRegistration4 = () => (
     <>
       <h4 className="font-bold sm:text-h4 text-base mb-4">Hoàn tất đăng ký</h4>
@@ -396,7 +430,7 @@ const Registration = () => {
 
       <button
         className="btn-primary-mobile-medium px-12 my-10"
-        onClick={() => navigate('/')}
+        onClick={() => navigate('/dashboard')}
       >
         Đến trang quản lý
       </button>

@@ -5,6 +5,7 @@ import { Formik } from 'formik';
 import moment from 'moment';
 import React, { ChangeEvent, useRef, useState } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
+import supabase, { createEmployee, createUser, upload } from 'supebase';
 import { formatNumber } from 'utils';
 import FaceImage from '../../assets/image/face.png';
 // import 'react-big-calendar/lib/sass/styles';
@@ -63,14 +64,17 @@ const Branch = () => {
   const [activeSubTab, setActiveSubTab] = useState<number>(0);
   const [activeTabHistory, setActiveTabHistory] = useState<number>(1);
   const [preview, setPreview] = useState<string>('');
+  const [link, setLink] = useState<string>();
   const [showSchedule, setShowSchedule] = useState<boolean>(false);
 
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handleChangeFileInput = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChangeFileInput = async (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const file = e.target.files[0];
-
+      const response = await upload('employee-avatar', URL.createObjectURL(file))
+      console.log(response);
+      setLink(response.data?.Key)
       setPreview(URL.createObjectURL(file));
     }
   };
@@ -90,8 +94,31 @@ const Branch = () => {
     };
   };
 
-  const handleSubmit = (values: any) => {};
-  const handleValidate = (values: any) => {};
+  const handleSubmit = async (values: any) => {
+    console.log('hanđle submit');
+    const employee = {
+      salon_id: 1,
+      display_name: values.username,
+      fullname: values.fullname,
+      email: values.email,
+      phonenumber: values.phoneNumber,
+      avatar: link
+    }
+
+    const user = {
+      email: values.email,
+      phonenumber: values.phoneNumber,
+      username: values.username,
+      role: "Employee"
+    }
+    const employ = await createEmployee(employee)
+    console.log(employ);
+    
+    const u = await createUser(user)
+    console.log(u);
+    setActiveTab(0)
+   };
+  const handleValidate = (values: any) => { };
 
   const handleCamera = () => {
     navigator.mediaDevices
@@ -150,6 +177,8 @@ const Branch = () => {
       </div>
     </>
   );
+
+
 
   const addEmployee = () => (
     <div className="">
